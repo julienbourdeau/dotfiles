@@ -2,18 +2,18 @@
 #
 # Ian's dotfile installer. Usage:
 #
-#   curl http://github.com/statico/dotfiles/raw/master/install.sh | sh
+#   curl http://github.com/statico/dotfiles/raw/master/install.sh | sh  #TODO
 #
 # or:
 #
-#   ~/.dotfiles/install.sh
+#   ~/.dotfiles/install.sh #TODO
 #
 # (It doesn't descend into directories.)
 
-basedir=$HOME/.dotfiles
+basedir=$HOME/Projects/dotfiles
 bindir=$HOME/bin
-gitbase=git://github.com/statico/dotfiles.git
-tarball=http://github.com/statico/dotfiles/tarball/master
+gitbase=git@github.com:julienbourdeau/dotfiles.git
+tarball=http://github.com/julienbourdeau/dotfiles/tarball/master
 
 function has() {
     return $( which $1 >/dev/null )
