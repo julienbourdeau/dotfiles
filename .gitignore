@@ -1,0 +1,9 @@
+.DS_Store
+.ropeproject
+*.pyc
+*~
+.#*
+.unison.*.unison.tmp-bad
+*_flymake.*
+.vim/bundle/*/doc/tags
+.vim/bundle/*/doc/tags-??

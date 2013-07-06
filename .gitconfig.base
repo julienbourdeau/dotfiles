@@ -1,0 +1,79 @@
+#
+# NOTE: This file is renamed to .gitconfig by my install script.
+# 
+[user]
+	name = Ian Langworth
+	email = ian@langworth.com
+[core]
+	editor = vim
+	pager = less -FRX
+	excludesfile = ~/.gitignore
+[gist]
+	private = yes
+[github]
+	user = statico
+[alias]
+	b = branch
+	bnew = checkout -b
+	ci = commit
+	cia = commit -a
+	cim = commit -m
+	cima = commit -a -m
+	civ = commit -v
+	civa = commit -v -a
+	co = checkout
+	cp = cherry-pick
+	config-to-push-all-branches = config --add remote.origin.push '+refs/heads/*:refs/heads/*'
+	config-to-push-all-tags = config --add remote.origin.push '+refs/tags/*:refs/tags/*'
+	d = diff
+	dc = diff --cached
+	diffc = diff --cached
+	forkup = pull --rebase upstream
+	h = stash
+	hs = stash save
+	last = log -1
+	newb = checkout -b
+	quicklog = log --oneline --decorate -10 --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	quicklog-long = log --oneline --decorate --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	r = remote
+	rewind-one = reset --hard HEAD^
+	st = status
+	sta = stash
+	svnci = svn dcommit
+	svnprep = rebase -i git-svn
+	svnup = svn rebase
+	today = diff --stat 'HEAD@{midnight}'
+	tree = log --graph --oneline --all
+	undo = reset --mixed HEAD^
+	unstage = reset HEAD
+	up = pull --rebase origin
+	yesterday = diff --stat 'HEAD@{yesterday}' 'HEAD@{midnight}'
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[color "diff"]
+	meta = blue
+	frag = black
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[branch]
+	autosetuprebase = remote
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	mergeoptions = --no-ff
+[log]
+	decorate = short
+[merge]
+	conflictstyle = diff3
+[push]
+	default = matching
