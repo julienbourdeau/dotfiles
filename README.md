@@ -18,3 +18,9 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 
 
 copy the four files from paul
+
+## FOR SUBLIME
+use subl
+```
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
