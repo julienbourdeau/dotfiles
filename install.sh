@@ -107,12 +107,12 @@ for path in .* ; do
     esac
 done
 
-note "Installing bin/ directory..."
-mkdir -v -p $bindir
-for path in bin/* ; do
-    relpath=$( basename $path )
-    link $basedir/$path $bindir/$relpath
-done
+#note "Installing bin/ directory..."
+#mkdir -v -p $bindir
+#for path in bin/* ; do
+#    relpath=$( basename $path )
+#    link $basedir/$path $bindir/$relpath
+#done
 
 note "Symlinking Vim configurations..."
 for rc in vim gvim; do
