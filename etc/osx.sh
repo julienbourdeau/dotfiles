@@ -39,7 +39,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 #defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
 
 # Disable opening and closing window animations
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+#defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
@@ -85,16 +85,16 @@ defaults write com.apple.helpviewer DevMode -bool true
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Restart automatically if the computer freezes
-systemsetup -setrestartfreeze on
+#systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
-systemsetup -setcomputersleep Off > /dev/null
+#systemsetup -setcomputersleep Off > /dev/null
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -124,7 +124,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 #systemsetup -settimezone "Europe/Paris" > /dev/null
 
 # Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+#defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Screen                                                                      #
@@ -190,7 +190,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Enable spring loading for directories
-#defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 
 # Remove the spring loading delay for directories
 #defaults write NSGlobalDomain com.apple.springing.delay -float 0
@@ -249,7 +249,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 #defaults write com.apple.dock persistent-apps -array
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock expose-animation-duration -float 0.4
 
 # Disable Dashboard
 #defaults write com.apple.dashboard mcx-disabled -bool true
@@ -261,12 +261,12 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+#defaults write com.apple.dock autohide-delay -float 0
 # Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+#defaults write com.apple.dock autohide-time-modifier -float 0
 
-# Make Dock icons of hidden applications translucent
-defaults write com.apple.dock showhidden -bool true
+# Don't make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool false
 
 # Reset Launchpad
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete

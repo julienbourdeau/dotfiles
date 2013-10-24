@@ -19,14 +19,14 @@ brew install wget --enable-iri
 
 # Install RingoJS and Narwhal
 # Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+#brew install ringojs
+#brew install narwhal
 
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
-brew tap josegonzalez/homebrew-php
-brew install php55
+#brew tap josegonzalez/homebrew-php
+#brew install php55
 
 # These two formulae didn’t work well last time I tried them:
 #brew install homebrew/dupes/vim
@@ -34,9 +34,9 @@ brew install php55
 
 # Install other useful binaries
 brew install ack
-#brew install exiv2
-brew install git
-#brew install imagemagick
+brew install exiv2
+#brew install git
+brew install imagemagick
 brew install lynx
 
 brew tap homebrew/versions
@@ -50,10 +50,10 @@ function installcask() {
 	brew cask install "${@}" 2> /dev/null
 }
 
-installcask dropbox
+#installcask dropbox
 installcask google-chrome
 installcask iterm2
-installcask the-unarchiver
+#installcask the-unarchiver
 installcask tor-browser
 installcask transmission
 installcask virtualbox
