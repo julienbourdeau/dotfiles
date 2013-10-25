@@ -124,7 +124,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 #systemsetup -settimezone "Europe/Paris" > /dev/null
 
 # Disable auto-correct
-#defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Screen                                                                      #
