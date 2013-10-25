@@ -249,7 +249,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 #defaults write com.apple.dock persistent-apps -array
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.4
+defaults write com.apple.dock expose-animation-duration -float 0.2
 
 # Disable Dashboard
 #defaults write com.apple.dashboard mcx-disabled -bool true

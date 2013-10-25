@@ -176,6 +176,9 @@ _force_prepend_to_path /usr/local/heroku/bin
 _append_to_path /usr/games
 _append_to_path /usr/sbin
 
+_append_to_path /usr/local/mysql/bin
+
+
 # Add our docs, too
 export INFOPATH=$HOME/.dotfiles/info:$INFOPATH
 
