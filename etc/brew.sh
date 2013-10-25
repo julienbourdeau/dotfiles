@@ -50,14 +50,16 @@ function installcask() {
 	brew cask install "${@}" 2> /dev/null
 }
 
-#installcask dropbox
 installcask google-chrome
 installcask iterm2
-#installcask the-unarchiver
 installcask tor-browser
 installcask transmission
 installcask virtualbox
 installcask vlc
+
+# Alfed won't see apps installed with Homebrew Cask
+# You have to link it with:
+# brew cask alfred link
 
 # Remove outdated versions from the cellar
 brew cleanup
