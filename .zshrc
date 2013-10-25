@@ -177,6 +177,7 @@ _append_to_path /usr/games
 _append_to_path /usr/sbin
 
 _append_to_path /usr/local/mysql/bin
+_append_to_path $HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
 # Add our docs, too
@@ -655,3 +656,4 @@ fi
 
 # Don't end with errors.
 true
+

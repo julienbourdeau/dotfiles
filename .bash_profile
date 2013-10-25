@@ -76,3 +76,5 @@ alias whois='whois -h geektools.com'
 alias x='screen -A -x'
 
 ulimit -c 0
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
