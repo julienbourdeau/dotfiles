@@ -313,11 +313,6 @@ alias gf='git fetch'
 alias gfmom='git fetch origin ; git merge origin/master'
 alias gfa='git fetch --all'
 alias gh='git stash'
-alias ghl='git stash list'
-alias ghp='git stash pop'
-alias ghs='git stash save'
-alias ghsp='git stash save --patch'
-alias ghw='git stash show -p'
 alias gl='git quicklog'
 alias gll='git quicklog-long'
 alias gm='git merge'
@@ -326,7 +321,6 @@ alias gmom='git merge origin/master'
 alias gp='git push'
 alias gpgdecrypt='gpg --decrypt-files'
 alias gpgencrypt='gpg --default-recipient-self --armor --encrypt-files'
-alias gph='git push heroku'
 alias gpo='git push origin'
 alias gs='git show -p'
 alias gu='git add --update'
@@ -366,6 +360,24 @@ alias tt='tail -n 9999'
 alias wgetdir='wget -r -l1 -P035 -nd --no-parent'
 alias whois='whois -h geektools.com'
 alias x='screen -A -x'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'" 
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Interactive/verbose commands.
 alias mv='mv -i'

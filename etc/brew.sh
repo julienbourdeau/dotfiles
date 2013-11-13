@@ -38,6 +38,7 @@ brew install exiv2
 #brew install git
 brew install imagemagick
 brew install lynx
+brew install ngrep
 
 brew tap homebrew/versions
 brew install lua52
