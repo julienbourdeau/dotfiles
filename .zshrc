@@ -361,6 +361,9 @@ alias wgetdir='wget -r -l1 -P035 -nd --no-parent'
 alias whois='whois -h geektools.com'
 alias x='screen -A -x'
 
+# Dropbox
+alias dropbox='~/utils/dropbox.py'
+
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
