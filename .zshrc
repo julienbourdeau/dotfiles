@@ -361,6 +361,8 @@ alias wgetdir='wget -r -l1 -P035 -nd --no-parent'
 alias whois='whois -h geektools.com'
 alias x='screen -A -x'
 
+alias showsize='du -hs *'
+
 # Dropbox
 alias dropbox='~/utils/dropbox.py'
 
