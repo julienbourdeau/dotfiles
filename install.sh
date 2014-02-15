@@ -2,11 +2,11 @@
 #
 # Ian's dotfile installer. Usage:
 #
-#   curl http://github.com/statico/dotfiles/raw/master/install.sh | sh  #TODO
+#   curl http://github.com/julienbourdeau/dotfiles/raw/master/install.sh | sh
 #
 # or:
 #
-#   ~/.dotfiles/install.sh #TODO
+#   ~/Projetcs/dotfiles/install.sh
 #
 # (It doesn't descend into directories.)
 

@@ -1,9 +1,12 @@
 # vim:ft=zsh:ts=4:sw=4:et:
-#   ___           _      ____   _       ___           __ _
-#  |_ _|__ _ _ _ ( )___ |_  /__| |_    / __|___ _ _  / _(_)__ _
-#   | |/ _` | ' \|/(_-<  / /(_-< ' \  | (__/ _ \ ' \|  _| / _` |
-#  |___\__,_|_||_| /__/ /___/__/_||_|  \___\___/_||_|_| |_\__, |
-#                                                         |___/
+#                          _                                
+#      __     _ _         | |        _____         ___ _     
+#   __|  |_ _| |_|___ ___ |_| ___   |     |___ ___|  _|_|___ 
+#  |  |  | | | | | -_|   |   |_ -|  |   --| . |   |  _| | . |
+#  |_____|___|_|_|___|_|_|   |___|  |_____|___|_|_|_| |_|_  |
+#                                                       |___|
+#
+
 
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -177,6 +180,7 @@ _append_to_path /usr/games
 _append_to_path /usr/sbin
 
 _append_to_path /usr/local/mysql/bin
+_append_to_path /usr/local/Cellar/mongodb/2.4.9/bin
 _append_to_path $HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
