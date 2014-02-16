@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# Ian's dotfile installer. Usage:
+# Julien's dotfile installer. Usage:
 #
 #   curl http://github.com/julienbourdeau/dotfiles/raw/master/install.sh | sh
 #

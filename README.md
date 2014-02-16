@@ -81,13 +81,8 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 
 This will install software on your computer, check out the etc/brew.sh file to see the list. It also uses Brew Cask to install software like Chrome or VLC.
 
-## Sublime Text config
 
-COMING
+### sublime.sh
 
-use subl
-```
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-```
+Install Sublime Text 3, then execute sublime.sh
 
-TODO: Copy paul's stuff according to his files

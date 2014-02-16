@@ -1,0 +1,13 @@
+{
+	"installed_packages":
+	[
+		"DashDoc",
+		"Emmet",
+		"Gist",
+		"LESS",
+		"LESS-build",
+		"Markdown Extended",
+		"PHP-Twig",
+		"WordPress"
+	]
+}
