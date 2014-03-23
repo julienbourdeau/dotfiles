@@ -8,3 +8,6 @@
 .vim/bundle/*/doc/tags
 .vim/bundle/*/doc/tags-??
 sublime/Packages/User/Gist.sublime-settings
+sublime/Packages/User/Package\ Control.cache/*
+sublime/Packages/User/Package\ Control.last-run
+

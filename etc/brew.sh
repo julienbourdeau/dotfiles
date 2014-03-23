@@ -31,6 +31,7 @@ brew install lynx
 brew install ngrep
 brew install osxfuse
 brew install vim
+brew install nmap
 
 
 brew tap josegonzalez/homebrew-php
