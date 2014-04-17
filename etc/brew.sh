@@ -24,19 +24,25 @@ brew install lua52
 # Install other useful binaries
 brew install ack
 brew install exiv2
-brew install git
-brew install hub
 brew install imagemagick
 brew install lynx
 brew install ngrep
-brew install osxfuse
+#brew install osxfuse
 brew install vim
 brew install nmap
+
+brew install git
+brew install hub
+brew install trash
+brew install composer
+brew install wp-cli
 
 
 brew tap josegonzalez/homebrew-php
 brew install php55
 brew install php55-intl
+brew install php55-mcrypt
+brew install php55-xdebug
 
 
 
