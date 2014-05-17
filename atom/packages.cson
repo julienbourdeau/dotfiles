@@ -1,0 +1,10 @@
+'packages': [
+  'minimap'
+  'minimap-git-diff'
+  'xml-formatter'
+  'color-picker'
+  'emmet'
+  'editor-stats'
+  'autocomplete-plus'
+  'highlight-line'
+]
