@@ -8,6 +8,7 @@
 	editor = vim
 	pager = less -FRX
 	excludesfile = ~/.gitignore
+	filemode = false
 [gist]
 	private = yes
 [github]

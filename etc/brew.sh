@@ -27,6 +27,7 @@ brew install exiv2
 brew install imagemagick
 brew install lynx
 brew install ngrep
+brew install mhash
 #brew install osxfuse
 brew install vim
 brew install nmap
