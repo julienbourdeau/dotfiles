@@ -22,7 +22,7 @@ function folder-info {
 }
 
 function list-files {
-  echo `ls -G . | tr -d '\r' | cat`
+  echo `script -q /dev/null ls . | tr -d '\r' | cat`
 }
 
 function get-vcs-info {
