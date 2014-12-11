@@ -1,7 +1,7 @@
 # vim:ft=zsh:ts=4:sw=4:et:
-#                          _                                
-#      __     _ _         | |        _____         ___ _     
-#   __|  |_ _| |_|___ ___ |_| ___   |     |___ ___|  _|_|___ 
+#                          _
+#      __     _ _         | |        _____         ___ _
+#   __|  |_ _| |_|___ ___ |_| ___   |     |___ ___|  _|_|___
 #  |  |  | | | | | -_|   |   |_ -|  |   --| . |   |  _| | . |
 #  |_____|___|_|_|___|_|_|   |___|  |_____|___|_|_|_| |_|_  |
 #                                                       |___|
@@ -182,6 +182,7 @@ _append_to_path /usr/sbin
 _append_to_path /usr/local/mysql/bin
 _append_to_path /usr/local/Cellar/mongodb/2.4.9/bin
 _append_to_path $HOME/.rvm/bin # Add RVM to PATH for scripting
+_append_to_path $HOME/.composer/vendor/bin # Add composer global vendors
 
 
 # Add our docs, too
@@ -379,7 +380,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
-alias myips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'" 
+alias myips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -677,4 +678,3 @@ fi
 
 # Don't end with errors.
 true
-
