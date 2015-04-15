@@ -2,12 +2,12 @@
 # NOTE: This file is renamed to .gitconfig by my install script.
 # 
 [user]
-	name = Julien Bourdeau
-	email = julien@sigerr.org
+	name = 
+	email = 
 [core]
 	editor = vim
 	pager = less -FRX
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/julien/.gitignore_global
 	filemode = false
 [gist]
 	private = yes
@@ -78,3 +78,9 @@
 	conflictstyle = diff3
 [push]
 	default = matching
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -187,7 +187,7 @@ _append_to_path $HOME/.composer/vendor/bin # Add composer global vendors
 
 # Add our docs, too
 export INFOPATH=$HOME/.dotfiles/info:$INFOPATH
-
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # Some OS X-only stuff.
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -369,7 +369,7 @@ alias x='screen -A -x'
 alias showsize='du -hs *'
 
 # Dropbox
-alias dropbox='~/utils/dropbox.py'
+alias dropbox='~/Projects/dotfiles/utils/dropbox.py'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -675,6 +675,13 @@ if [ -e ~/.zshlocal ]; then
 fi
 
 # }}} Done.
+
+
+# Tab completion for wp-cli
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source ~/Projects/dotfiles/utils/wp-completion.bash
+
 
 # Don't end with errors.
 true
