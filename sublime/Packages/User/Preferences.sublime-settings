@@ -1,0 +1,43 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Seti_UX/Seti.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"default_encoding": "UTF-8",
+	"file_exclude_patterns":
+	[
+		".DS_Store",
+		"*.map",
+		"Desktop.ini",
+		"*.pyc",
+		"Thumbs.db",
+		".Spotlight-V100",
+		".Trashes"
+	],
+	"fold_buttons": false,
+	"folder_exclude_patterns":
+	[
+		".git",
+		"log",
+		"tmp",
+		"node_modules"
+	],
+	"font_face": "PT Mono",
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_numbers": true,
+	"rulers": [80, 120],
+	"save_on_focus_lost": false,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"side_bar_width": 220,
+	"tab_size": 2,
+	"theme": "Tech49.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true
+}

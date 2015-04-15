@@ -1,0 +1,18 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Color Highlighter",
+		"Git Config",
+		"GitGutter",
+		"JSON Reindent",
+		"JSONLint",
+		"Package Control",
+		"Seti_UI",
+		"Seti_UX",
+		"Smarty",
+		"Theme - Tech49"
+	]
+}
