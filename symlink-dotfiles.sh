@@ -32,3 +32,8 @@ fi
 
 # Vim config
 link "$dotfiles/vim" "$HOME/.vim"
+
+# Host file
+echo "Linking /etc/hosts"
+sudo rm -f /etc/hosts
+sudo ln -s $dotfiles/etc/hosts /etc/hosts
