@@ -33,6 +33,9 @@
   lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
   oops = commit --amend --no-edit
 
+  # git ignore laravel,osx,phpstorm
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
+
   # Merge GitHub pull request on top of the `master` branch
   # mpr = "!f() { \
   #   if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
