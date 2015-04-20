@@ -8,12 +8,14 @@
 		"Git Config",
 		"GitGutter",
 		"GitHub Flavored Markdown Preview",
+		"JSHint Gutter",
 		"JSON Reindent",
 		"JSONLint",
 		"Package Control",
 		"Seti_UI",
 		"Seti_UX",
 		"Smarty",
+		"SublimeLinter",
 		"Theme - Tech49"
 	]
 }
