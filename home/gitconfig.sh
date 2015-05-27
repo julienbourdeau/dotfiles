@@ -37,6 +37,9 @@
   # git ignore laravel,osx,phpstorm
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
 
+  # Random commit message from whatthecommit.com
+  ci-rnd = !sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)'\"
+
   # Merge GitHub pull request on top of the `master` branch
   # mpr = "!f() { \
   #   if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
