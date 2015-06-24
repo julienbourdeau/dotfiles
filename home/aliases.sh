@@ -25,6 +25,9 @@ alias sudo='sudo '
 # Get week number
 alias week='date +%V'
 
+# Nice date format for git tags
+alias tagdate="date '+%Y-%m-%d-%H%M%S'"
+
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
