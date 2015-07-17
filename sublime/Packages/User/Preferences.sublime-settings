@@ -41,7 +41,7 @@
 	"show_encoding": true,
 	"show_line_endings": true,
 	"side_bar_width": 220,
-	"tab_size": 2,
+	"tab_size": 4,
 	"theme": "Seti.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
