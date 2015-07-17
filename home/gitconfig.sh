@@ -56,6 +56,7 @@
 [core]
   pager = cat
   editor = subl -w
+  mergeoptions = --no-edit
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
   # [default] trailing-space: looks for spaces at the end of a line
   # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
