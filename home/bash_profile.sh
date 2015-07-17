@@ -1,5 +1,7 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
+# Add `../mysql/bin` to the `$PATH`
+export PATH="$PATH:/usr/local/mysql/bin";
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
