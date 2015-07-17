@@ -14,7 +14,7 @@
 		".Spotlight-V100",
 		".Trashes"
 	],
-	"fold_buttons": false,
+	"fold_buttons": true,
 	"folder_exclude_patterns":
 	[
 		".git",
