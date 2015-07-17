@@ -5,6 +5,8 @@
 	"installed_packages":
 	[
 		"Color Highlighter",
+		"DocBlockr",
+		"Gist",
 		"Git Config",
 		"GitGutter",
 		"JSHint Gutter",
@@ -12,6 +14,7 @@
 		"JSONLint",
 		"Markdown Preview",
 		"Package Control",
+		"Phpcs",
 		"Seti_UI",
 		"Seti_UX",
 		"SFTP",
