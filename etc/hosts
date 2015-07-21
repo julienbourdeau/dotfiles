@@ -4,7 +4,7 @@
 #<dev>
 127.0.0.1   adminer.db
 127.0.0.1   sigerr.dev cwota.1001vaches.dev www.1001vaches.dev build.prestashop.dev
-127.0.0.1   prestashop.ps
+127.0.0.1   prestashop.ps ps-invoice-tpl-gallery.dev
 #</dev>
 
 #<additional-spyware-sites>
