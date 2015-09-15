@@ -3,7 +3,11 @@
 
 #<dev>
 127.0.0.1   adminer.db
-127.0.0.1   sigerr.dev cwota.1001vaches.dev www.1001vaches.dev build.prestashop.dev
-127.0.0.1   prestashop.ps ps-invoice-tpl-gallery.dev
-127.0.0.1   jekyll-for-tech-doc.dev
+127.0.0.1   sigerr.dev
+127.0.0.1   cwota.1001vaches.dev
+127.0.0.1   www.1001vaches.dev
+127.0.0.1   build.prestashop.dev
+127.0.0.1   prestashop.ps
+127.0.0.1   ps-invoice-tpl-gallery.dev
+127.0.0.1   jekyll-for-tech-doc.local
 #</dev>
