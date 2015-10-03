@@ -38,8 +38,4 @@ echo "Linking /etc/hosts"
 sudo rm -f /etc/hosts
 sudo ln -s $dotfiles/etc/hosts /etc/hosts
 
-# Divvy
-echo "Copying Divvy config"
-rm ~/Library/Preferences/com.mizage.direct.Divvy.plist
-cp $dotfiles/etc/com.mizage.direct.Divvy.plist ~/Library/Preferences/
 
