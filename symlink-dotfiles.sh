@@ -17,6 +17,14 @@ link() {
   ln -s "$from" "$to"
 }
 
+sulink() {
+  from="$1"
+  to="$2"
+  echo "Linking '$from' to '$to'"
+  sudo rm -f "$to"
+  sudo ln -s "$from" "$to"
+}
+
 # Link dotfiles
 for location in $(find home -name '*.sh'); do
   file="${location##*/}"
