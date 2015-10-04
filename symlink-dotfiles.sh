@@ -32,6 +32,7 @@ fi
 
 # Vim config
 link "$dotfiles/vim" "$HOME/.vim"
+touch "$HOME/.vimlocal"
 
 # Host file
 sudo link $dotfiles/etc/hosts /etc/hosts
