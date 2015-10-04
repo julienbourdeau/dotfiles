@@ -32,6 +32,30 @@ for location in $(find home -name '*.sh'); do
   link "$dotfiles/$location" "$HOME/.$file"
 done
 
+# Link apache conf
+if [[ `uname` == 'Darwin' ]]; then
+  echo "Linking Apache config"
+  # httpd.conf
+  sudo rm "/etc/apache2/httpd.conf.bk"
+  sudo mv "/etc/apache2/httpd.conf" "/etc/apache2/httpd.conf.bk"
+  sulink "$dotfiles/etc/apache2/httpd.conf" "/etc/apache2/httpd.conf"
+
+  # extra/ folder
+  for location in $(find etc/apache2/extra -name '*.conf'); do
+    file="${location##*/}"
+    file="${file}"
+    sulink "$dotfiles/$location" "/etc/apache2/extra/$file"
+  done
+
+  # users/ folder
+  for location in $(find etc/apache2/users -name '*.conf'); do
+    file="${location##*/}"
+    file="${file}"
+    sulink "$dotfiles/$location" "/etc/apache2/users/$file"
+  done
+fi
+
+
 # Sublime
 if [[ `uname` == 'Darwin' ]]; then
   link "$dotfiles/sublime/Packages/User/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
