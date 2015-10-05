@@ -16,8 +16,6 @@ brew cask install virtualbox
 # Install other softwares
 
 brew cask install cyberduck
-brew cask install firefox
-brew cask install google-chrome
 brew cask install divvy
 brew cask install vlc
 brew cask install transmission
