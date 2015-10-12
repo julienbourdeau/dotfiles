@@ -7,6 +7,9 @@
 * [ ] cp /Users/julien/Projects/dotfiles2/sublime/Sublime\ Text.icns /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns
 * [ ] Compare from 1d6664ec420ff19dae837def525f1b7af1cef8f6 ==> https://github.com/mathiasbynens/dotfiles/compare/1d6664ec420ff19dae837def525f1b7af1cef8f6...master
 
+* [ ] Create locate database `sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist`
+* [ ] `cd /var` ==> `mkdir mysql` ==> `sudo ln -s /tmp/mysql.sock`
+
 ## Installation
 
 ### Using Git and the bootstrap script
