@@ -27,6 +27,7 @@
 		"SFTP",
 		"Smarty",
 		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"Theme - Tech49",
 		"Unicode Character Highlighter"
 	]
