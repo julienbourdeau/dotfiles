@@ -60,6 +60,7 @@ fi
 if [[ `uname` == 'Darwin' ]]; then
   link "$dotfiles/sublime/Packages/User/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
   link "$dotfiles/sublime/Packages/User/Package Control.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+  sudo cp "$dotfiles/sublime/Sublime Text.icns" "/Applications/Sublime Text.app/Contents/Resources/Sublime Text.icns"
 fi
 
 # Vim config

@@ -4,11 +4,12 @@
 
 * [ ] Clean aliases
 * [x] sudo ln -s ~/Projects/dotfiles/etc/hosts /etc/hosts
-* [ ] cp /Users/julien/Projects/dotfiles/sublime/Sublime\ Text.icns /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns
+* [x] cp /Users/julien/Projects/dotfiles/sublime/Sublime\ Text.icns /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns
 
 
 * [ ] Create locate database `sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist`
 * [ ] `cd /var` ==> `mkdir mysql` ==> `sudo ln -s /tmp/mysql.sock`
+
 
 ## Installation
 
