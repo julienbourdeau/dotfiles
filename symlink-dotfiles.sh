@@ -69,6 +69,7 @@ link "$dotfiles/vim" "$HOME/.vim"
 touch "$HOME/.vimlocal"
 
 # Host file
-sudo link $dotfiles/etc/hosts /etc/hosts
+sudo rm -f /etc/hosts
+sulink "$dotfiles/etc/hosts" "/etc/hosts"
 
 
