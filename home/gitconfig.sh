@@ -55,7 +55,7 @@
 
 [core]
   pager = cat
-  editor = subl -w
+  editor = atom --wait
   mergeoptions = --no-edit
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
   # [default] trailing-space: looks for spaces at the end of a line
