@@ -24,7 +24,6 @@ brew cask install spotify
 brew cask install sonos
 brew cask install dropbox
 brew cask install google-drive
-brew cask install chromecast
 brew cask install teamviewer
 
 
