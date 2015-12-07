@@ -25,6 +25,10 @@ sulink() {
   sudo ln -s "$from" "$to"
 }
 
+# Link `bin/` directory
+# It's a `.bin` because I don't like seeing it
+link "$dotfiles/bin" "$HOME/.bin"
+
 # Link dotfiles
 for location in $(find home -name '*.sh'); do
   file="${location##*/}"
@@ -71,5 +75,3 @@ touch "$HOME/.vimlocal"
 # Host file
 sudo rm -f /etc/hosts
 sulink "$dotfiles/etc/hosts" "/etc/hosts"
-
-
