@@ -1,2 +1,2 @@
-# Add bin from homebrew to the `$PATH`
-export PATH="/usr/local/bin/:$PATH";
+# Homebrew bin directories
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
