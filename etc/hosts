@@ -11,3 +11,7 @@
 127.0.0.1   ps-invoice-tpl-gallery.dev
 127.0.0.1   jekyll-for-tech-doc.local
 #</dev>
+
+#<free>
+127.0.0.1   fcandfc.ps
+#</free>
