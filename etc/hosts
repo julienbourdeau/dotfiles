@@ -1,10 +1,10 @@
 # Get hosts file at http://someonewhocares.org/hosts/
 # and append additions at the top of it.
 
-127.0.0.1   localhost
-::1         localhost ip6-localhost ip6-loopback
-ff02::1	    ip6-allnodes
-ff02::2     ip6-allrouters
+127.0.0.1   		localhost
+::1         		localhost ip6-localhost ip6-loopback
+fe80::1%lo0     localhost
+255.255.255.255 broadcasthost
 
 #<dev>
 127.0.0.1   adminer.db
@@ -19,6 +19,8 @@ ff02::2     ip6-allrouters
 
 #<srv>
 127.0.1.1   sd-43105.dedibox.fr sd-43105 sigerrbox
+ff02::1	    ip6-allnodes
+ff02::2     ip6-allrouters
 #</srv>
 
 #<free>
