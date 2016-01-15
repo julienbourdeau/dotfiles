@@ -1,6 +1,9 @@
 # Get hosts file at http://someonewhocares.org/hosts/
 # and append additions at the top of it.
 
+127.0.0.1   localhost
+::1         localhost
+
 #<dev>
 127.0.0.1   adminer.db
 127.0.0.1   sigerr.dev
