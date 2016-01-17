@@ -2,7 +2,9 @@
 # and append additions at the top of it.
 
 127.0.0.1   localhost
-::1         localhost
+::1         localhost ip6-localhost ip6-loopback
+ff02::1	    ip6-allnodes
+ff02::2     ip6-allrouters
 
 #<dev>
 127.0.0.1   adminer.db
@@ -14,6 +16,10 @@
 127.0.0.1   ps-invoice-tpl-gallery.dev
 127.0.0.1   jekyll-for-tech-doc.local
 #</dev>
+
+#<srv>
+127.0.1.1   sd-43105.dedibox.fr sd-43105 sigerrbox
+#</srv>
 
 #<free>
 127.0.0.1   fcandfc.ps
