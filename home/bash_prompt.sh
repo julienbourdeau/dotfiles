@@ -107,8 +107,10 @@ fi;
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
-PS1+="\[${hostStyle}\]\h"; # host
+if [[ "${SSH_TTY}" ]]; then
+  PS1+="\[${white}\] at ";
+  PS1+="\[${hostStyle}\]\h"; # host
+fi;
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
 PS1+="\$(prompt_git \"${white} on ${violet}\")"; # Git repository details
