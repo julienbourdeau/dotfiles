@@ -30,6 +30,7 @@
 [alias]
   st = status
   stt = status --ignore-submodules
+  stu = status --untracked-files=no
   ci = commit
   cp = cherry-pick -x
   lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
