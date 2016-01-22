@@ -72,6 +72,16 @@ brew install bfg
 # Install nodes
 brew install node
 
+# Install completion
+brew tap homebrew/completions
+brew install apm-bash-completion
+brew install composer-completion
+brew install boot2docker-completion
+brew install brew-cask-completion
+brew install bundler-completion
+brew install vagrant-completion
+brew install wpcli-completion
+
 # Install image-related binaries
 brew install exiv2
 brew install imagemagick --with-webp
