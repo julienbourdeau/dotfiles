@@ -59,6 +59,7 @@ brew install php56-mcrypt
 brew install php56-xdebug
 brew install composer
 brew install php-cs-fixer
+brew install homebrew/php/wp-cli
 
 # Install database management systems
 brew install mysql
