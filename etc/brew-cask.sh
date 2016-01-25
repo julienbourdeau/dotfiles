@@ -5,7 +5,6 @@ brew install caskroom/cask/brew-cask
 
 # Install dev tools
 
-#brew cask install sublime-text3
 brew cask install iterm2
 brew cask install sourcetree
 brew cask install gitter
