@@ -53,13 +53,27 @@ brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
 
-# Install PHP and PHP-related tools
-brew install homebrew/php/php56 --with-gmp
+# Install PHP 7, 5.6 and 5.5
+brew install php56 --with-gmp
 brew install php56-mcrypt
 brew install php56-xdebug
+brew unlink php56
+
+brew install php55 --with-gmp
+brew install php55-mcrypt
+brew install php55-xdebug
+brew unlink php55
+
+brew install php70 --with-gmp
+brew install php70-mcrypt
+brew install php70-xdebug
+
+sphp 56
+
+# Install PHP-related tools
 brew install composer
 brew install php-cs-fixer
-brew install homebrew/php/wp-cli
+brew install wp-cli
 
 # Install database management systems
 brew install mysql
