@@ -9,7 +9,7 @@
 
 * [ ] Create locate database `sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist`
 * [ ] `cd /var` ==> `mkdir mysql` ==> `sudo ln -s /tmp/mysql.sock`
-
+* [ ] Add `/usr/local/bin/bash` to `/etc/shells` then `chsh -s /usr/local/bin/bash`
 
 ## Installation
 
