@@ -28,6 +28,10 @@ alias week='date +%V'
 # Nice date format for git tags
 alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 
+# Git shortcut
+alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
+alias gl='git lg -20'
+
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
