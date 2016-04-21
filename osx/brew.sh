@@ -111,6 +111,7 @@ brew install zopfli
 brew install xz
 
 # Install other useful binaries.
+brew install codemod
 brew install htop-osx
 brew install nmap
 brew install ack
