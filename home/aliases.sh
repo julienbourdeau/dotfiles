@@ -36,6 +36,7 @@ alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias gl='git lg -20'
 alias gd='git diff .'
 alias gci='git commit -am'
+alias grbase='git rebase -i --autosquash'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
