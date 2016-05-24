@@ -6,6 +6,7 @@ brew install caskroom/cask/brew-cask
 # Install dev tools
 
 brew cask install iterm2
+brew cask install atom
 brew cask install sourcetree
 brew cask install gitter
 brew cask install structurer
