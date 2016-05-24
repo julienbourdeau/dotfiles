@@ -28,19 +28,26 @@
 #   untracked = cyan
 
 [alias]
+  # List all aliases
+  la = "!git config -l | grep alias | cut -c 7-"
+
   st = status
+  co = checkout
+  br = branch -avv
   stt = status --ignore-submodules
   stu = status --untracked-files=no
+
+  # Commits
   ci = commit
-  co = checkout
   cp = cherry-pick -x
   oops = commit --amend --no-edit
-  br = branch -avv
+
+  # Logs and history
   lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -20
   ll = log --pretty=format:"%C(red)%h%C(auto)%d\\ %C(reset)%s%C(green)\\ [%cn]%C(reset)" --decorate --numstat -20
   filelog = log -u -3
 
-  # git ignore laravel,osx,phpstorm
+  # Example: git ignore laravel,osx,phpstorm
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
 
   # Random commit message from whatthecommit.com
