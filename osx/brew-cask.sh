@@ -10,6 +10,7 @@ brew cask install atom
 brew cask install sourcetree
 brew cask install gitter
 brew cask install structurer
+brew cask install toggldesktop
 brew cask install dockertoolbox
 
 
