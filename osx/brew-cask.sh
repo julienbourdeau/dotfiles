@@ -25,6 +25,7 @@ brew cask install dropbox
 brew cask install google-drive
 brew cask install spideroakone
 brew cask install teamviewer
+brew cask install whatsapp
 
 
 # Install QuickView
