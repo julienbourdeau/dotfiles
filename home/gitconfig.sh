@@ -41,17 +41,22 @@
   ci = commit
   cp = cherry-pick -x
   oops = commit --amend --no-edit
+  # Random commit message from whatthecommit.com
+  ci-rnd = !sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)'\"
 
-  # Logs and history
+  # Logs & history
   lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -20
   ll = log --pretty=format:"%C(red)%h%C(auto)%d\\ %C(reset)%s%C(green)\\ [%cn]%C(reset)" --decorate --numstat -20
   filelog = log -u -3
+  f = "!git ls-files | grep -i"
 
+  # Workflow & Management
+  ours = "!f() { git co --ours $@ && git add $@; }; f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
   # Example: git ignore laravel,osx,phpstorm
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
 
-  # Random commit message from whatthecommit.com
-  ci-rnd = !sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)'\"
 
   # Merge GitHub pull request on top of the `master` branch
   # mpr = "!f() { \
