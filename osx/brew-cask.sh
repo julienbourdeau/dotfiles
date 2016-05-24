@@ -9,7 +9,7 @@ brew cask install iterm2
 brew cask install sourcetree
 brew cask install gitter
 brew cask install structurer
-brew cask install virtualbox
+brew cask install dockertoolbox
 
 
 # Install other softwares
