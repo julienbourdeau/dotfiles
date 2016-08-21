@@ -33,9 +33,10 @@
 
   st = status
   co = checkout
-  br = branch -avv
+  br = branch -vv
   stt = status --ignore-submodules
   stu = status --untracked-files=no
+  latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
 
   # Commits
   ci = commit
