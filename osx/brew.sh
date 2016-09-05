@@ -54,19 +54,24 @@ brew install sfnt2woff-zopfli
 brew install woff2
 
 # Install PHP 7, 5.6 and 5.5
+brew tap homebrew/php
+
 brew install php56 --with-gmp
 brew install php56-mcrypt
 brew install php56-xdebug
+brew install php56-opcache
 brew unlink php56
 
 brew install php55 --with-gmp
 brew install php55-mcrypt
 brew install php55-xdebug
+brew install php55-opcache
 brew unlink php55
 
 brew install php70 --with-gmp
 brew install php70-mcrypt
 brew install php70-xdebug
+brew install php70-opcache
 
 sphp 56
 
