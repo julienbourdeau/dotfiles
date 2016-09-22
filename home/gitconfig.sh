@@ -50,6 +50,7 @@
   ll = log --pretty=format:"%C(red)%h%C(auto)%d\\ %C(reset)%s%C(green)\\ [%cn]%C(reset)" --decorate --numstat -20
   filelog = log -u -3
   f = "!git ls-files | grep -i"
+  changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 
   # Workflow & Management
   ours = "!f() { git co --ours $@ && git add $@; }; f"
