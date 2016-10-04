@@ -2,7 +2,6 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
 
 #custom path
-~/.bin:
 export PATH="~/.bin:$PATH";
 
 # Use GNU utils
