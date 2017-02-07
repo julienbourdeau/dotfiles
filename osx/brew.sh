@@ -68,8 +68,11 @@ brew install git-lfs
 brew install hub
 brew install bfg
 
-# Install nodes
+# Install  latest nodejs
 brew install node
+
+# Install latest ruby
+brew install ruby
 
 # Install completion
 brew tap homebrew/completions
