@@ -1,5 +1,6 @@
 .codemod.bookmark
 
+node_modules
 
 # Created by https://www.gitignore.io/api/phpstorm,composer,osx,sublimetext
 
