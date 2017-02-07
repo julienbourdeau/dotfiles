@@ -62,9 +62,6 @@ brew install composer
 brew install php-cs-fixer
 brew install wp-cli
 
-# Install database management systems
-brew install mysql
-
 # Install git tools
 brew install git
 brew install git-lfs
