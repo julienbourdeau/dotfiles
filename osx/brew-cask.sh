@@ -7,8 +7,6 @@ brew install caskroom/cask/brew-cask
 
 brew cask install iterm2
 brew cask install atom
-brew cask install sourcetree
-brew cask install gitter
 brew cask install structurer
 brew cask install toggldesktop
 brew cask install dockertoolbox
@@ -19,7 +17,6 @@ brew cask install dockertoolbox
 brew cask install cyberduck
 brew cask install vlc
 brew cask install transmission
-brew cask install handbrake
 brew cask install spotify
 brew cask install sonos
 brew cask install dropbox
