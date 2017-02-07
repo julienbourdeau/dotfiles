@@ -1,8 +1,11 @@
 # Homebrew bin directories
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
 
+# Composer bin directory
+export PATH="$HOME/.composer/vendor/bin:$PATH";
+
 #custom path
-export PATH="~/.bin:$PATH";
+export PATH="$HOME/.bin:$PATH";
 
 # Use GNU utils
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
