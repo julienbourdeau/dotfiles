@@ -7,25 +7,14 @@ fe80::1%lo0     localhost
 255.255.255.255 broadcasthost
 
 #<dev>
-127.0.0.1   adminer.db
+127.0.0.1   localscene.app
 127.0.0.1   sigerr.dev
-127.0.0.1   cwota.1001vaches.dev
-127.0.0.1   www.1001vaches.dev boucheriegabriel.dev laboucheriebio.dev
-127.0.0.1   build.prestashop.dev
-127.0.0.1   prestashop.ps
-127.0.0.1   ps-invoice-tpl-gallery.dev
-127.0.0.1   jekyll-for-tech-doc.local
 #</dev>
 
 #<srv>
-127.0.1.1   sd-43105.dedibox.fr sd-43105 sigerrbox
-ff02::1	    ip6-allnodes
-ff02::2     ip6-allrouters
+
 #</srv>
 
-#<free>
-127.0.0.1   fcandfc.ps
-#</free>
 
 #<misc>
 127.0.0.1	activate.adobe.com
