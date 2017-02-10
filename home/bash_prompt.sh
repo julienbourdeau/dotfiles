@@ -53,7 +53,7 @@ prompt_git() {
 
 		[ -n "${s}" ] && s=" [${s}]";
 
-		echo -e "${1}${branchName}${blue}${s}";
+		echo -e "${1}${branchName}${2}${s}";
 	else
 		return;
 	fi;
@@ -104,7 +104,7 @@ else
 fi;
 
 # Set the terminal title to the current working directory.
-PS1="\[\033]0;\w\007\]";
+PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${yellow}\](\A) "; # time
 PS1+="\[${userStyle}\]\u"; # username
@@ -114,7 +114,7 @@ if [[ "${SSH_TTY}" ]]; then
 fi;
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git \"${white} on ${violet}\")"; # Git repository details
+PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;

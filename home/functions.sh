@@ -33,7 +33,7 @@ function targz() {
 
 	size=$(
 		stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
-		stat -c"%s" "${tmpFile}" 2> /dev/null # GNU `stat`
+		stat -c"%s" "${tmpFile}" 2> /dev/null; # GNU `stat`
 	);
 
 	local cmd="";
@@ -48,10 +48,16 @@ function targz() {
 		fi;
 	fi;
 
-	echo "Compressing .tar using \`${cmd}\`…";
+	echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
 	"${cmd}" -v "${tmpFile}" || return 1;
 	[ -f "${tmpFile}" ] && rm "${tmpFile}";
-	echo "${tmpFile}.gz created successfully.";
+
+  zippedSize=$(
+    stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # OS X `stat`
+    stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+  );
+
+  echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 
 # Determine size of a file or total size of a directory
@@ -64,7 +70,7 @@ function fs() {
 	if [[ -n "$@" ]]; then
 		du $arg -- "$@";
 	else
-		du $arg .[^.]* *;
+		du $arg .[^.]* ./*;
 	fi;
 }
 
@@ -110,7 +116,7 @@ function gitio() {
 		echo "Usage: \`gitio slug url\`";
 		return 1;
 	fi;
-	curl -i http://git.io/ -F "url=${2}" -F "code=${1}";
+	curl -i https://git.io/ -F "url=${2}" -F "code=${1}";
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
