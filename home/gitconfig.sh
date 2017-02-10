@@ -8,24 +8,16 @@
 [color]
   ui = auto
 
-# [color "branch"]
+[color "branch"]
+  current = green reverse
 
-#   current = yellow reverse
-#   local = yellow
-#   remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
 
-# [color "diff"]
-
-#   meta = yellow bold
-#   frag = magenta bold # line info
-#   old = red # deletions
-#   new = green # additions
-
-# [color "status"]
-
-#   added = yellow
-#   changed = green
-#   untracked = cyan
+[color "status"]
+  changed = yellow
+  untracked = cyan
 
 [alias]
   # List all aliases
