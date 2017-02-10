@@ -1,3 +1,6 @@
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -29,8 +32,8 @@ alias egrep='egrep --color=auto'
 # Ignore node_modules when looking at a small project
 alias tree="tree -I 'node_modules'"
 
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
 
 # Get week number
 alias week='date +%V'
