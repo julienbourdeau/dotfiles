@@ -36,6 +36,12 @@ Install [Homebrew](http://brew.sh/)
 ./etc/cask.sh
 ```
 
+### Switch Shell
+
+```bash
+./switch-bash.sh
+```
+
 ##### Note
 
 Compare from 1d6664ec420ff19dae837def525f1b7af1cef8f6 ==> https://github.com/mathiasbynens/dotfiles/compare/1d6664ec420ff19dae837def525f1b7af1cef8f6...master
