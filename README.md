@@ -1,16 +1,5 @@
 # Julien’s dotfiles
 
-## TODO
-
-* [ ] Clean aliases
-* [x] sudo ln -s ~/Projects/dotfiles/etc/hosts /etc/hosts
-* [x] cp /Users/julien/Projects/dotfiles/sublime/Sublime\ Text.icns /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns
-
-
-* [ ] Create locate database `sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist`
-* [ ] `cd /var` ==> `mkdir mysql` ==> `sudo ln -s /tmp/mysql.sock`
-* [ ] Add `/usr/local/bin/bash` to `/etc/shells` then `chsh -s /usr/local/bin/bash`
-
 ## Installation
 
 ### Using Git and the bootstrap script
@@ -22,9 +11,9 @@ git clone https://github.com/julienbourdeau/dotfiles.git && cd dotfiles && bash 
 ```
 
 
-### Add custom commands without creating a new fork
+### Add custom commands
 
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands you don’t want to commit to a public repository.
 
 
 ### Install Homebrew formulas
@@ -44,7 +33,7 @@ Install [Homebrew](http://brew.sh/)
 
 ##### Note
 
-Compare from 1d6664ec420ff19dae837def525f1b7af1cef8f6 ==> https://github.com/mathiasbynens/dotfiles/compare/1d6664ec420ff19dae837def525f1b7af1cef8f6...master
+[Compare from d6ca39a907123c0a7f874c500ba16cabb3156a63](https://github.com/mathiasbynens/dotfiles/compare/d6ca39a907123c0a7f874c500ba16cabb3156a63...master)
 
 ## Thanks to…
 
