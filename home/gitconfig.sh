@@ -23,9 +23,9 @@
   # List all aliases
   la = "!git config -l | grep alias | cut -c 7-"
 
-  st = status
   co = checkout
   br = branch -vv
+  st = status
   stt = status --ignore-submodules
   stu = status --untracked-files=no
   latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
@@ -51,18 +51,6 @@
   # Example: git ignore laravel,osx,phpstorm
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
 
-
-  # Merge GitHub pull request on top of the `master` branch
-  # mpr = "!f() { \
-  #   if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-  #     git fetch origin refs/pull/$1/head:pr/$1 && \
-  #     git rebase master pr/$1 && \
-  #     git checkout master && \
-  #     git merge pr/$1 && \
-  #     git branch -D pr/$1 && \
-  #     git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
-  #   fi \
-  # }; f"
 
 [core]
   pager = cat
@@ -103,7 +91,6 @@
   conflictStyle = diff3
   # Include summaries of merged commits in newly created merge commit messages
   log = true
-  tool = p4mergetool
 
 [mergetool]
   keepBackup = false
@@ -111,11 +98,6 @@
   prompt = false
 
 [pull]
-  # This is GREAT… when you know what you're doing and are careful
-  # not to pull --no-rebase over a local line containing a true merge.
-  # rebase = true
-  # WARNING! This option, which does away with the one gotcha of
-  # auto-rebasing on pulls, is only available from 1.8.5 onwards.
   rebase = preserve
 
 [push]
@@ -155,16 +137,8 @@
 [url "git://gist.github.com/"]
 
   insteadOf = "gist:"
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /usr/local/Caskroom/sourcetree/2.0.5.3/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[mergetool "p4mergetool"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-  trustExitCode = false
+
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
