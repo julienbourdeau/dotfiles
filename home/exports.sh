@@ -16,3 +16,17 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+#### EASY COLORS ###
+export c_bold=$(tput bold)
+export c_underline=$(tput sgr 0 1)
+export c_reset=$(tput sgr0)
+
+export c_purple=$(tput setaf 171)
+export c_red=$(tput setaf 1)
+export c_green=$(tput setaf 76)
+export c_tan=$(tput setaf 3)
+export c_blue=$(tput setaf 38)
+
+# export helper functions for scripts
+export -f e_header e_arrow e_success e_error e_warning e_underline e_bold e_note

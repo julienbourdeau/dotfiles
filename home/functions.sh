@@ -1,3 +1,21 @@
+# Headers and messages
+function e_header() { printf "\n${c_bold}${c_purple}==========  %s  ==========${c_reset}\n" "$@"
+}
+function e_arrow() { printf "➜ $@\n"
+}
+function e_success() { printf "${c_green}✔ %s${c_reset}\n" "$@"
+}
+function e_error() { printf "${c_red}✖ %s${c_reset}\n" "$@"
+}
+function e_warning() { printf "${c_tan}➜ %s${c_reset}\n" "$@"
+}
+function e_underline() { printf "${c_underline}${c_bold}%s${c_reset}\n" "$@"
+}
+function e_bold() { printf "${c_bold}%s${c_reset}\n" "$@"
+}
+function e_note() { printf "${c_underline}${c_bold}${c_blue}Note:${c_reset}  ${c_blue}%s${c_reset}\n" "$@"
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
