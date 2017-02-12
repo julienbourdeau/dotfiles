@@ -22,3 +22,6 @@ fi
 
 # Symlink config
 symlink_dotfiles
+
+echo
+e_success "Everything is ready"
