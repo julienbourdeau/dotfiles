@@ -27,7 +27,10 @@ susymlink() {
 symlink_host_file() {
   e_header "Linking hosts file"
   e_arrow "Saving original file to /etc/hosts.orig"
+  
   sudo cp -f /etc/hosts /etc/hosts.orig
+  
+  dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   susymlink "$dotfiles/etc/hosts" "/etc/hosts"
 }
 
@@ -36,7 +39,7 @@ symlink_dotfiles() {
 
   # Link `bin/` directory
   # It's a `.bin` because I don't like seeing it
-  e_header "Symlinking cusom ~/.bin directory"
+  e_header "Symlinking custom ~/.bin directory"
   symlink "$dotfiles/bin" "$HOME/.bin"
 
   # Link dotfiles
