@@ -7,7 +7,7 @@ function e_success() { printf "${c_green}✔ %s${c_reset}\n" "$@"
 }
 function e_error() { printf "${c_red}✖ %s${c_reset}\n" "$@"
 }
-function e_warning() { printf "${c_tan}➜ %s${c_reset}\n" "$@"
+function e_warning() { printf "${c_orange}➜ %s${c_reset}\n" "$@"
 }
 function e_underline() { printf "${c_underline}${c_bold}%s${c_reset}\n" "$@"
 }
