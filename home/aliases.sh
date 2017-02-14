@@ -10,6 +10,12 @@ else # OS X `ls`
   export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 
+# cd previous directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 # List all files colorized in long format
 alias l="ls -lhF ${colorflag}"
 alias ll="l -a"
