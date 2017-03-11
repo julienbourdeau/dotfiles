@@ -187,3 +187,7 @@ function o() {
 		open "$@";
 	fi;
 }
+
+function homestead() {
+    ( cd ~/Projects/Homestead && vagrant $* )
+}
