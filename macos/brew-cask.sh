@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install Brew Cask
 # https://github.com/caskroom/homebrew-cask
 
