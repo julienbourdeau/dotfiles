@@ -49,7 +49,7 @@ symlink_dotfiles() {
 
   # Link dotfiles
   e_header "Symlinking dotfiles"
-  for location in $(find home -name '*.sh'); do
+  find home -name '*.sh' | while read -r location; do
     file="${location##*/}"
     file="${file%.sh}"
     symlink "$dotfiles/$location" "$HOME/.$file"
