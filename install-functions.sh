@@ -60,3 +60,12 @@ symlink_dotfiles() {
   symlink "$dotfiles/vim" "$HOME/.vim"
   touch "$HOME/.vimlocal"
 }
+
+symlink_atom_config() {
+  dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+  e_header "Symlinking Atom config"
+  for file in config.cson init.coffee keymap.cson snippets.cson styles.less; do
+    symlink "$dotfiles/atom/$file" "$HOME/.atom/$file"
+  done
+}

@@ -20,8 +20,11 @@ then
     symlink_host_file
 fi
 
-# Symlink config
+# Symlink configs
+
 symlink_dotfiles
+
+symlink_atom_config
 
 echo
 e_success "Everything is ready"

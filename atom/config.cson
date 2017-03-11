@@ -1,0 +1,26 @@
+"*":
+  "":
+    blade:
+      html:
+        php:
+          text:
+            editor:
+              commentEnd: " --}}"
+              commentStart: "{{-- "
+  core:
+    closeDeletedFileTabs: true
+    telemetryConsent: "limited"
+  editor:
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "abe57ba3-7bca-4173-bea9-84fc720fd106"
+  "linter-php":
+    executablePath: "/usr/local/bin/php"
+  shellcheckExecutablePath: "/usr/local/bin/shellcheck"
+  welcome:
+    showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
