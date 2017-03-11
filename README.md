@@ -16,22 +16,37 @@ git clone https://github.com/julienbourdeau/dotfiles.git && cd dotfiles && bash 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands you don’t want to commit to a public repository.
 
 
-### Install Homebrew formulas
+### Install order
 
-Install [Homebrew](http://brew.sh/)
+I recommend the following order when you bootstrap a new mac.
 
-```bash
-./etc/brew.sh
-./etc/cask.sh
-```
-
-### Switch Shell
+#### 1. Install [Homebrew](http://brew.sh/)
 
 ```bash
-./switch-bash.sh
+./macos/brew.sh
+./macos/cask.sh
 ```
 
-##### Note
+#### 2. Start Atom, close it and install deps
+
+```bash
+./atom/apm.sh
+```
+
+#### 3. Symlink everything
+
+The first time, you will have undefined functins, it' fine.
+```bash
+./install.sh
+```
+
+#### 4. Apply macos config (optional)
+
+```bash
+./macos/macos.sh
+```
+
+## Note
 
 [Compare from d6ca39a907123c0a7f874c500ba16cabb3156a63](https://github.com/mathiasbynens/dotfiles/compare/d6ca39a907123c0a7f874c500ba16cabb3156a63...master)
 
