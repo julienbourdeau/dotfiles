@@ -26,9 +26,11 @@ susymlink() {
 
 symlink_host_file() {
   e_header "Linking hosts file"
-  e_arrow "Saving original file to /etc/hosts.orig"
 
-  sudo cp -f /etc/hosts /etc/hosts.orig
+  if [ ! -L "/etc/hosts" ]; then
+    e_arrow "Saving original file to /etc/hosts.orig"
+    sudo cp -f /etc/hosts /etc/hosts.orig
+  fi
 
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
