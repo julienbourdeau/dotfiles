@@ -6,14 +6,9 @@
 fe80::1%lo0     localhost
 255.255.255.255 broadcasthost
 
-#<dev>
-127.0.0.1   localscene.app
-127.0.0.1   sigerr.dev
-#</dev>
+#<local>
 
-#<srv>
-
-#</srv>
+#</local>
 
 
 #<misc>
