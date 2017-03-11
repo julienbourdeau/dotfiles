@@ -103,6 +103,7 @@ brew install tree
 brew install trash
 brew install terminal-notifier
 brew install gnupg2
+brew install shellcheck
 
 # Remove outdated versions from the cellar.
 brew cleanup
