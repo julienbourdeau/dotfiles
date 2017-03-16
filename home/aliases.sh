@@ -40,7 +40,7 @@ alias egrep='egrep --color=auto'
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-alias tree="tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX"
+alias tree="tree -aC -I '.git|node_modules|bower_components|.idea' --dirsfirst $1"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
