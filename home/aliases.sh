@@ -146,3 +146,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Start minimal ubuntu docker image
+alias ubuntu="docker run -it --rm -v `pwd`:/workspace phusion/baseimage bash"
