@@ -60,9 +60,11 @@ brew install git
 brew install git-lfs
 brew install hub
 brew install bfg
+brew install git-open
 
 # Install  latest nodejs
 brew install node
+brew install yarn
 
 # Install latest ruby
 brew install ruby
