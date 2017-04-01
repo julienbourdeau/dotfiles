@@ -59,32 +59,53 @@ prompt_git() {
 	fi;
 }
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}";
-else
-	userStyle="${blue}";
-fi;
-
-# Highlight the hostname when connected via SSH.
-if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${red}";
-else
-	hostStyle="${yellow}";
-fi;
 
 # Set the terminal title to the current working directory.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]\n"; # newline
-PS1+="\[${yellow}\](\A) "; # time
-PS1+="\[${userStyle}\]\u"; # username
-if [[ "${SSH_TTY}" ]]; then
-  PS1+="\[${white}\] at ";
-  PS1+="\[${hostStyle}\]\h"; # host
+PS1="\[\033]0;\W\007\]";
+PS1+="\n"; # newline
+
+if [[ ! "${SSH_TTY}" ]]; then
+
+  # Show time, user and working dir path
+  PS1+="\[${yellow}\](\A) "; # time
+
+  if [[ "${USER}" == "root" ]]; then
+    PS1+="\[${red}\]\u"; # username
+  else
+  	PS1+="\[${blue}\]\u"; # username
+  fi;
+
+  PS1+="\[${white}\] in ";
+  PS1+="\[${green}\]\w"; # working directory
+
+  # Show git details
+  PS1+="\$(prompt_git \"\[${white}\] on \[${red}\]\" \"\[${purple}\]\")";
+
+else
+
+    # Show time, user and working dir path
+    PS1+="\[${reset}\][\[${blue}\]\A\[${reset}\]] "; # time
+
+    if [[ "${USER}" == "root" ]]; then
+      userStyle="${red}"; # username
+    else
+      userStyle="${green}"; # username
+    fi;
+
+    PS1+="\[${white}\][";
+    PS1+="\[${userStyle}\]\u"; # username
+    PS1+="\[${yellow}\]@"
+    PS1+="\[${userStyle}\]\h"; # hostname
+    PS1+="\[${white}\]] ";
+
+    PS1+="\[${white}\][\[${yellow}\]\w\[${white}\]] "; # working directory
+
+    # Show git details
+    PS1+="\$(prompt_git \"\[${white}\]( \[${red}\]\" \"\[\[${white}\] )\[${purple}\]\")";
+
 fi;
-PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git \"\[${white}\] on \[${red}\]\" \"\[${purple}\]\")"; # Git repository details
+
+
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
