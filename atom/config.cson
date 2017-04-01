@@ -11,6 +11,7 @@
     closeDeletedFileTabs: true
     telemetryConsent: "limited"
   editor:
+    fontSize: 18
     showIndentGuide: true
     showInvisibles: true
   "exception-reporting":

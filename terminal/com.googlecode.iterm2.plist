@@ -10,6 +10,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>CopySelection</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Arthur</key>
@@ -766,6 +768,8 @@
 	<false/>
 	<key>IRMemory</key>
 	<integer>10</integer>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -810,10 +814,14 @@
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1235 89 445 103 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>-90 1247 400 129 -266 1200 2560 1417 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>704 1968 620 392 -266 1200 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>655 637 796 473 0 0 1920 1177 </string>
+	<string>762 2012 796 473 -266 1200 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 135 890 1038 0 0 1920 1177 </string>
+	<string>-251 1377 1186 1200 -266 1200 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1218,13 +1226,6 @@
 					<key>Text</key>
 					<string>[1;6D</string>
 				</dict>
-				<key>0xf702-0x280000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x44</string>
-				</dict>
 				<key>0xf703-0x220000</key>
 				<dict>
 					<key>Action</key>
@@ -1245,13 +1246,6 @@
 					<integer>10</integer>
 					<key>Text</key>
 					<string>[1;6C</string>
-				</dict>
-				<key>0xf703-0x280000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x43</string>
 				</dict>
 				<key>0xf704-0x20000</key>
 				<dict>
@@ -1522,6 +1516,8 @@
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1531,7 +1527,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-22T09:22:26Z</date>
+	<date>2017-03-27T10:34:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
