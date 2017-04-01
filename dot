@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+######################################################
+##    FUNCTIONS
+######################################################
+
 switch_to_homebrew_bash() {
   if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
     echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
@@ -71,3 +75,53 @@ symlink_atom_config() {
     symlink "$dotfiles/atom/$file" "$HOME/.atom/$file"
   done
 }
+
+######################################################
+##    USAGE
+######################################################
+
+usage() {
+  echo "Usage:" >&2
+  echo "$0 [--dotfiles] [--atom] [--hosts] [--homebrew-bash]" >&2
+  echo "" >&2
+  echo "Options:" >&2
+  echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
+  echo "   -a | --atom        Symlink Atom editor config files" >&2
+  echo "   -h | --hosts       Create local hosts files and symlink it" >&2
+  echo "   --homebrew-bash    Add bash from homebrew to shell login and switch to it" >&2
+}
+
+######################################################
+##    PARAMETERS
+######################################################
+
+if [ $# -eq 0 ]; then
+  usage;
+  exit 100;
+fi;
+
+for i in "$@"
+do
+case $i in
+    -d|--dotfiles)
+      symlink_dotfiles;
+    ;;
+    -a|--atom)
+      symlink_atom_config
+    ;;
+    -h|--hosts)
+      symlink_host_file
+    ;;
+    --homebrew-bash)
+      switch_to_homebrew_bash
+    ;;
+    *)
+      usage;
+      exit 100;
+    ;;
+esac
+done
+
+
+echo
+e_success "Everything's ready"
