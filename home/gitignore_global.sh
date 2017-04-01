@@ -57,29 +57,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### PhpStorm ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+### PhpStorm / IntelliJ ###
 
-# User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-
-# Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-
-# Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
-
-# Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
+.idea/
 
 ## File-based project format:
 *.iws
@@ -104,9 +84,9 @@ fabric.properties
 ### PhpStorm Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
+*.iml
 # modules.xml
 # .idea/misc.xml
-# *.ipr
+*.ipr
 
 # End of https://www.gitignore.io/api/phpstorm,osx,linux,composer
