@@ -821,7 +821,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>762 2012 796 473 -266 1200 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-251 1377 1186 1200 -266 1200 2560 1417 </string>
+	<string>29 97 1426 1074 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1512,6 +1512,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/julien/Projects/dotfiles/terminal</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1527,7 +1529,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-27T10:34:47Z</date>
+	<date>2017-04-12T08:34:41Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1545,7 +1547,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.0.15</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
