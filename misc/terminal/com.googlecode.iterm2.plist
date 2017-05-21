@@ -819,9 +819,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>704 1968 620 392 -266 1200 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>762 2012 796 473 -266 1200 2560 1417 </string>
+	<string>655 608 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>29 97 1426 1074 0 0 1920 1177 </string>
+	<string>26 46 970 981 0 0 1680 1027 </string>
+	<key>NeverWarnAboutShortLivedSessions_95EAABC5-EEC9-4AD8-82C3-EC1BF7D9BDFB</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_95EAABC5-EEC9-4AD8-82C3-EC1BF7D9BDFB_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1511,7 +1515,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/julien/Projects/dotfiles/terminal</string>
+	<string>/Users/julien/Projects/dotfiles/misc/terminal</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1529,7 +1533,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-04-12T08:34:41Z</date>
+	<date>2017-05-16T21:36:16Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
