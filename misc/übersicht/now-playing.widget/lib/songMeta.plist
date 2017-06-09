@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>albumName</key>
+	<string>One Desire</string>
+	<key>artistName</key>
+	<string>Becca</string>
+	<key>coverURL</key>
+	<string>NA</string>
+	<key>currentPosition</key>
+	<string>155</string>
+	<key>isLoved</key>
+	<string>false</string>
+	<key>songChanged</key>
+	<string>false</string>
+	<key>songDuration</key>
+	<string>257</string>
+	<key>songName</key>
+	<string>One Desire</string>
+</dict>
+</plist>
