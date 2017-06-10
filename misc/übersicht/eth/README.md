@@ -1,5 +1,3 @@
-# Übersicht Widget - Ethereum/USD price
+# Übersicht Widget - (btc|eth|xpr|xml)/EUR price
 
-![Screenshot](https://github.com/AdrienKuhn/ubersicht-ethereum-usd-price/blob/master/screenshot.png)
-
-Based on [Daniel Spillere Andrade BTC widget](https://github.com/felixhageloh/uebersicht-widgets/tree/master/btc). 
+Based on [AdrienKuhn's widget](https://github.com/AdrienKuhn/ubersicht-ethereum-usd-price) which is based on [Daniel Spillere Andrade BTC widget](https://github.com/felixhageloh/uebersicht-widgets/tree/master/btc).
