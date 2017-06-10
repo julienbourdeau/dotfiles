@@ -1,5 +1,5 @@
-user          = 'julienbourdeau'
-apiKey        = '49ed3d42644d357f9adf4069993ca2cfd9518ad2'
+user          = '<Your github username>'
+apiKey        = '<Your github personal token>'
 publicApi     = 'https://api.github.com'
 enterpriseApi = '<your github enterprise api url here>'
 enterprise    = false
