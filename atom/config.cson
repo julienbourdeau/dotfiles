@@ -14,6 +14,7 @@
     fontSize: 18
     showIndentGuide: true
     showInvisibles: true
+    softWrap: true
   "exception-reporting":
     userId: "abe57ba3-7bca-4173-bea9-84fc720fd106"
   "linter-php":
