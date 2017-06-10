@@ -16,6 +16,7 @@ brew cask install dockertoolbox
 
 # Install other softwares
 
+brew cask install optimage
 brew cask install cyberduck
 brew cask install vlc
 brew cask install transmission
