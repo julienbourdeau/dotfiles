@@ -189,5 +189,9 @@ function o() {
 }
 
 function homestead() {
-    ( cd ~/Projects/Homestead && vagrant $* )
+	if [[ $1 == 'edit' ]]; then
+		atom ~/bin/Homestead/Homestead.yaml
+	else
+		( cd ~/bin/Homestead && vagrant $* )
+	fi;
 }
