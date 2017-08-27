@@ -8,10 +8,18 @@
               commentEnd: " --}}"
               commentStart: "{{-- "
   core:
+    allowPendingPaneItems: false
     closeDeletedFileTabs: true
+    projectHome: "/Users/julien/Projects"
     telemetryConsent: "limited"
+    themes: [
+      "pristine-ui"
+      "one-dark-syntax"
+    ]
   editor:
+    fontFamily: "Fira Code"
     fontSize: 18
+    scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
@@ -19,7 +27,13 @@
     userId: "abe57ba3-7bca-4173-bea9-84fc720fd106"
   "linter-php":
     executablePath: "/usr/local/bin/php"
+  "linter-ui-default":
+    panelHeight: 53
+  "pristine-ui":
+    layoutMode: "Spacious"
   shellcheckExecutablePath: "/usr/local/bin/shellcheck"
+  tabs:
+    enableVcsColoring: true
   welcome:
     showOnStartup: false
 ".blade.html.php.text":

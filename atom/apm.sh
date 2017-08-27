@@ -14,7 +14,8 @@ apm install \
   minimap \
   emmet \
   editorconfig \
-  highlight-bad-chars
+  highlight-bad-chars \
+  advanced-open-file
 
 e_header "Install syntax packages"
 
