@@ -3,20 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>albumName</key>
-	<string>One Desire</string>
+	<string>The Indie Hackers Podcast: How Developers are Bootstrapping, Marketing, and Growing Their Online Businesses</string>
 	<key>artistName</key>
-	<string>Becca</string>
+	<string>Courtland Allen: Full-Stack Developer, Designer, Marketer, MIT Grad, and Y Combinator Alum</string>
 	<key>coverURL</key>
 	<string>NA</string>
 	<key>currentPosition</key>
-	<string>155</string>
+	<string>370</string>
 	<key>isLoved</key>
 	<string>false</string>
+	<key>oldFilename</key>
+	<string>/Users/julien/Projects/dotfiles/misc/übersicht/now-playing.widget/lib/cover20.jpg</string>
 	<key>songChanged</key>
 	<string>false</string>
 	<key>songDuration</key>
-	<string>257</string>
+	<string>3623</string>
 	<key>songName</key>
-	<string>One Desire</string>
+	<string>#008 – Growing a $600,000/mo Business by Starting with Direct Sales with Nathan Barry of ConvertKit</string>
 </dict>
 </plist>

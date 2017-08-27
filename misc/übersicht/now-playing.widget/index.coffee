@@ -17,6 +17,7 @@ font-family system, -apple-system, "Helvetica Neue"
 font-size: 10px
 margin = 10px
 position: absolute
+z-index: 9000
 
 // variables
 // --------------------------------------------------
@@ -48,7 +49,7 @@ else
     position: relative
     clear: both
     color #fff
-    background rgba(#000, .5)
+    background rgba(#000, .8)
     padding 10px
     border-radius @borderRadius
 

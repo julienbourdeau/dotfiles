@@ -1,6 +1,6 @@
 command: "/usr/bin/curl -s http://www.unmotorized.cc/bitcoin.php"
 
-refreshFrequency: 60000 #ms
+refreshFrequency: 300000 #ms
 
 style: """
   bottom: 4px
@@ -39,6 +39,7 @@ update: (output, domEl) ->
 
   $domEl.find('#bitcoin .price').text data.bitcoin.price
   $domEl.find('#ethereum .price').text data.ethereum.price
+  $domEl.find('#bitcoincash .price').text data.bitcoincash.price
   $domEl.find('#ripple .price').text data.ripple.price
   $domEl.find('#stellar .price').text data.stellar.price
 
@@ -49,6 +50,8 @@ render: (o) -> """
       <th class='spacer'></th>
       <th>Ethereum</th>
       <th class='spacer'></th>
+      <th>Bitcoin Cash</th>
+      <th class='spacer'></th>
       <th>Ripple</th>
       <th class='spacer'></th>
       <th>Stellar</th>
@@ -57,6 +60,8 @@ render: (o) -> """
       <td id="bitcoin"><span class='price'></span> €</td>
       <td></td>
       <td id="ethereum"><span class='price'></span> €</td>
+      <td></td>
+      <td id="bitcoincash"><span class='price'></span> €</td>
       <td></td>
       <td id="ripple"><span class='price'></span> €</td>
       <td></td>
