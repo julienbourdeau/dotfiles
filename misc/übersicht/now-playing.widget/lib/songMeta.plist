@@ -3,22 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>albumName</key>
-	<string>The Indie Hackers Podcast: How Developers are Bootstrapping, Marketing, and Growing Their Online Businesses</string>
+	<string>Your Tale</string>
 	<key>artistName</key>
-	<string>Courtland Allen: Full-Stack Developer, Designer, Marketer, MIT Grad, and Y Combinator Alum</string>
+	<string>Hiroshi Yamazaki</string>
 	<key>coverURL</key>
 	<string>NA</string>
 	<key>currentPosition</key>
-	<string>370</string>
+	<string>100</string>
 	<key>isLoved</key>
 	<string>false</string>
 	<key>oldFilename</key>
-	<string>/Users/julien/Projects/dotfiles/misc/übersicht/now-playing.widget/lib/cover20.jpg</string>
+	<string>/Users/julien/etc/dotfiles/misc/übersicht/now-playing.widget/lib/cover159.jpg</string>
 	<key>songChanged</key>
 	<string>false</string>
 	<key>songDuration</key>
-	<string>3623</string>
+	<string>216</string>
 	<key>songName</key>
-	<string>#008 – Growing a $600,000/mo Business by Starting with Direct Sales with Nathan Barry of ConvertKit</string>
+	<string>Your Tale</string>
 </dict>
 </plist>
