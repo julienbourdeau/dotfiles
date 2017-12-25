@@ -139,6 +139,8 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
 done
 
+# Launch apps
+alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 # Lock the screen (when going AFK)
 # Useful for scripts
