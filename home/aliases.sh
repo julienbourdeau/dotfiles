@@ -11,10 +11,11 @@ else # OS X `ls`
 fi
 
 # cd previous directories
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias h='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # List all files colorized in long format
 alias l="ls -lhF ${colorflag}"
