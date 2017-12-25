@@ -5,4 +5,6 @@
 npm install -g \
   yarn \
   eslint \
-  doctoc
+  doctoc \
+  nativefier
+  tldr

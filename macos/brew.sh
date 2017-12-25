@@ -48,7 +48,8 @@ brew install woff2
 
 # Install PHP 7, for cli tools only
 brew tap homebrew/php
-brew install php71 --with-gmp
+brew install php72 --with-gmp
+brew install php72-xdebug
 
 # Install PHP-related tools
 brew install composer
@@ -64,10 +65,12 @@ brew install git-open
 
 # Install  latest nodejs
 brew install node
-brew install yarn
 
 # Install latest ruby
 brew install ruby
+
+# Install latest go
+brew install go
 
 # Install completion
 brew tap homebrew/completions
