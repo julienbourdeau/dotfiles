@@ -110,5 +110,8 @@ brew install terminal-notifier
 brew install gnupg2
 brew install shellcheck
 
+# Install Mackup to restore/backup some apps config
+brew install mackup
+
 # Remove outdated versions from the cellar.
 brew cleanup

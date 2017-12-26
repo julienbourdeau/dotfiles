@@ -67,13 +67,14 @@ symlink_dotfiles() {
   touch "$HOME/.vimlocal"
 }
 
-symlink_atom_config() {
+symlink_mackup_config() {
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-  e_header "Symlinking Atom config"
-  for file in config.cson init.coffee keymap.cson snippets.cson styles.less; do
-    symlink "$dotfiles/atom/$file" "$HOME/.atom/$file"
-  done
+  e_header "Symlinking Mackup config"
+  symlink "$dotfiles/macos/mackup.cfg" "$HOME/.mackup.cfg"
+  symlink "$dotfiles/macos/mackup-custom" "$HOME/.mackup"
+
+  e_note "Make sure the mackup storage directory exists!"
 }
 
 ######################################################
@@ -82,11 +83,11 @@ symlink_atom_config() {
 
 usage() {
   echo "Usage:" >&2
-  echo "$0 [--dotfiles] [--atom] [--hosts] [--homebrew-bash]" >&2
+  echo "$0 [--dotfiles] [--mackup] [--hosts] [--homebrew-bash]" >&2
   echo "" >&2
   echo "Options:" >&2
   echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
-  echo "   -a | --atom        Symlink Atom editor config files" >&2
+  echo "   -m | --mackup      Symlink Mackup config" >&2
   echo "   -h | --hosts       Create local hosts files and symlink it" >&2
   echo "   --homebrew-bash    Add bash from homebrew to shell login and switch to it" >&2
 }
@@ -106,8 +107,8 @@ case $i in
     -d|--dotfiles)
       symlink_dotfiles;
     ;;
-    -a|--atom)
-      symlink_atom_config
+    -m|--mackup)
+      symlink_mackup_config
     ;;
     -h|--hosts)
       symlink_host_file
