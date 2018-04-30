@@ -90,3 +90,5 @@ fabric.properties
 *.ipr
 
 # End of https://www.gitignore.io/api/phpstorm,osx,linux,composer
+
+.pytest_cache

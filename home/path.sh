@@ -10,7 +10,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH";
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #custom path
-export PATH="$HOME/.bin:$PATH";
+export PATH="$HOME/.bin:$HOME/bin:$PATH";
 
 # Use GNU utils
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
@@ -31,3 +31,4 @@ MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 ###############
 
 export GOPATH="$HOME/etc/go"
+export PATH="$GOPATH/bin:$PATH:$GOROOT/bin";

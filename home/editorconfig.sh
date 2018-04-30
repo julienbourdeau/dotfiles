@@ -11,5 +11,8 @@ end_of_line = lf
 [*.php]
 indent_size = 4
 
+[*.json]
+indent_size = 4
+
 [*.md]
 trim_trailing_whitespace = false
