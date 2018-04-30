@@ -65,6 +65,16 @@ symlink_dotfiles() {
   e_header "Symlinking VIM config"
   symlink "$dotfiles/vim" "$HOME/.vim"
   touch "$HOME/.vimlocal"
+
+  # .env
+  e_header "Creating ~/.env file"
+  if [ ! -f "$HOME/.env" ]; then
+    e_arrow "Copying '$dotfiles/etc/env.example' to '$HOME/.env'"
+    e_warning "~/.env is currently empty, add the necessary values"
+    cp "$dotfiles/etc/env.example" "$HOME/.env";
+  else
+    e_note "~/.env already exists"
+  fi
 }
 
 symlink_mackup_config() {
