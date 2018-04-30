@@ -60,6 +60,10 @@ alias gci='git commit -am'
 alias grbase='git rebase -i --autosquash'
 alias nah='git reset HEAD --hard'
 
+# Dev shortcut
+alias art='php artisan'
+alias sf='php bin/console'
+
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
