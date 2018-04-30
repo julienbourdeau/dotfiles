@@ -84,7 +84,6 @@ brew install wpcli-completion
 # Install image-related binaries
 brew install exiv2
 brew install imagemagick --with-webp
-brew install lua
 brew install webkit2png
 brew install jpeg
 
@@ -95,6 +94,10 @@ brew install zopfli
 brew install xz
 
 # Install other useful binaries.
+brew install jq
+brew install httpie
+brew install asciinema
+brew install tldr
 brew install codemod
 brew install htop-osx
 brew install nmap
