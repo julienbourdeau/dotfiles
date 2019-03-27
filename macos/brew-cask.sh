@@ -8,11 +8,7 @@ brew install caskroom/cask/brew-cask
 # Install dev tools
 
 brew cask install iterm2
-brew cask install atom
-brew cask install structurer
-brew cask install toggldesktop
-brew cask install dockertoolbox
-
+brew cask install visual-studio-code
 
 # Install other softwares
 
@@ -40,3 +36,8 @@ brew cask install quicklook-csv
 brew cask install betterzipql
 brew cask install qlimagesize
 brew cask install webpquicklook
+
+
+# Fonts
+
+brew cask install font-fira-code

@@ -47,9 +47,9 @@ brew install sfnt2woff-zopfli
 brew install woff2
 
 # Install PHP 7, for cli tools only
-brew tap homebrew/php
-brew install php72 --with-gmp
-brew install php72-xdebug
+# brew tap homebrew/php
+# brew install php72 --with-gmp
+# brew install php72-xdebug
 
 # Install PHP-related tools
 brew install composer
@@ -63,8 +63,9 @@ brew install hub
 brew install bfg
 brew install git-open
 
-# Install  latest nodejs
+# Install latest nodejs
 brew install node
+brew install nvm
 
 # Install latest ruby
 brew install ruby

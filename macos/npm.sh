@@ -3,8 +3,7 @@
 # Install command-line tools using NPM.
 
 npm install -g \
-  yarn \
   eslint \
   doctoc \
-  nativefier
-  tldr
+  nativefier \
+  urlint \
