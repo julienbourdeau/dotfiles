@@ -40,6 +40,12 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
+		<string>α</string>
+		<key>shortcut</key>
+		<string>:alpha:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
 		<string>⌥</string>
 		<key>shortcut</key>
 		<string>:alt:</string>
@@ -52,9 +58,9 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
-		<string>⌫</string>
+		<string>β</string>
 		<key>shortcut</key>
-		<string>:backspace:</string>
+		<string>:beta:</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
@@ -76,6 +82,18 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
+		<string>δ</string>
+		<key>shortcut</key>
+		<string>:delta:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>¯\_(ツ)_/¯</string>
+		<key>shortcut</key>
+		<string>:dunno:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
 		<string>⎋</string>
 		<key>shortcut</key>
 		<string>:esc:</string>
@@ -88,9 +106,33 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
+		<string>γ</string>
+		<key>shortcut</key>
+		<string>:gamma:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>λ</string>
+		<key>shortcut</key>
+		<string>:lambda:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>μ</string>
+		<key>shortcut</key>
+		<string>:mu:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
 		<string>×</string>
 		<key>shortcut</key>
 		<string>:multiply:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>ω</string>
+		<key>shortcut</key>
+		<string>:omega:</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
@@ -109,6 +151,18 @@
 		<string>💩</string>
 		<key>shortcut</key>
 		<string>:shit:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>(╯°□°）╯︵ ┻━┻</string>
+		<key>shortcut</key>
+		<string>:table:</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>τ</string>
+		<key>shortcut</key>
+		<string>:tau:</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
@@ -178,51 +232,15 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
-		<string>α</string>
+		<string>julienbourdeau@gmail.com</string>
 		<key>shortcut</key>
-		<string>alpha</string>
+		<string>jb@g</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
-		<string>β</string>
+		<string>On my way!</string>
 		<key>shortcut</key>
-		<string>beta</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>δ</string>
-		<key>shortcut</key>
-		<string>delta</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>γ</string>
-		<key>shortcut</key>
-		<string>gamma</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>λ</string>
-		<key>shortcut</key>
-		<string>lambda</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>μ</string>
-		<key>shortcut</key>
-		<string>mu</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>ω</string>
-		<key>shortcut</key>
-		<string>omega</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>τ</string>
-		<key>shortcut</key>
-		<string>tau</string>
+		<string>omw</string>
 	</dict>
 </array>
 </plist>
