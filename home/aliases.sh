@@ -52,7 +52,7 @@ alias week='date +%V'
 # Nice date format for git tags
 alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 
-# Git shortcut
+# Git shortcuts
 alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
 alias gl='git lg'
 alias gd='git diff .'
@@ -60,9 +60,14 @@ alias gci='git commit -am'
 alias grbase='git rebase -i --autosquash'
 alias nah='git reset HEAD --hard'
 
-# Dev shortcut
+# Dev shortcuts
 alias art='php artisan'
 alias sf='php bin/console'
+alias rake='rake -s'
+
+if command -v bat > /dev/null 2>&1; then
+  alias cat=bat
+fi
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -77,6 +82,11 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # Show active network interfaces
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
+# HTTPie shortcuts
+alias https='http --default-scheme=https'
+# alias alg='http'
+
+alias ssh-copy='cat ~/.ssh/id_rsa.pub | pbcopy'
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -144,9 +154,6 @@ alias map="xargs -n1"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
 done
-
-# Launch apps
-alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 # Lock the screen (when going AFK)
 # Useful for scripts

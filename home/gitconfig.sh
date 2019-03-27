@@ -5,6 +5,9 @@
 [github]
 	user = julienbourdeau
 
+[help]
+    autocorrect = 1
+
 [color]
 	ui = auto
 
@@ -23,15 +26,12 @@
 	# List all aliases
 	la = "!git config -l | grep alias | cut -c 7-"
 
-	co = checkout
-	br = branch -vv
+	br = branch -vv --sort=-committerdate
 	st = status
-	stt = status --ignore-submodules
 	stu = status --untracked-files=no
 	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
 
 	# Commits
-	ci = commit
 	cp = cherry-pick -x
 	oops = commit --amend --no-edit
 	# Random commit message from whatthecommit.com
@@ -139,13 +139,14 @@
 	insteadOf = "gist:"
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

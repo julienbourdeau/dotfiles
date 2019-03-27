@@ -3,6 +3,10 @@
 node_modules
 coverage.cov
 
+.vscode
+
+.pytest_cache
+.bundle/config
 
 # Created by https://www.gitignore.io/api/phpstorm,osx,linux,composer
 
@@ -90,5 +94,3 @@ fabric.properties
 *.ipr
 
 # End of https://www.gitignore.io/api/phpstorm,osx,linux,composer
-
-.pytest_cache

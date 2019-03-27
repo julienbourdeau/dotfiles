@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 
+# Ruby and RVM
+# Might need to change it to be the last PATH variable change.
+export PATH="/usr/local/opt/ruby/bin:$HOME/.rvm/bin:$PATH"
+
 # Homebrew bin directories
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
 
 # Composer bin directory
 export PATH="$HOME/.composer/vendor/bin:$PATH";
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Add MySQL
+export PATH="$PATH:/usr/local/mysql/bin"
+
+# Add Rust
+export PATH="$PATH:$HOME/.cargo/bin"
 
 #custom path
-export PATH="$HOME/.bin:$HOME/bin:$PATH";
+export PATH="$PATH:$HOME/.bin:$HOME/bin";
+
 
 # Use GNU utils
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
@@ -32,3 +40,11 @@ MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export GOPATH="$HOME/etc/go"
 export PATH="$GOPATH/bin:$PATH:$GOROOT/bin";
+
+
+###############
+#     MISC    #
+###############
+
+export NVM_DIR="$HOME/.nvm"
+

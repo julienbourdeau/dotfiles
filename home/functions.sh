@@ -195,3 +195,8 @@ function homestead() {
 		( cd ~/bin/Homestead && vagrant $* )
 	fi;
 }
+
+function python_init() {
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+}
