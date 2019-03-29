@@ -46,14 +46,9 @@ brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
 
-# Install PHP 7, for cli tools only
-# brew tap homebrew/php
-# brew install php72 --with-gmp
-# brew install php72-xdebug
-
-# Install PHP-related tools
+# Install PHP 7
+brew install php
 brew install composer
-brew install php-cs-fixer
 brew install wp-cli
 
 # Install git tools
@@ -64,7 +59,6 @@ brew install bfg
 brew install git-open
 
 # Install latest nodejs
-brew install node
 brew install nvm
 
 # Install latest ruby
@@ -72,6 +66,13 @@ brew install ruby
 
 # Install latest go
 brew install go
+
+# Install databases
+brew install sqlite
+brew install redis
+brew install postgresql
+brew install mysql@5.7
+
 
 # Install completion
 brew tap homebrew/completions
@@ -93,9 +94,13 @@ brew install p7zip
 brew install piaz
 brew install zopfli
 brew install xz
+brew install brotli
 
 # Install other useful binaries.
 brew install jq
+brew install bat
+brew install autojump
+brew install heroku
 brew install httpie
 brew install asciinema
 brew install tldr

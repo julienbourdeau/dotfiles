@@ -19,7 +19,6 @@ brew cask install transmission
 brew cask install spotify
 brew cask install sonos
 brew cask install dropbox
-brew cask install google-drive
 brew cask install spideroakone
 brew cask install teamviewer
 brew cask install whatsapp
