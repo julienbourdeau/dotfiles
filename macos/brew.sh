@@ -21,24 +21,20 @@ brew install findutils
 # Install GNU bin utils -> http://www.gnu.org/software/binutils/
 brew install binutils
 
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
 
-# Install Bash 4.
+# Install Bash
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew tap homebrew/versions
-brew install bash-completion2
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install vim
+brew install wget
+brew install gnu-sed
+brew install grep
+brew install openssh
+brew install screen
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -55,7 +51,7 @@ brew install wp-cli
 brew install git
 brew install git-lfs
 brew install hub
-brew install bfg
+# brew install bfg # requires Java
 brew install git-open
 
 # Install latest nodejs
@@ -75,23 +71,15 @@ brew install mysql@5.7
 
 
 # Install completion
-brew tap homebrew/completions
-brew install apm-bash-completion
+brew install bash-completion2
 brew install brew-cask-completion
 brew install bundler-completion
-brew install composer-completion
 brew install vagrant-completion
 brew install wpcli-completion
 
-# Install image-related binaries
-brew install exiv2
-brew install imagemagick --with-webp
-brew install webkit2png
-brew install jpeg
 
 # Install compression tools
 brew install p7zip
-brew install piaz
 brew install zopfli
 brew install xz
 brew install brotli

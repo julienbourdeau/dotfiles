@@ -2,7 +2,7 @@
 
 # Ruby and RVM
 # Might need to change it to be the last PATH variable change.
-export PATH="/usr/local/opt/ruby/bin:$HOME/.rvm/bin:$PATH"
+export PATH="$HOME/.rvm/bin:/usr/local/opt/ruby/bin:$PATH"
 
 # Homebrew bin directories
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
@@ -11,7 +11,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
 export PATH="$HOME/.composer/vendor/bin:$PATH";
 
 # Add MySQL
-export PATH="$PATH:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/mysql/bin:/usr/local/opt/mysql@5.7/bin"
 
 # Add Rust
 export PATH="$PATH:$HOME/.cargo/bin"

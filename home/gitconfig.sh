@@ -6,7 +6,7 @@
 	user = julienbourdeau
 
 [help]
-    autocorrect = 1
+    autocorrect = 2
 
 [color]
 	ui = auto
@@ -32,6 +32,7 @@
 	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
 
 	# Commits
+	fix = "!git commit --fixup=\"$1\" #"
 	cp = cherry-pick -x
 	oops = commit --amend --no-edit
 	# Random commit message from whatthecommit.com
@@ -45,8 +46,9 @@
 	changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 
 	# Workflow & Management
-	ours = "!f() { git co --ours $@ && git add $@; }; f"
-	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+	wip = "!f() { git add .; git commit -m \"🚨 WIP\"; }; f"
+	ours = "!f() { git checkout --ours -- $@ && git add $@; }; f"
+	theirs = "!f() { git checkout --theirs -- $@ && git add $@; }; f"
 	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
 	# Example: git ignore laravel,osx,phpstorm
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
