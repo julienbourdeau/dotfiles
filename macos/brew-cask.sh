@@ -6,11 +6,13 @@
 # Install dev tools
 
 brew cask install iterm2
+brew cask install firefox
 brew cask install sourcetree
 brew cask install sublime-text
 brew cask install tableplus
-brew cask install visual-studio-code
 brew cask install insomnia
+brew cask install cyberduck
+brew cask install dash
 
 # Install other softwares
 
@@ -20,11 +22,14 @@ brew cask install alfred
 brew cask install dropbox
 brew cask install sonos
 brew cask install spideroakone
+brew cask install discord
 brew cask install spotify
+brew cask install pocket-casts
 brew cask install teamviewer
 brew cask install tyke
 brew cask install vlc
 brew cask install whatsapp
+brew cask install transmission
 
 
 # Install QuickView
@@ -40,6 +45,6 @@ brew cask install webpquicklook
 
 
 # Fonts
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 brew cask install font-fira-code
