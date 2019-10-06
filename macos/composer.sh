@@ -7,5 +7,5 @@ composer global require laravel/installer
 
 
 valet install
-valet tld valet
+# valet tld test
 valet trust
