@@ -87,6 +87,15 @@ symlink_sublime() {
   e_note "You may need to restart Sublime Text"
 }
 
+setup_php() {
+  dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/dev/php"
+  (cd $dir && composer install)
+  e_warning "Add the following line to your php.ini configuration"
+  echo
+  echo "  auto_prepend_file = $dir/prepend.php"
+  echo
+}
+
 symlink_mackup_config() {
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -103,12 +112,13 @@ symlink_mackup_config() {
 
 usage() {
   echo "Usage:" >&2
-  echo "$0 [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash]" >&2
+  echo "$0 [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash] [--php]" >&2
   echo "" >&2
   echo "Options:" >&2
   echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
   echo "   -m | --mackup      Symlink Mackup config" >&2
   echo "   -h | --hosts       Create local hosts files and symlink it" >&2
+  echo "   --php              Setup php prepended file" >&2
   echo "   --sublime          Symlink Sublime Text preferences" >&2
   echo "   --homebrew-bash    Add bash from homebrew to shell login and switch to it" >&2
 }
@@ -130,6 +140,9 @@ case $i in
     ;;
     --sublime)
       symlink_sublime;
+    ;;
+    --php)
+      setup_php;
     ;;
     -m|--mackup)
       symlink_mackup_config
