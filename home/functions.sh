@@ -83,6 +83,39 @@ function gitio() {
 	curl -i https://git.io/ -F "url=${2}" -F "code=${1}";
 }
 
+# git rebase branch
+function gupdate() {
+	BRANCH_NAME="develop"
+	DIRTY=false
+    if ! git diff-index --quiet HEAD --; then
+		DIRTY=true
+		e_note "Working directory has uncommitted changes"
+	fi
+
+	if $DIRTY; then
+		git stash
+	fi
+
+	e_header "Update $BRANCH_NAME branch"
+	git checkout $BRANCH_NAME
+	git pull
+	git checkout -
+
+	e_header "Rebase on top of $BRANCH_NAME"
+	git rebase $BRANCH_NAME
+
+	if $DIRTY; then
+		e_note "Restore stashed changes"
+		git stash pop
+	fi
+	e_success "Updated"
+
+	e_header "Current status"
+	git status
+	e_header "🌳 Tree"
+	git lg -10
+}
+
 # Compare original and gzipped file size
 function gz() {
 	local origsize=$(wc -c < "$1");
@@ -199,4 +232,8 @@ function homestead() {
 function python_init() {
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
+}
+
+function vault_login() {
+	vault login -method=userpass username=$VAULT_USERNAME password=$VAULT_PASSWORD
 }
