@@ -77,6 +77,16 @@ symlink_dotfiles() {
   fi
 }
 
+symlink_sublime() {
+  dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+  e_header "Symlinking Mackup config"
+
+  symlink "$dotfiles/macos/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+
+  e_note "You may need to restart Sublime Text"
+}
+
 symlink_mackup_config() {
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -93,12 +103,13 @@ symlink_mackup_config() {
 
 usage() {
   echo "Usage:" >&2
-  echo "$0 [--dotfiles] [--mackup] [--hosts] [--homebrew-bash]" >&2
+  echo "$0 [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash]" >&2
   echo "" >&2
   echo "Options:" >&2
   echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
   echo "   -m | --mackup      Symlink Mackup config" >&2
   echo "   -h | --hosts       Create local hosts files and symlink it" >&2
+  echo "   --sublime          Symlink Sublime Text preferences" >&2
   echo "   --homebrew-bash    Add bash from homebrew to shell login and switch to it" >&2
 }
 
@@ -116,6 +127,9 @@ do
 case $i in
     -d|--dotfiles)
       symlink_dotfiles;
+    ;;
+    --sublime)
+      symlink_sublime;
     ;;
     -m|--mackup)
       symlink_mackup_config
