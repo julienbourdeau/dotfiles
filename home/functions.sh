@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Headers and messages
 function e_header() { printf "\n${yellow}==========  %s  ==========${reset}\n" "$@"
 }
