@@ -202,15 +202,6 @@ function getcertnames() {
 	fi;
 }
 
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-	if [ $# -eq 0 ]; then
-		atom .;
-	else
-		atom "$@";
-	fi;
-}
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
@@ -224,7 +215,7 @@ function o() {
 
 function homestead() {
 	if [[ $1 == 'edit' ]]; then
-		atom ~/bin/Homestead/Homestead.yaml
+		subl ~/bin/Homestead/Homestead.yaml
 	else
 		( cd ~/bin/Homestead && vagrant $* )
 	fi;
