@@ -1,5 +1,3 @@
-# Shell prompt based on the Solarized Dark theme.
-# Screenshot: http://i.imgur.com/EkEtphC.png
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
@@ -75,11 +73,11 @@ if [[ ! "${SSH_TTY}" ]]; then
   	PS1+="\[${blue}\]\u"; # username
   fi;
 
-  PS1+="\[${white}\] in ";
+  PS1+="\[${black}\] in ";
   PS1+="\[${green}\]\w"; # working directory
 
   # Show git details
-  PS1+="\$(prompt_git \"\[${white}\] on \[${red}\]\" \"\[${purple}\]\")";
+  PS1+="\$(prompt_git \"\[${black}\] on \[${red}\]\" \"\[${purple}\]\")";
 
 else
 
@@ -92,22 +90,22 @@ else
       userStyle="${green}"; # username
     fi;
 
-    PS1+="\[${white}\][";
+    PS1+="\[${black}\][";
     PS1+="\[${userStyle}\]\u"; # username
     PS1+="\[${yellow}\]@"
     PS1+="\[${userStyle}\]\h"; # hostname
-    PS1+="\[${white}\]] ";
+    PS1+="\[${black}\]] ";
 
-    PS1+="\[${white}\][\[${yellow}\]\w\[${white}\]] "; # working directory
+    PS1+="\[${black}\][\[${yellow}\]\w\[${black}\]] "; # working directory
 
     # Show git details
-    PS1+="\$(prompt_git \"\[${white}\]( \[${red}\]\" \"\[\[${white}\] )\[${purple}\]\")";
+    PS1+="\$(prompt_git \"\[${black}\]( \[${red}\]\" \"\[\[${black}\] )\[${purple}\]\")";
 
 fi;
 
 
 PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1+="\[${black}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";
