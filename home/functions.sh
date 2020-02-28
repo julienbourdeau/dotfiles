@@ -229,3 +229,13 @@ function python_init() {
 function vault_login() {
 	vault login -method=userpass username=$VAULT_USERNAME password=$VAULT_PASSWORD
 }
+
+function migrate() {
+	if test -f "artisan"; then
+		e_arrow "Running Laravel migrations"
+		php artisan migrate
+	elif test -f "bin/rails"; then
+		e_arrow "Running Rails migrations"
+		bin/rails db:migrate
+	fi
+}
