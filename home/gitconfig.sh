@@ -29,6 +29,8 @@
 	br = branch -vv --sort=-committerdate
 	st = status
 	stu = status --untracked-files=no
+	co = checkout
+	ci = commit
 	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
 
 	# Commits
@@ -46,7 +48,7 @@
 	changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 
 	# Workflow & Management
-	wip = "!f() { git add .; git commit -m \"🚨 WIP\"; }; f"
+	wip = "!f() { git add .; git commit -m \"🚨 WIP\" --no-verify; }; f"
 	ours = "!f() { git checkout --ours -- $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs -- $@ && git add $@; }; f"
 	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
@@ -116,29 +118,6 @@
 
 [tag]
 	sort = version:refname
-
-
-# URL shorthands
-
-[url "git@github.com:"]
-
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-
-	insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-
-	insteadOf = "gist:"
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

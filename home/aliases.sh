@@ -56,9 +56,10 @@ alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
 alias gl='git lg'
 alias gd='git diff .'
-alias gci='git commit -am'
+alias gci='git commit -m'
 alias grbase='git rebase -i --autosquash'
 alias nah='git reset HEAD --hard'
+alias gc='git checkout'
 
 # Dev shortcuts
 alias art='php artisan'
