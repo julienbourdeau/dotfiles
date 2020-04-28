@@ -57,8 +57,8 @@
 
 
 [core]
-	pager = cat
-	editor = vim #atom --wait
+	pager = delta --plus-color="#e6ffed" --minus-color="#ffeef0"
+	editor = vim
 	mergeoptions = --no-edit
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
@@ -72,6 +72,7 @@
 	precomposeunicode = false
 	excludesfile = ~/.gitignore_global
 
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -81,6 +82,9 @@
 	renames = true
 	wordRegex = .
 	submodule = log
+
+[interactive]
+	diffFilter = delta --color-only
 
 [fetch]
 	recurseSubmodules = on-demand

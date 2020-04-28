@@ -42,7 +42,7 @@ if [ -f "$HOME/.env" ]; then
 fi;
 
 # Set up bat config: https://github.com/sharkdp/bat#configuration-file
-export BAT_CONFIG_PATH="$HOME/.bat.conf"
+export BAT_THEME=GitHub
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
