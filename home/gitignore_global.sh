@@ -1,5 +1,6 @@
 .codemod.bookmark
 .php_cs.cache
+.phpunit.result.cache
 
 node_modules
 coverage.cov
