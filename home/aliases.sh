@@ -62,7 +62,9 @@ alias nah='git reset HEAD --hard'
 alias gc='git checkout'
 
 # Dev shortcuts
+alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
 alias art='php artisan'
+alias vapor='vendor/bin/vapor'
 alias sf='php bin/console'
 alias rake='rake -s'
 
