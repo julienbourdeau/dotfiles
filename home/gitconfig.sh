@@ -31,11 +31,9 @@
 	stu = status --untracked-files=no
 	co = checkout
 	ci = commit
-	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
-
-	# Commits
 	fix = "!git commit --fixup=\"$1\" #"
 	cp = cherry-pick -x
+	nah = reset HEAD --hard
 	oops = commit --amend --no-edit
 	# Random commit message from whatthecommit.com
 	ci-rnd = !sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)'\"
@@ -43,12 +41,15 @@
 	# Logs & history
 	lg = log --graph --pretty=tformat:'%C(red)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -10
 	ll = log --pretty=format:"%C(red)%h%C(auto)%d\\ %C(reset)%s%C(green)\\ [%cn]%C(reset)" --decorate --numstat -20
+	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
 	filelog = log -u -3
 	f = "!git ls-files | grep -i"
 	changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 
 	# Workflow & Management
+	yolo = "!f() { git add .; git oops --no-verify; git push -f; }; f"
 	wip = "!f() { git add .; git commit -m \"🚨 WIP\" --no-verify; }; f"
+	resume = "!f() { git lg -3; git reset HEAD^; git status; git lg -3; }; f"
 	ours = "!f() { git checkout --ours -- $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs -- $@ && git add $@; }; f"
 	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
@@ -58,7 +59,7 @@
 
 [core]
 	pager = delta --plus-color="#e6ffed" --minus-color="#ffeef0"
-	editor = vim
+	editor = subl -n -w
 	mergeoptions = --no-edit
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
