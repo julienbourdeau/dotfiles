@@ -3174,6 +3174,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>95EAABC5-EEC9-4AD8-82C3-EC1BF7D9BDFB</string>
+	<key>DimBackgroundWindows</key>
+	<false/>
 	<key>DimOnlyText</key>
 	<true/>
 	<key>DisableFullscreenTransparency</key>
@@ -3308,9 +3310,15 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>/Applications</string>
+	<string>~/Dropbox/Apps</string>
+	<key>NSNavLastUserSetHideExtensionButtonState</key>
+	<false/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -3356,16 +3364,18 @@
 	<string>0 131 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>877 81 964 586 0 0 1920 1177 </string>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>1083 839 841 470 0 0 3008 1669 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
 	<string>532 651 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>2136 859 400 129 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>970 780 620 392 0 0 2560 1417 </string>
+	<string>1194 970 620 392 0 0 3008 1669 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>537 706 770 429 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 48 1212 1369 0 0 2560 1417 </string>
+	<string>0 60 1680 955 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 48 1270 979 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_95EAABC5-EEC9-4AD8-82C3-EC1BF7D9BDFB</key>
@@ -4212,16 +4222,18 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.6</string>
-		<string>3.3.8</string>
-		<string>3.3.4</string>
-		<string>3.3.1</string>
 		<string>3.3.3</string>
-		<string>3.3.7</string>
-		<string>3.3.9</string>
-		<string>3.3.0</string>
-		<string>3.2.9</string>
+		<string>3.3.1</string>
+		<string>3.3.8</string>
+		<string>3.3.12</string>
+		<string>3.3.6</string>
+		<string>3.3.11</string>
+		<string>3.3.4</string>
 		<string>3.3.2</string>
+		<string>3.3.9</string>
+		<string>3.2.9</string>
+		<string>3.3.0</string>
+		<string>3.3.7</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -4240,16 +4252,16 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {3008, 1692}}</string>
 		<key>topLeft</key>
-		<string>{317, 819}</string>
+		<string>{379, 989}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>0C4A6611-B1B7-4E05-BF7C-F4DE3080AA76</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>92</integer>
+	<integer>119</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -5036,11 +5048,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-08T13:17:44Z</date>
+	<date>2020-08-12T08:48:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>3793717160</integer>
+	<integer>1589761898</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SeparateStatusBarsPerPane</key>
@@ -5054,7 +5066,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.3617312700320513</real>
+	<real>0.59999999999999998</real>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
@@ -5076,7 +5088,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
