@@ -1,11 +1,12 @@
 {
 	"color_scheme": "Packages/Inspired GitHub Color Scheme/InspiredGitHub.tmTheme",
-	"font_size": 18,
+	"font_size": 20,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"line_spacing": 1.6,
+	"line_padding_bottom": 4,
+	"line_padding_top": 4,
 	"save_on_focus_lost": true,
 	"theme": "Default.sublime-theme",
 	"word_wrap": true
