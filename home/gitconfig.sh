@@ -72,6 +72,7 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 	excludesfile = ~/.gitignore_global
+	attributesfile = /Users/julien.bourdeau/.gitattributes_global
 
 
 [apply]
@@ -83,6 +84,9 @@
 	renames = true
 	wordRegex = .
 	submodule = log
+
+[diff "rspec"]
+  xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
 
 [interactive]
 	diffFilter = delta --color-only
