@@ -117,6 +117,30 @@ function gupdate() {
 	git lg -10
 }
 
+
+function gdeploy() {
+	MAIN_BRANCH_NAME="master"
+	STAGING_BRANCH_NAME="develop"
+
+    if ! git diff-index --quiet HEAD --; then
+		e_error "Cannot prepare release with dirty working directory"
+		return 12
+	fi
+
+	e_header "Update $STAGING_BRANCH_NAME branch"
+	git checkout $STAGING_BRANCH_NAME
+	git pull
+
+	e_header "Update $MAIN_BRANCH_NAME branch"
+	git checkout $MAIN_BRANCH_NAME
+	git pull
+
+	e_header "Current status"
+	git status
+	e_header "🌳 Tree"
+	git lg master..develop -100
+}
+
 # Compare original and gzipped file size
 function gz() {
 	local origsize=$(wc -c < "$1");
