@@ -63,10 +63,12 @@ alias gc='git checkout'
 
 # Dev shortcuts
 alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
-alias art='php artisan'
 alias vapor='vendor/bin/vapor'
 alias sf='php bin/console'
+alias art='php artisan'
+alias be='bundle exec'
 alias rake='rake -s'
+alias r='bin/rails'
 
 if command -v bat > /dev/null 2>&1; then
   alias cat=bat
