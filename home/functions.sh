@@ -86,7 +86,8 @@ function gitio() {
 
 # git rebase branch
 function gupdate() {
-	BRANCH_NAME="develop"
+	name=$1
+	BRANCH_NAME=${name:=master}
 	DIRTY=false
     if ! git diff-index --quiet HEAD --; then
 		DIRTY=true
