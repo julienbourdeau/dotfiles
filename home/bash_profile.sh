@@ -56,17 +56,19 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# `autojump`
+# Load Utilities
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-# added by travis gem
-[ -f /Users/julien/.travis/travis.sh ] && source /Users/julien/.travis/travis.sh
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # NVM-related stuff
 [ -f /usr/local/opt/nvm/nvm.sh ] && . /usr/local/opt/nvm/nvm.sh
+
+# Golang
+export GO111MODULE=on
+export GOPROXY="https://proxy.golang.org,direct"
 
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=~/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
