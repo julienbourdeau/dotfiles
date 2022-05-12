@@ -111,7 +111,7 @@
 	prompt = false
 
 [pull]
-	rebase = preserve
+	rebase = true
 
 [push]
 	default = upstream
@@ -140,3 +140,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
