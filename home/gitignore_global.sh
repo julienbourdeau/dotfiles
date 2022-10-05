@@ -1,6 +1,9 @@
 .codemod.bookmark
 .php_cs.cache
 .phpunit.result.cache
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
 
 node_modules
 coverage.cov

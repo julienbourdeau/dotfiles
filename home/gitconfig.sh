@@ -58,7 +58,7 @@
 
 
 [core]
-	pager = delta --plus-color="#e6ffed" --minus-color="#ffeef0"
+	pager = delta
 	editor = subl -n -w
 	mergeoptions = --no-edit
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -73,6 +73,10 @@
 	precomposeunicode = false
 	excludesfile = ~/.gitignore_global
 	attributesfile = /Users/julien.bourdeau/.gitattributes_global
+
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = true       # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 
 
 [apply]
@@ -142,3 +146,5 @@
 	trustExitCode = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[init]
+	defaultBranch = master
