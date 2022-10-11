@@ -264,3 +264,7 @@ function migrate() {
 		bin/rails db:migrate
 	fi
 }
+
+function ts2utc() {
+	TZ="UTC" date -d @$1 -u "+%Y-%m-%d  %H:%M:%S  %Z (%:z)"
+}
