@@ -1,5 +1,6 @@
 # Disguise as IE 9 on Windows 7.
 #user-agent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
+progress-bar
 
 # When following a redirect, automatically set the previous URL as referer.
 referer = ";auto"

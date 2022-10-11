@@ -1,50 +1,46 @@
 #!/usr/bin/env bash
 
-# Install Brew Cask
-# https://github.com/caskroom/homebrew-cask
 
 # Install dev tools
 
-brew cask install iterm2
-brew cask install firefox
-brew cask install sourcetree
-brew cask install sublime-text
-brew cask install tableplus
-brew cask install insomnia
-brew cask install cyberduck
-brew cask install dash
+brew install --cask dash
+brew install --cask firefox
+brew install --cask insomnia
+brew install --cask cyberduck
+brew install --cask tableplus
+brew install --cask sourcetree
+brew install --cask virtualbox
+brew install --cask sublime-text
+brew install --cask jetbrains-toolbox
 
 # Install other softwares
 
-brew tap homebrew/cask-drivers
-
-brew cask install alfred
-brew cask install dropbox
-brew cask install sonos
-brew cask install spideroakone
-brew cask install discord
-brew cask install spotify
-brew cask install pocket-casts
-brew cask install teamviewer
-brew cask install tyke
-brew cask install vlc
-brew cask install whatsapp
-brew cask install transmission
-
+brew install --cask hey
+brew install --cask vlc
+brew install --cask tyke
+# brew install --cask slack
+brew install --cask signal
+brew install --cask alfred
+brew install --cask spotify
+brew install --cask whatsapp
+brew install --cask teamviewer
+brew install --cask pocket-casts
+brew install --cask transmission
+brew install --cask spideroakone
 
 # Install QuickView
 
-brew cask install qlmarkdown
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install quicklook-json
-brew cask install qlprettypatch
-brew cask install quicklook-csv
-brew cask install qlimagesize
-brew cask install webpquicklook
+# brew install --cask qlmarkdown
+# brew install --cask qlcolorcode
+# brew install --cask qlstephen
+# brew install --cask quicklook-json
+# brew install --cask qlprettypatch
+# brew install --cask quicklook-csv
+# brew install --cask qlimagesize
+# brew install --cask webpquicklook
 
 
 # Fonts
 brew tap homebrew/cask-fonts
 
-brew cask install font-fira-code
+brew install --cask font-fira-code
