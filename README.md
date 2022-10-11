@@ -1,50 +1,21 @@
 # Julien’s dotfiles
 
-## Installation
 
-### Using Git and the bootstrap script
+```
+$ ./dot
+Usage:
+./dot [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash] [--php]
 
-Clone this repository in `~/Projects`. The bootstrapper script will pull in the latest version and symlink the files to your home folder.
+Options:
+   -d | --dotfiles    Symlink dotfiles in home/ directory
+   -m | --mackup      Symlink Mackup config
+   -h | --hosts       Create local hosts files and symlink it
+   --php              Setup php prepended file
+   --sublime          Symlink Sublime Text preferences
+   --homebrew-bash    Add bash from homebrew to shell login and switch to it
 
-```bash
-git clone https://github.com/julienbourdeau/dotfiles.git && cd dotfiles && bash symlink-dotfiles.sh
 ```
 
-
-### Add custom commands
-
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands you don’t want to commit to a public repository.
-
-
-### Install order
-
-I recommend the following order when you bootstrap a new mac.
-
-#### 1. Install [Homebrew](http://brew.sh/)
-
-```bash
-./macos/brew.sh
-./macos/cask.sh
-```
-
-#### 2. Start Atom, close it and install deps
-
-```bash
-./atom/apm.sh
-```
-
-#### 3. Symlink everything
-
-The first time, you will have undefined functins, it' fine.
-```bash
-./install.sh
-```
-
-#### 4. Apply macos config (optional)
-
-```bash
-./macos/macos.sh
-```
 
 ## Note
 
