@@ -48,11 +48,6 @@ symlink_host_file() {
 symlink_dotfiles() {
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-  # Link `bin/` directory
-  # It's a `.bin` because I don't like seeing it
-  e_header "Symlinking custom ~/.bin directory"
-  symlink "$dotfiles/bin" "$HOME/.bin"
-
   # Link dotfiles
   e_header "Symlinking dotfiles"
   find home -name '*.sh' | while read -r location; do
