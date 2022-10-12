@@ -5,7 +5,7 @@
 export PATH="$HOME/.rvm/bin:/usr/local/opt/ruby/bin:$PATH"
 
 # Homebrew bin directories
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH";
 
 # Composer bin directory
 export PATH="$HOME/.composer/vendor/bin:$PATH";
@@ -21,8 +21,8 @@ export PATH="$PATH:$HOME/.bin:$HOME/bin";
 
 
 # Use GNU utils
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 
 ###############
@@ -30,8 +30,8 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 ###############
 
 # Manpages for GNU utils
-MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/opt/homebrew/opt/findutils/libexec/gnuman:$MANPATH"
+MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
 
 
 ###############
