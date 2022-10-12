@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Inspired GitHub Color Scheme/InspiredGitHub.tmTheme",
+	"color_scheme": "GitHub Light.sublime-color-scheme",
 	"font_size": 20,
 	"ignored_packages":
 	[
@@ -8,6 +8,6 @@
 	"line_padding_bottom": 4,
 	"line_padding_top": 4,
 	"save_on_focus_lost": true,
-	"theme": "Default.sublime-theme",
+	"theme": "GitHub Light.sublime-theme",
 	"word_wrap": true,
 }
