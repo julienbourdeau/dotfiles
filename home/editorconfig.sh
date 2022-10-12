@@ -11,6 +11,9 @@ end_of_line = lf
 [*.php]
 indent_size = 4
 
+[*.blade.php]
+indent_size = 2
+
 [*.json]
 indent_size = 4
 
