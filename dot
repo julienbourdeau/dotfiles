@@ -75,11 +75,11 @@ symlink_dotfiles() {
 symlink_sublime() {
   dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-  e_header "Symlinking Mackup config"
+  e_header "Symlinking Sublime Text config"
 
-  symlink "$dotfiles/macos/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+  symlink "$dotfiles/macos/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
 
-  e_note "You may need to restart Sublime Text"
+  e_note "Make sure you install the theme https://github.com/mauroreisvieira/github-sublime-theme"
 }
 
 setup_php() {
@@ -91,15 +91,6 @@ setup_php() {
   echo
 }
 
-symlink_mackup_config() {
-  dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-  e_header "Symlinking Mackup config"
-  symlink "$dotfiles/macos/mackup.cfg" "$HOME/.mackup.cfg"
-  symlink "$dotfiles/macos/mackup-custom" "$HOME/.mackup"
-
-  e_note "Make sure the mackup storage directory exists!"
-}
 
 ######################################################
 ##    USAGE
@@ -111,7 +102,6 @@ usage() {
   echo "" >&2
   echo "Options:" >&2
   echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
-  echo "   -m | --mackup      Symlink Mackup config" >&2
   echo "   -h | --hosts       Create local hosts files and symlink it" >&2
   echo "   --php              Setup php prepended file" >&2
   echo "   --sublime          Symlink Sublime Text preferences" >&2
@@ -138,9 +128,6 @@ case $i in
     ;;
     --php)
       setup_php;
-    ;;
-    -m|--mackup)
-      symlink_mackup_config
     ;;
     -h|--hosts)
       symlink_host_file
