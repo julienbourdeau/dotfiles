@@ -4,6 +4,7 @@
 # Install dev tools
 
 brew install --cask dash
+brew install --cask docker
 brew install --cask firefox
 brew install --cask insomnia
 brew install --cask cyberduck
@@ -21,7 +22,9 @@ brew install --cask tyke
 # brew install --cask slack
 brew install --cask signal
 brew install --cask alfred
+brew install --cask setapp
 brew install --cask spotify
+brew install --cask evernote
 brew install --cask whatsapp
 brew install --cask teamviewer
 brew install --cask pocket-casts

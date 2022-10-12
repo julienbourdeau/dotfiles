@@ -70,10 +70,7 @@ brew install trash
 brew install gnupg2
 brew install shellcheck
 brew install vault
-brew install evernote
 brew install yamllint
-brew install vault
-brew install setapp
 
 brew install docker
 
