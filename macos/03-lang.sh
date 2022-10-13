@@ -2,7 +2,7 @@
 
 source "./00-brew.sh"
 
-e_header "Installing Database systems"
+e_title "Installing Database systems"
 
 e_arrow "Installing sqlite"
 brew install sqlite
@@ -14,7 +14,7 @@ e_arrow "Installing mysql v5.7"
 brew install mysql@5.7
 
 
-e_header "Installing PHP ecosystem"
+e_title "Installing PHP ecosystem"
 
 brew install php
 brew install composer
@@ -28,25 +28,42 @@ e_arrow "Installing Valet"
 
 composer global require laravel/valet
 valet install
-valet tld laravel
 valet trust
 
 
-e_header "Installing Node.js ecosystem"
+e_title "Installing Node.js ecosystem"
 
 brew install nvm
+nvm install node
 npm install -g yarn eslint
 
 
-e_header "Installing Go"
+echo 
+nvm list
+echo
+
+
+e_title "Installing Go"
 
 brew install go
 
+echo 
+e_arrow $(go version)
+echo
 
-e_header "Installing Ruby ecosystem"
 
-gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+e_title "Installing Ruby ecosystem"
+
+gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 \curl -sSL https://get.rvm.io | bash -s stable --rails
+
+echo 
+e_arrow $(rvm --version)
+echo
 
 e_arrow "Also install latest 2.7"
 rvm install 2.7
+
+echo 
+rvm list
+echo

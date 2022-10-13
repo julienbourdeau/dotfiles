@@ -37,10 +37,7 @@ brew install screen
 
 
 # Install git tools
-# brew install git
-# brew install git-lfs
-# brew install hub
-# brew install bfg # requires Java
+brew install git
 brew install git-open	
 
 
