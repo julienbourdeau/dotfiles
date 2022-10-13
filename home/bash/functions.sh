@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
-# Headers and messages
-function e_header() { printf "\n${yellow}==========  %s  ==========${reset}\n" "$@"
-}
-function e_arrow() { printf "➜ $@\n"
-}
-function e_success() { printf "${green}✔ %s${reset}\n" "$@"
-}
-function e_error() { printf "${red}✖ %s${reset}\n" "$@"
-}
-function e_warning() { printf "${purple}➜ %s${reset}\n" "$@"
-}
-function e_note() { printf "${blue}Note: %s${reset}\n" "$@"
-}
 
 # Create a new directory and enter it
 function mkd() {
@@ -236,19 +223,6 @@ function o() {
 	else
 		open "$@";
 	fi;
-}
-
-function homestead() {
-	if [[ $1 == 'edit' ]]; then
-		subl ~/bin/Homestead/Homestead.yaml
-	else
-		( cd ~/bin/Homestead && vagrant $* )
-	fi;
-}
-
-function python_init() {
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
 }
 
 function vault_login() {

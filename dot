@@ -50,7 +50,13 @@ symlink_dotfiles() {
 
   # Link dotfiles
   e_header "Symlinking dotfiles"
-  find home -name '*.sh' | while read -r location; do
+
+  find home -mindepth 1 -type d | while read -r location; do
+    file="${location##*/}"
+    symlink "$dotfiles/$location" "$HOME/.$file"
+  done
+
+  find home -maxdepth 1 -name '*.sh' | while read -r location; do
     file="${location##*/}"
     file="${file%.sh}"
     symlink "$dotfiles/$location" "$HOME/.$file"

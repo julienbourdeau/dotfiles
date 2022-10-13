@@ -1,6 +1,6 @@
 [user]
 	name = Julien Bourdeau
-	email = julien@sigerr.org
+	email = julien@julienbourdeau.com
 
 [github]
 	user = julienbourdeau
