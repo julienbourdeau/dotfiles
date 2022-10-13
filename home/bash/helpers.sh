@@ -40,3 +40,14 @@ function e_note() {
 }
 
 export -f e_header e_arrow e_success e_error e_warning e_note
+
+
+function load_file() {
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+}
+
+function load_all_files() {
+	for file in $1; do
+		[ -r "$file" ] && [ -f "$file" ] && source "$file";
+	done;
+}

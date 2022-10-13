@@ -2,18 +2,13 @@
 #  General Config
 ######################### 
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.bash/{path,vars,aliases,functions,helpers,bash_prompt,extra}.sh; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
-# Export variables from ~/.env to the environment
-if [ -f "$HOME/.env" ]; then
-  export $(egrep -v '^#' $HOME/.env | xargs)
-fi;
+load_file "$HOME/.bash/path.sh"
+load_file "$HOME/.bash/vars.sh"
+load_file "$HOME/.bash/aliases.sh"
+load_file "$HOME/.bash/functions.sh"
+load_file "$HOME/.bash/helpers.sh"
+load_file "$HOME/.bash/bash_prompt.sh"
+load_file "$HOME/.bash/extra.sh"
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
@@ -28,21 +23,18 @@ shopt -s cdspell;
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null;
+  shopt -s "$option" 2> /dev/null;
 done;
+
 
 ######################### 
 #  Autocompletion
 ######################### 
 
-if [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
-fi;
+load_file "/etc/bash_completion";
 
 if which brew &> /dev/null; then
-	for file in $(brew --prefix)/etc/bash_completion.d/*;
-	  do [ -r "$file" ] && [ -f "$file" ] && source "$file";
-	done
+  load_all_files "$(brew --prefix)/etc/bash_completion.d/*"
 fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
@@ -57,32 +49,24 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 
 ######################### 
+#  Load vars from .env
+######################### 
+
+# Export variables from ~/.env to the environment
+if [ -f "$HOME/.env" ]; then
+  export $(egrep -v '^#' $HOME/.env | xargs)
+fi;
+
+
+######################### 
 #  Load utilities
 ######################### 
 
-files=(
-	"$HOME/.rvm/scripts/rvm"
-	"$HOME/.fzf.bash"
-)
+load_file "$HOME/.rvm/scripts/rvm"
+load_file "$HOME/.fzf.bash"
+
 if which brew &> /dev/null; then
-	files+=(
-		"$(brew --prefix)/opt/nvm/nvm.sh"
-		# "$HOME/.bash/iterm2_shell_integration.sh"
-	)
+  load_file "$(brew --prefix)/opt/nvm/nvm.sh"
+  # load_file "$HOME/.bash/iterm2_shell_integration.sh"
+  load_all_files "$(brew --prefix)/etc/profile.d/*.sh"
 fi;
-
-for file in ${files[@]}; do
-	# echo $file
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-
-# Only if there is homebrew (so every macos computer)
-if which brew &> /dev/null; then
-	for file in $(brew --prefix)/etc/profile.d/*.sh;
-	  do [ -r "$file" ] && [ -f "$file" ] && source "$file";
-	done
-fi;
-
-unset files;
-unset file;
-unset file;
