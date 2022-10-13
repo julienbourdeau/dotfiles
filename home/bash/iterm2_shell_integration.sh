@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # The iTerm2 customizations fall under the following license:
 #
 # This program is free software; you can redistribute it and/or

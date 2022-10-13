@@ -62,25 +62,27 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 files=(
 	"$HOME/.rvm/scripts/rvm"
-	"~/.fzf.bash"
+	"$HOME/.fzf.bash"
 )
-for file in $files; do
+if which brew &> /dev/null; then
+	files+=(
+		"$(brew --prefix)/opt/nvm/nvm.sh"
+		# "$HOME/.bash/iterm2_shell_integration.sh"
+	)
+fi;
+
+for file in ${files[@]}; do
+	# echo $file
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
 # Only if there is homebrew (so every macos computer)
 if which brew &> /dev/null; then
-	files=(
-		"$(brew --prefix)/opt/nvm/nvm.sh"
-	)
-	for file in $files; do
-		[ -r "$file" ] && [ -f "$file" ] && source "$file";
-	done;
-
 	for file in $(brew --prefix)/etc/profile.d/*.sh;
 	  do [ -r "$file" ] && [ -f "$file" ] && source "$file";
 	done
 fi;
 
 unset files;
+unset file;
 unset file;
