@@ -38,7 +38,8 @@ brew install screen
 
 # Install git tools
 brew install git
-brew install git-open	
+brew install git-open
+brew install git-delta
 
 
 # Install compression tools

@@ -3406,13 +3406,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.29999999999999999</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.29999999999999999</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.29999999999999999</real>
 			</dict>
 			<key>Ansi 2 Color</key>
 			<dict>
@@ -3484,13 +3484,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.10000000000000001</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.10000000000000001</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.10000000000000001</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
@@ -3949,7 +3949,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 11</string>
+			<string>FiraCodeRoman-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
