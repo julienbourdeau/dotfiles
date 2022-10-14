@@ -9,6 +9,7 @@ load_file "$HOME/.bash/vars.sh"
 load_file "$HOME/.bash/aliases.sh"
 load_file "$HOME/.bash/functions.sh"
 load_file "$HOME/.bash/bash_prompt.sh"
+load_file "$HOME/.bash/dev.sh"
 load_file "$HOME/.bash/extra.sh"
 
 # Case-insensitive globbing (used in pathname expansion)
