@@ -14,7 +14,7 @@ indent_size = 4
 [*.blade.php]
 indent_size = 2
 
-[*.json]
+[*.{json,yml,yaml}]
 indent_size = 4
 
 [*.md]
