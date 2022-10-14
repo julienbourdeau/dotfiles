@@ -30,6 +30,10 @@ composer global require laravel/valet
 valet install
 valet trust
 
+valet_env_file="$HOME/.config/valet/.valet-env.php"
+e_note "Storing DB_PASSWORD in $valet_env_file"
+sed -E "s/PWD_PLACEHOLDER/$DB_PASSWORD/g" "../etc/valet-env.php" > "$valet_env_file"
+
 
 e_title "Installing Node.js ecosystem"
 
@@ -38,7 +42,7 @@ nvm install node
 npm install -g yarn eslint
 
 
-echo 
+echo
 nvm list
 echo
 
@@ -47,7 +51,7 @@ e_title "Installing Go"
 
 brew install go
 
-echo 
+echo
 e_arrow $(go version)
 echo
 
@@ -57,13 +61,13 @@ e_title "Installing Ruby ecosystem"
 gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 \curl -sSL https://get.rvm.io | bash -s stable --rails
 
-echo 
+echo
 e_arrow $(rvm --version)
 echo
 
 e_arrow "Also install latest 2.7"
 rvm install 2.7
 
-echo 
+echo
 rvm list
 echo
