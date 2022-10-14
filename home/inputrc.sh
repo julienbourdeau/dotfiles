@@ -4,6 +4,9 @@ set completion-ignore-case on
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
 
+# Autocomplete and rotate through all possible completions
+"\C-i": menu-complete
+
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
 
