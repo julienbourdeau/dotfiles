@@ -22,7 +22,6 @@ brew install --cask tyke
 # brew install --cask slack
 brew install --cask signal
 brew install --cask alfred
-brew install --cask setapp
 brew install --cask spotify
 brew install --cask evernote
 brew install --cask whatsapp
@@ -30,6 +29,14 @@ brew install --cask teamviewer
 brew install --cask pocket-casts
 brew install --cask transmission
 brew install --cask spideroakone
+
+brew install --cask 1password
+brew install --cask 1password/tap/1password-cli
+
+
+# Fonts
+# brew tap homebrew/cask-fonts
+# brew install --cask font-fira-code
 
 # Install QuickView
 
@@ -42,8 +49,3 @@ brew install --cask spideroakone
 # brew install --cask qlimagesize
 # brew install --cask webpquicklook
 
-
-# Fonts
-brew tap homebrew/cask-fonts
-
-brew install --cask font-fira-code
