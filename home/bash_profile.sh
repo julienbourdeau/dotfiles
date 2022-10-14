@@ -1,12 +1,13 @@
-######################### 
+#########################
 #  General Config
-######################### 
+#########################
+
+source "$HOME/.bash/helpers.sh"
 
 load_file "$HOME/.bash/path.sh"
 load_file "$HOME/.bash/vars.sh"
 load_file "$HOME/.bash/aliases.sh"
 load_file "$HOME/.bash/functions.sh"
-load_file "$HOME/.bash/helpers.sh"
 load_file "$HOME/.bash/bash_prompt.sh"
 load_file "$HOME/.bash/extra.sh"
 
@@ -27,9 +28,9 @@ for option in autocd globstar; do
 done;
 
 
-######################### 
+#########################
 #  Autocompletion
-######################### 
+#########################
 
 load_file "/etc/bash_completion";
 
@@ -48,19 +49,19 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 
-######################### 
+#########################
 #  Load vars from .env
-######################### 
+#########################
 
 # Export variables from ~/.env to the environment
 if [ -f "$HOME/.env" ]; then
-  export $(egrep -v '^#' $HOME/.env | xargs)
+  export "$(egrep -v '^#' $HOME/.env | xargs)"
 fi;
 
 
-######################### 
+#########################
 #  Load utilities
-######################### 
+#########################
 
 load_file "$HOME/.rvm/scripts/rvm"
 load_file "$HOME/.fzf.bash"

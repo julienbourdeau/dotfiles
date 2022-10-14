@@ -12,7 +12,7 @@ export cyan="\e[36m";
 export white="\e[1;37m";
 
 # Headers and messages
-function e_title() { 
+function e_title() {
 	echo
 	echo
 	printf "\n${yellow}---------------------------------------------------${reset}\n" "$@"
@@ -20,30 +20,29 @@ function e_title() {
 	printf "\n${yellow}---------------------------------------------------${reset}\n" "$@"
 	echo
 }
-function e_header() { 
+function e_header() {
 	printf "\n${yellow}==========  %s  ==========${reset}\n" "$@"
 }
-function e_arrow() { 
+function e_arrow() {
 	printf "➜ $@\n"
 }
-function e_success() { 
+function e_success() {
 	printf "${green}✔ %s${reset}\n" "$@"
 }
-function e_error() { 
+function e_error() {
 	printf "${red}✖ %s${reset}\n" "$@"
 }
-function e_warning() { 
+function e_warning() {
 	printf "${purple}➜ %s${reset}\n" "$@"
 }
-function e_note() { 
+function e_note() {
 	printf "${blue}Note: %s${reset}\n" "$@"
 }
 
 export -f e_header e_arrow e_success e_error e_warning e_note
 
-
 function load_file() {
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+	[ -r "$1" ] && [ -f "$1" ] && source "$1";
 }
 
 function load_all_files() {
