@@ -62,64 +62,6 @@ function dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-# git rebase branch
-function gupdate() {
-	name=$1
-	BRANCH_NAME=${name:=master}
-	DIRTY=false
-    if ! git diff-index --quiet HEAD --; then
-		DIRTY=true
-		e_note "Working directory has uncommitted changes"
-	fi
-
-	if $DIRTY; then
-		git stash
-	fi
-
-	e_header "Update $BRANCH_NAME branch"
-	git checkout $BRANCH_NAME
-	git pull
-	git checkout -
-
-	e_header "Rebase on top of $BRANCH_NAME"
-	git rebase $BRANCH_NAME
-
-	if $DIRTY; then
-		e_note "Restore stashed changes"
-		git stash pop
-	fi
-	e_success "Updated"
-
-	e_header "Current status"
-	git status
-	e_header "🌳 Tree"
-	git lg -10
-}
-
-
-function gdeploy() {
-	MAIN_BRANCH_NAME="master"
-	STAGING_BRANCH_NAME="develop"
-
-    if ! git diff-index --quiet HEAD --; then
-		e_error "Cannot prepare release with dirty working directory"
-		return 12
-	fi
-
-	e_header "Update $STAGING_BRANCH_NAME branch"
-	git checkout $STAGING_BRANCH_NAME
-	git pull
-
-	e_header "Update $MAIN_BRANCH_NAME branch"
-	git checkout $MAIN_BRANCH_NAME
-	git pull
-
-	e_header "Current status"
-	git status
-	e_header "🌳 Tree"
-	git lg master..develop -100
-}
-
 # Compare original and gzipped file size
 function gz() {
 	local origsize=$(wc -c < "$1");

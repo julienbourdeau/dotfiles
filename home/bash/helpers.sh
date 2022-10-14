@@ -21,7 +21,7 @@ function e_title() {
 	echo
 }
 function e_header() {
-	printf "\n${yellow}==========  %s  ==========${reset}\n" "$@"
+	printf "\n\n${yellow}==========  %s  ==========${reset}\n" "$@"
 }
 function e_arrow() {
 	printf "➜ $@\n"
