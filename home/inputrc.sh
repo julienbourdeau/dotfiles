@@ -5,7 +5,8 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 
 # Autocomplete and rotate through all possible completions
-"\C-i": menu-complete
+# -- So far I hate it
+# "\C-i": menu-complete
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
