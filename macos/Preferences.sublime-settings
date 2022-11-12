@@ -5,8 +5,8 @@
 	[
 		"Vintage",
 	],
-	"line_padding_bottom": 4,
-	"line_padding_top": 4,
+	"line_padding_bottom": 8,
+	"line_padding_top": 8,
 	"save_on_focus_lost": true,
 	"theme": "GitHub Light.sublime-theme",
 	"word_wrap": true,
