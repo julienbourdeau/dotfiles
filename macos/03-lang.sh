@@ -66,7 +66,7 @@ e_arrow $(rvm --version)
 echo
 
 e_arrow "Also install latest 2.7"
-rvm install 2.7
+rvm install 2.7.6
 
 echo
 rvm list

@@ -21,6 +21,9 @@ export MANPAGER='less -X';
 # Golang
 export GO111MODULE=on
 export GOPROXY="https://proxy.golang.org,direct"
+export GOPRIVATE=github.com/algolia
 
 # Set up bat config: https://github.com/sharkdp/bat#configuration-file
 export BAT_THEME=GitHub
+
+export NVM_DIR="$HOME/.nvm"

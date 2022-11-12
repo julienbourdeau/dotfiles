@@ -41,7 +41,7 @@ alias egrep='egrep --color=auto'
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-alias tree="tree -aC -I '.git|node_modules|.idea' --dirsfirst $1"
+# alias tree="tree -aC -I '.git|node_modules|.idea' --dirsfirst '$1'"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
@@ -62,6 +62,7 @@ alias nah='git reset HEAD --hard'
 alias gc='git checkout'
 
 # Dev shortcuts
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
 alias vapor='vendor/bin/vapor'
 alias sf='php bin/console'

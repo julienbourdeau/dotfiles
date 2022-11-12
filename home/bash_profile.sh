@@ -4,8 +4,8 @@
 
 source "$HOME/.bash/helpers.sh"
 
-load_file "$HOME/.bash/path.sh"
 load_file "$HOME/.bash/vars.sh"
+load_file "$HOME/.bash/path.sh"
 load_file "$HOME/.bash/aliases.sh"
 load_file "$HOME/.bash/functions.sh"
 load_file "$HOME/.bash/bash_prompt.sh"
