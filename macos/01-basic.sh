@@ -69,8 +69,7 @@ brew install gnupg2
 brew install shellcheck
 brew install vault
 brew install yamllint
-
-brew install docker
+brew install shared-mime-info
 
 
 # Remove outdated versions from the cellar.
