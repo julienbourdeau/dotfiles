@@ -119,9 +119,9 @@
 
 [push]
 	default = upstream
+	autoSetupRemote = true
 
 [rerere]
-	# If, like me, you like rerere, decomment these
 	autoupdate = true
 	enabled = true
 
