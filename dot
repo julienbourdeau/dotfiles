@@ -108,7 +108,7 @@ setup_php() {
 
 usage() {
   echo "Usage:" >&2
-  echo "$0 [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash] [--php]" >&2
+  echo "$0 [--dotfiles] [--sublime] [--hosts] [--homebrew-bash] [--php]" >&2
   echo "" >&2
   echo "Options:" >&2
   echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
