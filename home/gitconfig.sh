@@ -48,7 +48,8 @@
 
 	# Workflow & Management
 	yolo = "!f() { git add .; git oops --no-verify; git push -f; }; f"
-	wip = "!f() { git add .; git commit -m \"🚨 WIP\" --no-verify; }; f"
+	wip = "!f() { git add .; git commit -m \"wip\" --no-verify; }; f"
+	wiiip = "!f() { git add .; git commit -m \"🚨 WIP\" --no-verify; }; f"
 	resume = "!f() { git lg -3; git reset HEAD^; git status; git lg -3; }; f"
 	ours = "!f() { git checkout --ours -- $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs -- $@ && git add $@; }; f"

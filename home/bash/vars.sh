@@ -27,3 +27,5 @@ export GOPRIVATE=github.com/algolia
 export BAT_THEME=GitHub
 
 export NVM_DIR="$HOME/.nvm"
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True

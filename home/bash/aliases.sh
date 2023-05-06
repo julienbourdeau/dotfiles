@@ -41,7 +41,7 @@ alias egrep='egrep --color=auto'
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-# alias tree="tree -aC -I '.git|node_modules|.idea' --dirsfirst '$1'"
+ alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst '$1'"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
@@ -70,6 +70,7 @@ alias art='php artisan'
 alias be='bundle exec'
 alias rake='rake -s'
 alias r='bin/rails'
+alias k='kubectl'
 
 if command -v bat > /dev/null 2>&1; then
   alias cat=bat

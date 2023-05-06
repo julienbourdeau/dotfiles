@@ -22,6 +22,7 @@ brew install --cask tyke
 # brew install --cask slack
 brew install --cask signal
 brew install --cask alfred
+brew install --cask calibre
 brew install --cask spotify
 brew install --cask evernote
 brew install --cask whatsapp
