@@ -16,6 +16,9 @@ export PATH="$PATH:/opt/homebrew/mysql/bin:/opt/homebrew/opt/mysql@5.7/bin"
 # Add Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Google Cloud SDK
+source "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+
 #custom path
 export PATH="$PATH:$HOME/.bin:$HOME/bin";
 
