@@ -10,4 +10,5 @@
 	"save_on_focus_lost": true,
 	"theme": "GitHub Light.sublime-theme",
 	"word_wrap": true,
+	"index_files": true,
 }

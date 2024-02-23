@@ -2,12 +2,24 @@ root = true
 
 [*]
 charset = utf-8
+end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.php]
+indent_size = 4
 
 [*.blade.php]
 indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
+
+[docker-compose.yml]
+indent_size = 4
+
+[*.blade.php]
+indent_size = 2
+

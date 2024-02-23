@@ -66,7 +66,8 @@ fi;
 #  Load utilities
 #########################
 
-load_file "$HOME/.rvm/scripts/rvm"
+eval "$(rbenv init -)"
+
 load_file "$HOME/.fzf.bash"
 
 if which brew &> /dev/null; then

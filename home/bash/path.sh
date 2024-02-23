@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# Ruby and RVM
-# Might need to change it to be the last PATH variable change.
-export PATH="$HOME/.rvm/bin:/usr/local/opt/ruby/bin:$PATH"
+# Ruby
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 # Homebrew bin directories
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH";

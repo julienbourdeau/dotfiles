@@ -1,3 +1,5 @@
+.env
+
 .codemod.bookmark
 .php_cs.cache
 .phpunit.result.cache
