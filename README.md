@@ -22,6 +22,7 @@ Options:
 ### Install all the things
 
 ```sh
+exec bash
 ./macos/00-brew.sh
 ./macos/01-basic.sh
 ./macos/02-apps.sh
