@@ -18,8 +18,15 @@ Options:
 
 ## Install new mac
 
+1. Install 1password
+1. Connect Apple iCloud account
+1. Create SSH key, add it to github
+1. Clone this repo
+1. Follow the steps below
 
 ### Install all the things
+
+Use bash, not the default zsh.
 
 ```sh
 exec bash
@@ -43,6 +50,26 @@ exec bash
 Configure iTerm to use `misc/terminal`.
 
 ![](https://user-images.githubusercontent.com/1525636/201951710-1df49a04-7600-4e53-8bec-d0c4cbe0fe0c.png)
+
+### 1password-cli (ssh-agent)
+
+...
+
+### /etc/pam.d/sudo
+
+Use TouchID to _sudo_ instead of password.
+
+```diff
+# sudo: auth account password session
++ auth       sufficient     pam_tid.so
+auth       sufficient     pam_smartcard.so
+auth       required       pam_opendirectory.so
+account    required       pam_permit.so
+password   required       pam_deny.so
+session    required       pam_permit.so
+```
+
+Source: https://davidwalsh.name/touch-sudo
 
 ## Thanks to…
 
