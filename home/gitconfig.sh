@@ -72,8 +72,8 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
-	excludesfile = /Users/julien/.gitignore_global
-	attributesfile = /Users/julien.bourdeau/.gitattributes_global
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
 
 [delta]
 	navigate = true    # use n and N to move between diff sections
