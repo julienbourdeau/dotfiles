@@ -32,3 +32,5 @@ export BAT_THEME=GitHub
 export NVM_DIR="$HOME/.nvm"
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock

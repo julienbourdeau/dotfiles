@@ -6,6 +6,11 @@ export PATH="$HOME/.rbenv/shims:$PATH"
 # Homebrew bin directories
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH";
 
+SUBLIMEPATH=/Applications/'Sublime Text.app'/Contents/SharedSupport/bin
+if [ -d "$SUBLIMEPATH" ]; then
+    export PATH="$SUBLIMEPATH:$PATH";
+fi
+
 # Composer bin directory
 export PATH="$HOME/.composer/vendor/bin:$PATH";
 
@@ -16,7 +21,11 @@ export PATH="$PATH:/opt/homebrew/mysql/bin:/opt/homebrew/opt/mysql@5.7/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 # Google Cloud SDK
-source "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+gcloudsdk="$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+if test -f "$gcloudsdk"; then
+    source gcloudsdk
+fi
+
 
 #custom path
 export PATH="$PATH:$HOME/.bin:$HOME/bin";

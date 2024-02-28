@@ -10,8 +10,8 @@ e_arrow "Installing redis"
 brew install redis
 e_arrow "Installing postgresql"
 brew install postgresql
-e_arrow "Installing mysql v5.7"
-brew install mysql@5.7
+e_arrow "Installing mysql"
+brew install mysql
 
 
 e_title "Installing PHP ecosystem"
@@ -47,27 +47,3 @@ nvm list
 echo
 
 
-e_title "Installing Go"
-
-brew install go
-
-echo
-e_arrow $(go version)
-echo
-
-
-# e_title "Installing Ruby ecosystem"
-
-# gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-# \curl -sSL https://get.rvm.io | bash -s stable --rails
-
-# echo
-# e_arrow $(rvm --version)
-# echo
-
-# e_arrow "Also install latest 2.7"
-# rvm install 2.7.6
-
-# echo
-# rvm list
-# echo

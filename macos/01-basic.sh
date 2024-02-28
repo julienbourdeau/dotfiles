@@ -71,6 +71,7 @@ brew install vault
 brew install yamllint
 brew install shared-mime-info
 
+brew install 1password-cli
 
 # Remove outdated versions from the cellar.
 brew cleanup
