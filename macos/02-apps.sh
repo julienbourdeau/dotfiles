@@ -8,6 +8,7 @@ brew install --cask insomnia
 brew install --cask cyberduck
 brew install --cask tableplus
 brew install --cask sourcetree
+brew install --cask sublime-text
 
 # Install other softwares
 
