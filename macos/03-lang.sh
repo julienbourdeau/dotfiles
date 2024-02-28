@@ -14,32 +14,15 @@ e_arrow "Installing mysql"
 brew install mysql
 
 
-e_title "Installing PHP ecosystem"
+e_title "Installing PHP ecosystem... with Laravel Herd"
 
-brew install php
-brew install composer
-brew install wp-cli
-
-composer global require psy/psysh
-composer global require friendsofphp/php-cs-fixer
-composer global require laravel/installer
-
-e_arrow "Installing Valet"
-
-composer global require laravel/valet
-valet install
-valet trust
-
-valet_env_file="$HOME/.config/valet/.valet-env.php"
-e_note "Storing DB_PASSWORD in $valet_env_file"
-sed -E "s/PWD_PLACEHOLDER/$DB_PASSWORD/g" "../etc/valet-env.php" > "$valet_env_file"
-
+brew install --cask herd
 
 e_title "Installing Node.js ecosystem"
 
 brew install nvm
 nvm install node
-npm install -g yarn eslint
+npm install -g yarn eslint doctoc prettier
 
 
 echo
