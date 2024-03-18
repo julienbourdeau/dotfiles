@@ -4,6 +4,7 @@
 # Install dev tools
 
 brew install --cask dash
+brew install --cask iterm2
 brew install --cask insomnia
 brew install --cask cyberduck
 brew install --cask tableplus
@@ -15,10 +16,12 @@ brew install --cask sublime-text
 brew install --cask hey
 brew install --cask vlc
 brew install --cask tyke
+brew install --cask zoom
 brew install --cask slack
 brew install --cask signal
 brew install --cask alfred
 brew install --cask calibre
+brew install --cask dropbox
 brew install --cask spotify
 brew install --cask whatsapp
 brew install --cask pocket-casts
