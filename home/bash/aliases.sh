@@ -72,6 +72,8 @@ alias rake='rake -s'
 alias r='bin/rails'
 alias k='kubectl'
 
+alias lago="docker-compose -f $LAGO_PATH/docker-compose.dev.yml"
+
 if command -v bat > /dev/null 2>&1; then
   alias cat=bat
 fi
