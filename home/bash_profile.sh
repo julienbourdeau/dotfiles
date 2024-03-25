@@ -1,3 +1,15 @@
+
+#########################
+#  Load vars from .env
+#########################
+
+# Export variables from ~/.env to the environment
+if [ -f "$HOME/.env" ]; then
+  for envvar in $(egrep -v '^#' $HOME/.env | xargs -n1); do
+    export "$envvar";
+  done;
+fi;
+
 #########################
 #  General Config
 #########################
@@ -49,17 +61,6 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-
-#########################
-#  Load vars from .env
-#########################
-
-# Export variables from ~/.env to the environment
-if [ -f "$HOME/.env" ]; then
-  for envvar in $(egrep -v '^#' $HOME/.env | map); do
-    export "$envvar";
-  done;
-fi;
 
 
 #########################
