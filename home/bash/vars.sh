@@ -29,8 +29,6 @@ export GOPRIVATE=github.com/algolia
 # Set up bat config: https://github.com/sharkdp/bat#configuration-file
 export BAT_THEME=GitHub
 
-export NVM_DIR="$HOME/.nvm"
-
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export HOMEBREW_NO_AUTO_UPDATE=1
 

@@ -58,5 +58,4 @@ export PATH="$GOPATH/bin:$PATH:$GOROOT/bin";
 #     MISC    #
 ###############
 
-export NVM_DIR="$HOME/.nvm"
 
