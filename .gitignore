@@ -2,3 +2,4 @@ bin/idea1
 etc/hosts.local
 vendor
 composer.lock
+home/bash/bash_completion.d

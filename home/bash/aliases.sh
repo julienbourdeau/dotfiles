@@ -54,15 +54,13 @@ alias nah='git reset HEAD --hard'
 alias gc='git checkout'
 
 # Dev shortcuts
-alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
-alias vapor='vendor/bin/vapor'
-alias sf='php bin/console'
 alias art='php artisan'
 alias be='bundle exec'
 alias rake='rake -s'
 alias r='bin/rails'
 alias k='kubectl'
+alias p='porter'
 
 alias lago="docker-compose -f $LAGO_PATH/docker-compose.dev.yml"
 

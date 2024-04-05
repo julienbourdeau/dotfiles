@@ -51,6 +51,8 @@ if which brew &> /dev/null; then
   load_all_files "$(brew --prefix)/etc/bash_completion.d/*"
 fi;
 
+load_all_files "$HOME/.bash/bash_completion.d/*"
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
