@@ -1,7 +1,7 @@
 {
     "require": {
-        "symfony/var-dumper": "^4.3",
-        "illuminate/collections": "^8.0@dev"
+        "symfony/var-dumper": "*",
+        "illuminate/collections": "*"
     },
     "minimum-stability": "dev"
 }
