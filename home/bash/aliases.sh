@@ -17,18 +17,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# List all files colorized in long format
-alias l="ls -lhF ${colorflag}"
+
+alias ls="command ls ${colorflag}"  # Always use color output for `ls`
+alias l="ls -lhF ${colorflag}"      # List all files colorized in long format
 alias ll="l -a"
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'" # List only directories
 
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -38,10 +32,8 @@ alias egrep='egrep --color=auto'
 
 
 # `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
- alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst '$1'"
+# the `.git` directory, listing directories first.
+ alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
