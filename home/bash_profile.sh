@@ -77,7 +77,7 @@ load_file "$HOME/.fzf.bash"
 
 if which brew &> /dev/null; then
   load_file "$(brew --prefix)/opt/nvm/nvm.sh"
-  load_file "$HOME/.bash/iterm2_shell_integration.sh"
+#  load_file "$HOME/.bash/iterm2_shell_integration.sh"
   load_all_files "$(brew --prefix)/etc/profile.d/*.sh"
 fi;
 
