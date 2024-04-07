@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+function dot() {
+  dotfiles_dir="$HOME/etc/dotfiles"
+  cd $dotfiles_dir || echo "not found"
+  subl $dotfiles_dir
+  gs
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
