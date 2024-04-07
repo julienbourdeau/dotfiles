@@ -51,7 +51,6 @@ brew install brotli
 # Install other useful binaries.
 brew install jq
 brew install bat
-brew install autojump
 brew install httpie
 brew install tldr
 brew install codemod
