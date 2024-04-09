@@ -62,7 +62,9 @@ alias r='bin/rails'
 alias k='kubectl'
 alias p='porter'
 
-alias lago="docker-compose -f $LAGO_PATH/docker-compose.dev.yml"
+if [ ! -z $LAGO_PATH ]; then
+  alias lago="docker-compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
+fi
 
 if command -v bat > /dev/null 2>&1; then
   alias cat=bat
