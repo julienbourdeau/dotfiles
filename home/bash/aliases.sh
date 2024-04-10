@@ -50,8 +50,8 @@ alias gl='git lg'
 alias gd='git diff .'
 alias gci='git commit -m'
 alias grbase='git rebase -i --autosquash'
-alias nah='git reset HEAD --hard'
 alias gc='git checkout'
+alias gcb='gc -b'
 
 # Dev shortcuts
 alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
