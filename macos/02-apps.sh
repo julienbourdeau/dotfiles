@@ -24,6 +24,7 @@ brew install --cask calibre
 brew install --cask dropbox
 brew install --cask spotify
 brew install --cask whatsapp
+brew install --cask rectangle
 brew install --cask pocket-casts
 brew install --cask transmission
 brew install --cask spideroakone
