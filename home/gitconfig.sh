@@ -75,6 +75,7 @@
 	precomposeunicode = false
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes_global
+	ignoreRevFile = .git-blame-ignore-revs
 
 [delta]
 	navigate = true    # use n and N to move between diff sections

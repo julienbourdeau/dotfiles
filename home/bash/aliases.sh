@@ -46,6 +46,7 @@ alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 
 # Git shortcuts
 alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
+alias gg='git add . && git commit --amend'
 alias gl='git lg'
 alias gd='git diff .'
 alias gci='git commit -m'
@@ -61,6 +62,8 @@ alias rake='rake -s'
 alias r='bin/rails'
 alias k='kubectl'
 alias p='porter'
+
+# alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 alias phpstorm=idea
 
