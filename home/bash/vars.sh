@@ -30,6 +30,5 @@ export GOPRIVATE=github.com/algolia
 export BAT_THEME=GitHub
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 export SSH_AUTH_SOCK=~/.1password/agent.sock

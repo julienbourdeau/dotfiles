@@ -10,12 +10,12 @@ function gclone() {
       echo
       laravel_after_clone
     fi;
+    gs
 }
 
 # git rebase branch
 function gupdate() {
-	name=$1
-	BRANCH_NAME=${name:=master}
+	BRANCH_NAME=$1
 	DIRTY=false
     if ! git diff-index --quiet HEAD --; then
 		DIRTY=true

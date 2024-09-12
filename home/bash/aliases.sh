@@ -62,8 +62,11 @@ alias r='bin/rails'
 alias k='kubectl'
 alias p='porter'
 
+alias phpstorm=idea
+
 if [ ! -z $LAGO_PATH ]; then
-  alias lago="docker-compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
+  alias lago="docker  compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
+  alias lagup="lago up -d db redis traefik mailhog clickhouse license && lago up front api api-worker api-clock pdf"
 fi
 
 if command -v bat > /dev/null 2>&1; then
