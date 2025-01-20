@@ -24,7 +24,7 @@ function e_header() {
 	printf "\n\n${yellow}==========  %s  ==========${reset}\n" "$@"
 }
 function e_arrow() {
-	printf "➜ $@\n"
+	printf "➜ %s\n" "$@"
 }
 function e_success() {
 	printf "${green}✔ %s${reset}\n" "$@"

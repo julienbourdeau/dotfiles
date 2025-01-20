@@ -58,7 +58,6 @@ brew install codemod
 brew install htop-osx
 brew install nmap
 brew install ack
-brew install lynx
 brew install pv
 brew install rename
 brew install speedtest_cli
@@ -67,7 +66,6 @@ brew install tree
 brew install trash
 brew install gnupg2
 brew install shellcheck
-brew install vault
 brew install yamllint
 brew install shared-mime-info
 
