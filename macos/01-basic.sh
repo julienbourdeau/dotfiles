@@ -51,6 +51,7 @@ brew install brotli
 # Install other useful binaries.
 brew install jq
 brew install bat
+brew install zoxide && zoxide init bash
 brew install httpie
 brew install tldr
 brew install codemod

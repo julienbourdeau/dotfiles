@@ -78,6 +78,7 @@ load_file "$HOME/.fzf.bash"
 if which brew &> /dev/null; then
   load_file "$(brew --prefix)/opt/nvm/nvm.sh"
   load_all_files "$(brew --prefix)/etc/profile.d/*.sh"
+  eval "$(zoxide init bash)"
 fi;
 
 
