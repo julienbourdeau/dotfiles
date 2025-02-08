@@ -57,5 +57,3 @@ export PATH="$GOPATH/bin:$PATH:$GOROOT/bin";
 ###############
 #     MISC    #
 ###############
-
-

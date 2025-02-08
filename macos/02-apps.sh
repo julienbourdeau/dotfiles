@@ -3,7 +3,6 @@
 
 # Install dev tools
 
-brew install --cask dash
 brew install --cask iterm2
 brew install --cask insomnia
 brew install --cask cyberduck
@@ -27,5 +26,3 @@ brew install --cask whatsapp
 brew install --cask pocket-casts
 brew install --cask transmission
 brew install --cask spideroakone
-
-

@@ -16,8 +16,13 @@ function gclone() {
 # git rebase branch
 function gupdate() {
 	BRANCH_NAME=$1
+  if [[ -z "$BRANCH_NAME" ]]; then
+      e_error "Please provide a branch name. (ie: main or master)"
+      return 1
+  fi
+
 	DIRTY=false
-    if ! git diff-index --quiet HEAD --; then
+  if ! git diff-index --quiet HEAD --; then
 		DIRTY=true
 		e_note "Working directory has uncommitted changes"
 	fi
