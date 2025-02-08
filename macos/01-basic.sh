@@ -48,6 +48,9 @@ brew install zopfli
 brew install xz
 brew install brotli
 
+# Formatters
+brew install shfmt
+
 # Install other useful binaries.
 brew install jq
 brew install bat
