@@ -9,7 +9,7 @@ function glagupdate() {
 	fi
 
 	e_title "Updating $LAGO_PATH/api"
-	(cd "$LAGO_PATH"/api && gupdate main)
+	(cd "$LAGO_PATH"/api && gupdate main && bundle install && lago api exec bundle install && lago api exec bin/rails migrate)
 
 	e_title "Updating $LAGO_PATH/front"
 	(cd "$LAGO_PATH"/front && gupdate main)
