@@ -75,11 +75,19 @@ fi
 load_file "$HOME/.fzf.bash"
 
 if which brew &>/dev/null; then
-	load_file "$(brew --prefix)/opt/nvm/nvm.sh"
+	load_file "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
 	load_all_files "$(brew --prefix)/etc/profile.d/*.sh"
 	eval "$(zoxide init bash)"
 fi
 
-# Herd injected NVM configuration
-# export NVM_DIR="/Users/julien/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/82/"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/84/"

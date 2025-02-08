@@ -14,6 +14,9 @@ fi
 # Composer bin directory
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+# Herd injected PHP binary.
+export PATH="/Users/julien/Library/Application Support/Herd/bin/":$PATH
+
 # Add MySQL
 export PATH="$PATH:/opt/homebrew/mysql/bin:/opt/homebrew/opt/mysql@5.7/bin"
 
