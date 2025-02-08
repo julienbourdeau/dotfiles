@@ -3,8 +3,32 @@
 function dot() {
 	dotfiles_dir="$HOME/etc/dotfiles"
 	cd $dotfiles_dir || echo "not found"
-	subl $dotfiles_dir
+	idea $dotfiles_dir
 	gs
+}
+
+function update() {
+	e_arrow "Update App Store software"
+	sudo softwareupdate -i -a
+
+	e_arrow "Update Homebrew software"
+	brew update
+	brew upgrade
+	brew cleanup
+
+	e_arrow "Update global Node packages"
+	npm install npm -g
+	npm update -g
+
+	e_arrow "Update global Ruby gems"
+	sudo gem update --system
+	sudo gem update bundler rubocop
+	sudo gem cleanup
+
+	e_arrow "Update global Composer packages"
+	composer global update
+
+	e_success "Everything is up-to-date"
 }
 
 # Create a new directory and enter it
