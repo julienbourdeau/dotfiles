@@ -23,6 +23,9 @@ load_file "$HOME/.bash/functions.sh"
 load_file "$HOME/.bash/bash_prompt.sh"
 load_file "$HOME/.bash/dev.sh"
 load_file "$HOME/.bash/extra.sh"
+if [ ! -z "$LAGO_PATH" ]; then
+  load_file "$HOME/.bash/lago.sh"
+fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
