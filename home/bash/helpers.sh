@@ -14,9 +14,9 @@ export white="\e[1;37m"
 function e_title() {
 	echo
 	echo
-	printf "\n${yellow}---------------------------------------------------${reset}\n" "$@"
-	printf "\n${yellow}    %s ${reset}\n" "$@"
-	printf "\n${yellow}---------------------------------------------------${reset}\n" "$@"
+	printf "\n${purple}---------------------------------------------------${reset}\n" "$@"
+	printf "\n${purple}    %s ${reset}\n" "$@"
+	printf "\n${purple}---------------------------------------------------${reset}\n" "$@"
 	echo
 }
 function e_header() {
