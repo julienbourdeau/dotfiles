@@ -9,8 +9,8 @@ function glagupdate() {
 	fi
 
 	e_title "Updating $LAGO_PATH/api"
-	(cd $LAGO_PATH/api && gupdate main)
+	(cd "$LAGO_PATH"/api && gupdate main)
 
 	e_title "Updating $LAGO_PATH/front"
-	(cd $LAGO_PATH/front && gupdate main)
+	(cd "$LAGO_PATH"/front && gupdate main)
 }
