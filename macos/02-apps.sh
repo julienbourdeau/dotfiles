@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # Install dev tools
 
 brew install --cask iterm2

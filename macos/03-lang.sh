@@ -13,7 +13,6 @@ brew install postgresql
 e_arrow "Installing mysql"
 brew install mysql
 
-
 e_title "Installing Ruby ecosystem..."
 
 brew install rbenv ruby-build
@@ -22,11 +21,9 @@ rbenv global 3.2.3
 gem update --system
 gem install bundler
 
-
 e_title "Installing PHP ecosystem... with Laravel Herd"
 
 brew install --cask herd
-
 
 e_title "Installing Node.js ecosystem"
 
@@ -37,5 +34,3 @@ npm install -g yarn eslint doctoc prettier
 echo
 nvm list
 echo
-
-

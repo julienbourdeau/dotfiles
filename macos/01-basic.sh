@@ -15,11 +15,9 @@ brew install findutils
 # Install GNU bin utils -> http://www.gnu.org/software/binutils/
 brew install binutils
 
-
 # Install Bash
 # Add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
-
 
 # Install more recent versions of some OS X tools.
 brew install vim
@@ -35,12 +33,10 @@ brew install screen
 # brew install sfnt2woff-zopfli
 # brew install woff2
 
-
 # Install git tools
 brew install git
 brew install git-open
 brew install git-delta
-
 
 # Install compression tools
 brew install p7zip
