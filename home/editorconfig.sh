@@ -24,3 +24,6 @@ indent_size = 2
 indent_style = tab
 indent_size = 4
 
+[*.sh]
+indent_style = tab
+indent_size = 4
