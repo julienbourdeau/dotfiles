@@ -42,6 +42,8 @@ alias week='date +%V'
 alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 
 # Git shortcuts
+alias gut=git
+alias got=git
 alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
 alias gg='git add . && git commit --amend --no-edit'
 alias gl='git lg'
