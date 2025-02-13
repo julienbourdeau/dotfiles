@@ -16,10 +16,7 @@ brew install mysql
 e_title "Installing Ruby ecosystem..."
 
 brew install rbenv ruby-build
-rbenv install 3.2.3
-rbenv global 3.2.3
-gem update --system
-gem install bundler
+ruby_update 3.4.1
 
 e_title "Installing PHP ecosystem... with Laravel Herd"
 
@@ -28,9 +25,4 @@ brew install --cask herd
 e_title "Installing Node.js ecosystem"
 
 brew install nvm
-nvm install node
-npm install -g yarn eslint doctoc prettier
-
-echo
-nvm list
-echo
+node_upgrade 23

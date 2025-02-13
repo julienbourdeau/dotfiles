@@ -17,7 +17,7 @@ function update() {
 	brew cleanup
 
 	e_arrow "Update global Node packages"
-	npm install npm -g
+	nvm use default
 	npm update -g
 
 	e_arrow "Update global Ruby gems"
@@ -204,4 +204,55 @@ function migrate() {
 
 function ts2utc() {
 	TZ="UTC" date -d @$1 -u "+%Y-%m-%d  %H:%M:%S  %Z (%:z)"
+}
+
+function node_upgrade() {
+	if [ -z "$1" ]; then
+		e_error "ERROR: No version specified. Please provide a Node.js version."
+		return 1
+	fi
+
+	e_header "Upgrading Node.js..."
+	nvm install $1
+	nvm use $1
+	nvm alias default $1
+
+	e_header "Reinstalling global npm packages..."
+	npm install -g yarn esling prettier doctoc
+	npm update -g
+	e_note "Using Node $(node -v) and NPM $(npm -v)"
+	echo
+	npm -g list
+
+	e_success "Upgrade complete!"
+}
+alias nvm_upgrade=node_upgrade
+
+function ruby_upgrade() {
+	if [ -z "$1" ]; then
+		e_error "ERROR: No version specified. Please provide a Ruby version (as X.Y.Z)."
+		return 1
+	fi
+
+	e_header "Upgrading Ruby..."
+	rbenv install $1
+	if [ $? -ne 0 ]; then
+		e_error "ERROR: Previous command failed. Stopping the upgrade process."
+		return 1
+	fi
+	rbenv shell $1
+
+	e_header "Reinstalling basic gems..."
+	gem install bundler irb rubocop standard rails awesome_print
+	npm update -g
+	e_note "Using $(ruby -v)\n with $(rbenv -v), $(bundle -v) and $(irb -v)"
+
+	echo
+	rbenv versions
+	echo
+	e_arrow "To set $1 as global default"
+	echo "rbenv global $1"
+
+	echo
+	e_success "Upgrade complete!"
 }
