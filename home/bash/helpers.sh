@@ -32,7 +32,7 @@ function e_error() {
 	printf "${red}✖ %b${reset}\n" "$@"
 }
 function e_warning() {
-	printf "${purple}➜ %b${reset}\n" "$@"
+	printf "${yellow}➜ %b${reset}\n" "$@"
 }
 function e_note() {
 	printf "${blue}Note: %b${reset}\n" "$@"

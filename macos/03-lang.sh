@@ -21,6 +21,7 @@ ruby_update 3.4.1
 e_title "Installing PHP ecosystem... with Laravel Herd"
 
 brew install --cask herd
+e_note "Run ./dot.sh --php to always your favorite lib"
 
 e_title "Installing Node.js ecosystem"
 

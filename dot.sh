@@ -97,12 +97,25 @@ symlink_sublime() {
 }
 
 setup_php() {
-	dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/dev/php"
+	if ! command -v herd &>/dev/null; then
+		e_error "Laravel Herd not found. Ensure it is installed and available in the PATH."
+		exit 1
+	fi
+
+	dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/home/php"
 	(cd $dir && composer install)
-	e_warning "Add the following line to your php.ini configuration"
+
+	echo
+	tree "$(dirname "$(command -v herd)")/../config/php"
+
+	echo
+	e_note "Add the following line to your php.ini configuration"
 	echo
 	echo "  auto_prepend_file = $dir/prepend.php"
 	echo
+	e_note "Or add this line to your favorite script"
+	echo
+	echo "require_once '$dir/vendor/autoload.php';"
 }
 
 ######################################################
@@ -153,6 +166,3 @@ for i in "$@"; do
 		;;
 	esac
 done
-
-echo
-e_success "Everything's ready"
