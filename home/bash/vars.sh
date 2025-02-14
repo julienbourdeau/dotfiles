@@ -2,6 +2,11 @@
 export EDITOR='vim'
 export VISUAL='subl'
 
+# Ensure ruby always load my personal config
+if [ -f "$HOME/.ruby/boot" ]; then
+	export RUBYOPT="-I$HOME/.ruby/ -r boot"
+fi
+
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768'
 export HISTFILESIZE="${HISTSIZE}"

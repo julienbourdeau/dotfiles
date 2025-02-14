@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<integer>30</integer>
+			<key>applyMode</key>
+			<integer>0</integer>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>parameter</key>
+			<string></string>
+			<key>title</key>
+			<string>next pane (split view)</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -1262,13 +1279,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.25655487179756165</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.70588237047195435</real>
+				<real>0.6158565878868103</real>
 				<key>Red Component</key>
-				<real>0.95686274766921997</real>
+				<real>0.7717321515083313</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
@@ -1790,7 +1807,7 @@
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<false/>
+	<true/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>

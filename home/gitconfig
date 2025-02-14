@@ -139,11 +139,11 @@ required = true
 process = git-lfs filter-process
 
 [difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [url "git@github.com:"]
 insteadOf = https://github.com/
 [init]
