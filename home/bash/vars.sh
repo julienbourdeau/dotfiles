@@ -3,7 +3,7 @@ export EDITOR='vim'
 export VISUAL='subl'
 
 # Ensure ruby always load my personal config
-if [ -f "$HOME/.ruby/boot" ]; then
+if [ -f "$HOME/.ruby/boot.rb" ]; then
 	export RUBYOPT="-I$HOME/.ruby/ -r boot"
 fi
 
