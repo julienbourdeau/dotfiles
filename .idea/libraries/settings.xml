@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="settings">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/misc/jetbrains/settings.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
