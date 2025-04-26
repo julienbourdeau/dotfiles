@@ -1,6 +1,9 @@
 alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
 alias lagup="lago up -d db redis traefik mailhog clickhouse license && lago up front api api-worker api-clock pdf"
-alias lago_stop="lago stop db redis traefik mailhog clickhouse redpanda license front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker webhook stripe-webhook"
+alias lagr="lago exec api bin/rails"
+alias lagapi="lago exec api"
+alias lago_stop="lago stop db redis traefik mailhog clickhouse redpanda license front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
+alias lago_rebuild="lago build db redis traefik mailhog clickhouse redpanda license front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
 
 function glagupdate() {
 	if [ -z "$LAGO_PATH" ]; then
