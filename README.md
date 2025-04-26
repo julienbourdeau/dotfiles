@@ -55,6 +55,18 @@ Configure iTerm to use `misc/terminal`.
 
 ...
 
+### TouchID for root password
+
+https://davidwalsh.name/touch-sudo
+
+```sh
+# Open the sudo utility
+sudo vi /etc/pam.d/sudo
+
+# Add the following as the first line
+auth sufficient pam_tid.so
+```
+
 ### /etc/pam.d/sudo
 
 Use TouchID to _sudo_ instead of password.
