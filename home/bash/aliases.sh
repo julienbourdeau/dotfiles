@@ -45,7 +45,7 @@ alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 alias gut=git
 alias got=git
 alias gs='git status && echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" && git lg -5'
-alias gg='git add . && git commit --amend --no-edit'
+alias gg='git add . && git commit -m'
 alias gl='git lg'
 alias gd='git diff .'
 alias gci='git commit -m'
@@ -66,6 +66,7 @@ alias j='z' # moved from autojump to zoxide
 # alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 alias phpstorm=idea
+alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
 if command -v bat >/dev/null 2>&1; then
 	alias cat=bat
