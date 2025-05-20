@@ -235,6 +235,7 @@ function ruby_upgrade() {
 	fi
 
 	e_header "Upgrading Ruby..."
+	brew upgrade ruby-build
 	rbenv install $1
 	if [ $? -ne 0 ]; then
 		e_error "ERROR: Previous command failed. Stopping the upgrade process."
@@ -244,7 +245,6 @@ function ruby_upgrade() {
 
 	e_header "Reinstalling basic gems..."
 	gem install bundler irb rubocop standard rails awesome_print
-	npm update -g
 	e_note "Using $(ruby -v)\n with $(rbenv -v), $(bundle -v) and $(irb -v)"
 
 	echo
