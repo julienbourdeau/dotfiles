@@ -1,6 +1,7 @@
 alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
 alias lagup-deamon="lago up -d db redis traefik mailhog clickhouse license"
 alias lagup-api="lagup-deamon && lago up api"
+alias lagup-app="lagup-deamon && lago up api front"
 alias lagup="lagup-deamon && lago up front api api-worker api-clock pdf"
 alias lagr="lago exec api bin/rails"
 alias lagapi="lago exec api"
