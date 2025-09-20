@@ -1043,6 +1043,19 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xd-0x20000-0x24</key>
+		<dict>
+			<key>Action</key>
+			<integer>12</integer>
+			<key>Keycode</key>
+			<integer>13</integer>
+			<key>Modifiers</key>
+			<integer>131072</integer>
+			<key>Text</key>
+			<string>\n</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -1201,13 +1214,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.34371697902679443</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.70588237047195435</real>
+				<real>0.68480861186981201</real>
 				<key>Red Component</key>
-				<real>0.95686274766921997</real>
+				<real>0.82490044832229614</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
@@ -1279,13 +1292,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.25655487179756165</real>
+				<real>0.18602484464645386</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.6158565878868103</real>
+				<real>0.55904632806777954</real>
 				<key>Red Component</key>
-				<real>0.7717321515083313</real>
+				<real>0.75182950496673584</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
