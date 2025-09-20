@@ -6,17 +6,11 @@ e_title "Installing Database systems"
 
 e_arrow "Installing sqlite"
 brew install sqlite
-e_arrow "Installing redis"
-brew install redis
-e_arrow "Installing postgresql"
-brew install postgresql
-e_arrow "Installing mysql"
-brew install mysql
 
 e_title "Installing Ruby ecosystem..."
 
 brew install rbenv ruby-build
-ruby_update 3.4.1
+ruby_upgrade 3.4.1
 
 e_title "Installing PHP ecosystem... with Laravel Herd"
 

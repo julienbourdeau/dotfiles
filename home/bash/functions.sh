@@ -244,6 +244,7 @@ function ruby_upgrade() {
 	rbenv shell $1
 
 	e_header "Reinstalling basic gems..."
+	gem update --system
 	gem install bundler irb rubocop standard rails awesome_print
 	e_note "Using $(ruby -v)\n with $(rbenv -v), $(bundle -v) and $(irb -v)"
 

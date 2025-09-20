@@ -18,7 +18,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/Users/julien/Library/Application Support/Herd/bin/":$PATH
 
 # Add MySQL
-export PATH="$PATH:/opt/homebrew/mysql/bin:/opt/homebrew/opt/mysql@5.7/bin"
+export PATH="$PATH:/opt/homebrew/opt/mysql/bin/"
 
 # Add Rust
 export PATH="$PATH:$HOME/.cargo/bin"

@@ -97,9 +97,9 @@ function laravel_after_clone() {
 	e_header "Setting up new APP_KEY"
 	art key:generate
 
-	db_name=$(awk -F"[=]+" '/DB_DATABASE/{print $2}' .env)
-	e_header "Creating database ($db_name)"
-	mysql --user=root --password=$DB_PASSWORD -e "CREATE DATABASE $db_name;"
+#	db_name=$(awk -F"[=]+" '/DB_DATABASE/{print $2}' .env)
+##	e_header "Creating database ($db_name)"
+##	mysql --user=root --password=$DB_PASSWORD -e "CREATE DATABASE $db_name;"
 
 	e_header "Migrating data"
 	art migrate:fresh --seed
