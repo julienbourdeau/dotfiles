@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
 # Install dev tools
 
+brew install --cask herd
 brew install --cask iterm2
-brew install --cask insomnia
 brew install --cask cyberduck
 brew install --cask tableplus
 brew install --cask sourcetree
@@ -23,5 +23,3 @@ brew install --cask dropbox
 brew install --cask spotify
 brew install --cask whatsapp
 brew install --cask pocket-casts
-brew install --cask transmission
-brew install --cask spideroakone

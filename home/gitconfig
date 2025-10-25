@@ -42,9 +42,6 @@
 	lg = log --graph --pretty=tformat:'%C(red)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -10
 	ll = log --pretty=format:"%C(red)%h%C(auto)%d\\ %C(reset)%s%C(green)\\ [%cn]%C(reset)" --decorate --numstat -20
 	latest = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
-	filelog = log -u -3
-	f = "!git ls-files | grep -i"
-	changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 
 	# Workflow & Management
 	yolo = "!f() { git add .; git oops --no-verify; git push -f; }; f"
@@ -55,8 +52,6 @@
 	ours = "!f() { git checkout --ours -- $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs -- $@ && git add $@; }; f"
 	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
-	# Example: git ignore laravel,osx,phpstorm
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ >> .gitignore ;}; gi"
 
 [blame]
   # Mark any lines that have had a commit skipped using --ignore-rev with a `?`
@@ -151,7 +146,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

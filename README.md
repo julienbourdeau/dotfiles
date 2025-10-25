@@ -1,49 +1,23 @@
 # Julien’s dotfiles
 
+```shell
+tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
+```
+
 ```
 $ ./dot
 Usage:
-./dot [--dotfiles] [--sublime] [--mackup] [--hosts] [--homebrew-bash] [--php]
+./dot [--dotfiles] [--sublime] [--php]
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
-   -h | --hosts       Create local hosts files and symlink it
    --php              Setup php prepended file
    --sublime          Symlink Sublime Text preferences
-   --homebrew-bash    Add bash from homebrew to shell login and switch to it
 
 ```
 
-
-
-## Install new mac
-
-1. Install 1password
-1. Connect Apple iCloud account
-1. Create SSH key, add it to github
-1. Clone this repo
-1. Follow the steps below
-
-### Install all the things
-
-Use bash, not the default zsh.
-
-```sh
-exec bash
-./macos/00-brew.sh
-./macos/01-basic.sh
-./macos/02-apps.sh
-./macos/03-lang.sh
-```
 
 ### Link configuration
-
-```sh
-./dot --dotfiles
-./dot --homebrew-bash
-./dot --sublime
-./dot --php
-```
 
 `./dot --dotfiles` can be executed anytime.
 
@@ -57,7 +31,8 @@ Configure iTerm to use `misc/terminal`.
 
 ### TouchID for root password
 
-https://davidwalsh.name/touch-sudo
+Use TouchID to _sudo_ instead of password.
+Source: https://davidwalsh.name/touch-sudo
 
 ```sh
 # Open the sudo utility
@@ -67,9 +42,6 @@ sudo vi /etc/pam.d/sudo
 auth sufficient pam_tid.so
 ```
 
-### /etc/pam.d/sudo
-
-Use TouchID to _sudo_ instead of password.
 
 ```diff
 # sudo: auth account password session
@@ -81,7 +53,6 @@ password   required       pam_deny.so
 session    required       pam_permit.so
 ```
 
-Source: https://davidwalsh.name/touch-sudo
 
 ## Thanks to…
 

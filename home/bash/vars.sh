@@ -7,11 +7,7 @@ if [ -f "$HOME/.ruby/boot.rb" ]; then
 	export RUBYOPT="-I$HOME/.ruby/ -r boot"
 fi
 
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768'
-export HISTFILESIZE="${HISTSIZE}"
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth'
+
 
 # Remove macos message about zsh being new default
 export BASH_SILENCE_DEPRECATION_WARNING=1

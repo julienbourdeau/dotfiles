@@ -13,3 +13,11 @@ if $VERBOSE || $DEBUG
   puts "RUBYOPT: #{ENV['RUBYOPT']}"
   puts "---"
 end
+
+def pps(*args)
+  ap "----- #{ap caller.first}"
+  args.each do |arg|
+    ap arg, {sort_vars: false, sort_keys: false, indent: -2}
+  end
+  ap "--------------------------------------------------"
+end

@@ -4,12 +4,34 @@
 ##    FUNCTIONS
 ######################################################
 
-switch_to_homebrew_bash() {
-	if ! fgrep -q '/opt/homebrew/bin/bash' /etc/shells; then
-		echo '/opt/homebrew/bin/bash' | sudo tee -a /etc/shells
-		chsh -s /opt/homebrew/bin/bash
-		e_note "Now using bash from Homebrew"
-	fi
+export bold=''
+export reset="\e[0m"
+export black="\e[1;30m"
+export red="\e[31m"
+export green="\e[32m"
+export yellow="\e[1;33m"
+export blue="\e[1;34m"
+export purple="\e[1;35m"
+export cyan="\e[36m"
+export white="\e[1;37m"
+
+function e_header() {
+	printf "\n\n${yellow}==========  %s  ==========${reset}\n" "$@"
+}
+function e_arrow() {
+	printf "➜ %b\n" "$@"
+}
+function e_success() {
+	printf "${green}✔ %b${reset}\n" "$@"
+}
+function e_error() {
+	printf "${red}✖ %b${reset}\n" "$@"
+}
+function e_warning() {
+	printf "${yellow}➜ %b${reset}\n" "$@"
+}
+function e_note() {
+	printf "${blue}Note: %b${reset}\n" "$@"
 }
 
 symlink() {
@@ -28,22 +50,6 @@ susymlink() {
 	sudo ln -s "$from" "$to"
 }
 
-symlink_host_file() {
-	e_header "Linking hosts file"
-
-	if [ ! -L "/etc/hosts" ]; then
-		e_arrow "Saving original file to /etc/hosts.orig"
-		sudo cp -f /etc/hosts /etc/hosts.orig
-	fi
-
-	dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-	if [ ! -f "$dotfiles/etc/hosts.local" ]; then
-		cp "$dotfiles/etc/hosts" "$dotfiles/etc/hosts.local"
-	fi
-
-	susymlink "$dotfiles/etc/hosts.local" "/etc/hosts"
-}
 
 symlink_dotfiles() {
 	dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -51,18 +57,27 @@ symlink_dotfiles() {
 	# Link dotfiles
 	e_header "Symlinking dotfiles"
 
+	# Symlink .config files
+	find config -type f -printf '%P\n' | while read -r relpath; do
+    	config_root="$HOME/.config"
+    	dest_dir="$config_root/$(dirname "$relpath")"
+    	if [ ! -d $dest_dir ]; then
+          mkdir -p $dest_dir
+        fi
+        symlink "$dotfiles/config/$relpath" "$config_root/$relpath"
+    done
+
 	# Symlink dirs from ./home/folders to ~/.folder
-	find home -mindepth 1 -type d | while read -r location; do
+	find home -mindepth 1 -maxdepth 1 -type d | while read -r location; do
 		file="${location##*/}"
 		symlink "$dotfiles/$location" "$HOME/.$file"
 	done
 
 	# Symlink files
-	# from ./home/config.sh to ~/.config
-	# from ./home/conf.apprc to ~/.apprc
-	# from ./home/config.ext to ~/.config.ext
-	# Example:
-	# 	.vimrc becomes conf.vimrc so 1. it's not hidden 2. editor know it's .vimrc file
+	#  - from ./home/config.sh to ~/.config
+	#  - from ./home/conf.apprc to ~/.apprc
+	#  - from ./home/config.ext to ~/.config.ext
+	# Using conf.vimrc instead of .vimrc so 1. it's not hidden 2. editor recognize it's .vimrc file
 	find home -maxdepth 1 -not -type d | while read -r location; do
 		file="${location##*/}"
 		file="${file#conf.}"
@@ -153,12 +168,6 @@ for i in "$@"; do
 		;;
 	--php)
 		setup_php
-		;;
-	-h | --hosts)
-		symlink_host_file
-		;;
-	--homebrew-bash)
-		switch_to_homebrew_bash
 		;;
 	*)
 		usage

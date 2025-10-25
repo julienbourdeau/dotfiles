@@ -2,6 +2,12 @@
 #  Load vars from .env
 #########################
 
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth'
+
 # Export variables from ~/.env to the environment
 if [ -f "$HOME/.env" ]; then
 	for envvar in $(egrep -v '^#' $HOME/.env | xargs -n1); do
@@ -9,22 +15,17 @@ if [ -f "$HOME/.env" ]; then
 	done
 fi
 
+
 #########################
 #  General Config
 #########################
 
 source "$HOME/.bash/helpers.sh"
 
-load_file "$HOME/.bash/vars.sh"
 load_file "$HOME/.bash/path.sh"
 load_file "$HOME/.bash/aliases.sh"
-load_file "$HOME/.bash/functions.sh"
+#load_file "$HOME/.bash/functions.sh"
 load_file "$HOME/.bash/bash_prompt.sh"
-load_file "$HOME/.bash/dev.sh"
-load_file "$HOME/.bash/extra.sh"
-if [ ! -z "$LAGO_PATH" ]; then
-	load_file "$HOME/.bash/lago.sh"
-fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -81,13 +82,13 @@ if which brew &>/dev/null; then
 fi
 
 
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/83/"
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/82/"
+# Herd injected PHP binary.
+export PATH="/Users/julien/Library/Application Support/Herd/bin/":$PATH
 
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/83/"

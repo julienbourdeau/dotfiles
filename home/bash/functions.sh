@@ -144,40 +144,6 @@ function codepoint() {
 	fi
 }
 
-# Show all the names (CNs and SANs) listed in the SSL certificate
-# for a given domain
-function getcertnames() {
-	if [ -z "${1}" ]; then
-		echo "ERROR: No domain specified."
-		return 1
-	fi
-
-	local domain="${1}"
-	echo "Testing ${domain}…"
-	echo "" # newline
-
-	local tmp=$(echo -e "GET / HTTP/1.0\nEOT" |
-		openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1)
-
-	if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
-		local certText=$(echo "${tmp}" |
-			openssl x509 -text -certopt "no_aux, no_header, no_issuer, no_pubkey, \
-			no_serial, no_sigdump, no_signame, no_validity, no_version")
-		echo "Common Name:"
-		echo "" # newline
-		echo "${certText}" | grep "Subject:" | sed -e "s/^.*CN=//" | sed -e "s/\/emailAddress=.*//"
-		echo "" # newline
-		echo "Subject Alternative Name(s):"
-		echo "" # newline
-		echo "${certText}" | grep -A 1 "Subject Alternative Name:" |
-			sed -e "2s/DNS://g" -e "s/ //g" | tr "," "\n" | tail -n +2
-		return 0
-	else
-		echo "ERROR: Certificate not found."
-		return 1
-	fi
-}
-
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
@@ -188,72 +154,7 @@ function o() {
 	fi
 }
 
-function vault_login() {
-	vault login -method=userpass username=$VAULT_USERNAME password=$VAULT_PASSWORD
-}
-
-function migrate() {
-	if test -f "artisan"; then
-		e_arrow "Running Laravel migrations"
-		php artisan migrate
-	elif test -f "bin/rails"; then
-		e_arrow "Running Rails migrations"
-		bin/rails db:migrate
-	fi
-}
 
 function ts2utc() {
 	TZ="UTC" date -d @$1 -u "+%Y-%m-%d  %H:%M:%S  %Z (%:z)"
-}
-
-function node_upgrade() {
-	if [ -z "$1" ]; then
-		e_error "ERROR: No version specified. Please provide a Node.js version."
-		return 1
-	fi
-
-	e_header "Upgrading Node.js..."
-	nvm install $1
-	nvm use $1
-	nvm alias default $1
-
-	e_header "Reinstalling global npm packages..."
-	npm install -g yarn esling prettier doctoc
-	npm update -g
-	e_note "Using Node $(node -v) and NPM $(npm -v)"
-	echo
-	npm -g list
-
-	e_success "Upgrade complete!"
-}
-alias nvm_upgrade=node_upgrade
-
-function ruby_upgrade() {
-	if [ -z "$1" ]; then
-		e_error "ERROR: No version specified. Please provide a Ruby version (as X.Y.Z)."
-		return 1
-	fi
-
-	e_header "Upgrading Ruby..."
-	brew upgrade ruby-build
-	rbenv install $1
-	if [ $? -ne 0 ]; then
-		e_error "ERROR: Previous command failed. Stopping the upgrade process."
-		return 1
-	fi
-	rbenv shell $1
-
-	e_header "Reinstalling basic gems..."
-	gem update --system
-	gem install bundler irb rubocop standard rails awesome_print
-	e_note "Using $(ruby -v)\n with $(rbenv -v), $(bundle -v) and $(irb -v)"
-
-	echo
-	rbenv versions
-	echo
-	e_arrow "To set $1 as global default"
-	echo "rbenv global $1"
-
-	echo
-	e_success "Upgrade complete!"
 }

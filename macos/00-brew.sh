@@ -19,3 +19,9 @@ brew update
 
 # Upgrade any already-installed formulae.
 brew upgrade
+
+# Install fish shell if not found
+if ! command -v fish &>/dev/null; then
+    echo "Installing fish shell"
+    brew install fish
+fi
