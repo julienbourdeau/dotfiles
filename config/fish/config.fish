@@ -32,10 +32,11 @@ export BAT_THEME=GitHub
 export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 # Golang
-export GO111MODULE=on
-export GOPROXY="https://proxy.golang.org,direct"
-export GOPATH="$HOME/etc/go"
-fish_add_path --path $GOPATH/bin
+# Comment until I try if this is necessary with `mise`
+# export GO111MODULE=on
+# export GOPROXY="https://proxy.golang.org,direct"
+# export GOPATH="$HOME/etc/go"
+# fish_add_path --path $GOPATH/bin
 
 # Ensure ruby always load my personal config
 if test -f "$HOME/.ruby/boot.rb"
@@ -53,6 +54,10 @@ alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
 
 # Nice date format for git tags
 alias tagdate="date '+%Y-%m-%d-%H%M%S'"
+
+alias show_path="string split ':' $PATH"
+alias localip="ipconfig getifaddr en0"
+
 
 # Git shortcuts
 alias gut=git
@@ -73,7 +78,7 @@ alias r='bin/rails'
 alias j='z' # autojump -> zoxide
 
 if command -v bat > /dev/null 2>&1
-    alias cat bat
+    alias cat=bat
 end
 
 # Trim new lines and copy to clipboard
@@ -94,13 +99,20 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS
-    alias $method "lwp-request -m $method"
-end
+alias https='http --default-scheme=https'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
+
+# Recursively delete `.DS_Store` files
+alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # LAGO-specific shortcuts
+# $LAGO_PATH must be present and it's loaded from ~/.env so I think I can't extract to functions/
 if test -n "$LAGO_PATH"
   alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
   alias lagup-deamon="lago up -d db redis traefik mailhog clickhouse license"
@@ -125,74 +137,22 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+function ts2utc
+  set -l ts $argv[1]
+	TZ="UTC" date -d @$ts -u "+%Y-%m-%d  %H:%M:%S  %Z (%:z)"
+end
 
-function git-rebase-on
-    # Get the target branch (default to main)
-    set -l target_branch main
-    if test (count $argv) -gt 0
-        set target_branch $argv[1]
+function dot
+	set dotfiles_dir "$HOME/etc/dotfiles"
+	cd $dotfiles_dir || echo "not found"
+	idea $dotfiles_dir
+	gs
+end
+
+function show_size
+    set -l path $argv[1]
+    if test -z "$path"
+        set path .
     end
-
-    # Check if we're in a git repository
-    if not git rev-parse --git-dir > /dev/null 2>&1
-        echo "Error: Not in a git repository"
-        return 1
-    end
-
-    # Get current branch name
-    set -l current_branch (git branch --show-current)
-
-    if test -z "$current_branch"
-        echo "Error: Not on a branch (detached HEAD state)"
-        return 1
-    end
-
-    # Check if working directory is dirty
-    if not git diff-index --quiet HEAD --
-        echo "Working directory is dirty. Stashing changes..."
-        git stash push -m "Auto-stash before rebasing on $target_branch"
-        set -l stashed 1
-    else
-        set -l stashed 0
-    end
-
-    # Checkout target branch and pull
-    echo "Checking out $target_branch..."
-    if not git checkout $target_branch
-        echo "Error: Failed to checkout $target_branch"
-        test $stashed -eq 1; and git stash pop
-        return 1
-    end
-
-    echo "Pulling latest changes..."
-    git pull
-
-    # Switch back to feature branch
-    echo "Switching back to $current_branch..."
-    git checkout $current_branch
-
-    # Perform the rebase
-    echo "Rebasing $current_branch on $target_branch..."
-    if git rebase $target_branch
-        echo "✓ Rebase successful!"
-
-        # Pop the stash if we stashed changes
-        if test $stashed -eq 1
-            echo "Applying stashed changes..."
-            if git stash pop
-                echo "✓ Stashed changes applied successfully"
-            else
-                echo "⚠ Warning: Conflicts while applying stash"
-                return 1
-            end
-        end
-    else
-        echo "✗ Rebase failed. Fix conflicts and run 'git rebase --continue'"
-        echo "Or abort with 'git rebase --abort'"
-
-        if test $stashed -eq 1
-            echo "Note: Your changes are stashed. Use 'git stash pop' after resolving the rebase."
-        end
-        return 1
-    end
+    du -sbh $path/*
 end

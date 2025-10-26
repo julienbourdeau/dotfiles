@@ -36,6 +36,7 @@ brew install postgresql # always run in docker but this installs lib
 # Install other useful binaries.
 brew install jq
 brew install pv
+brew install awk
 brew install bat
 brew install tree
 brew install tlrc
