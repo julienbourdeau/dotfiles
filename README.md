@@ -1,18 +1,19 @@
 # Julien’s dotfiles
 
-![Screenshot of `git status`](https://private-user-images.githubusercontent.com/1525636/505619215-5960f52d-5352-450d-b53a-c22a241cf275.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjEzODU1NzMsIm5iZiI6MTc2MTM4NTI3MywicGF0aCI6Ii8xNTI1NjM2LzUwNTYxOTIxNS01OTYwZjUyZC01MzUyLTQ1MGQtYjUzYS1jMjJhMjQxY2YyNzUucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MTAyNSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTEwMjVUMDk0MTEzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9NDAwOTZlNzk1NmY1NTVjNmIyNzlhYWE2OTZkOWU1MjYwYzkyZTNkNDdmYjA5MWUxYmY2NTgwN2E5OWMyYzI4MSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.MeAH5pjm3xDmsP9ftSzwZUiisztBJp4pq6PXhHLWafk)
+![Screenshot of `git status`](./docs/prompt.png)
 
 
 ```
-$ ./dot
+❯ ./dot.sh
 Usage:
-./dot [--dotfiles] [--sublime] [--php]
+./dot.sh [--dotfiles] [--sublime] [--hosts] [--homebrew-bash] [--php]
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
+   -h | --hosts       Create local hosts files and symlink it
    --php              Setup php prepended file
    --sublime          Symlink Sublime Text preferences
-
+   --homebrew-bash    Add bash from homebrew to shell login and switch to it
 ```
 
 ### Install Homebrew
@@ -50,7 +51,7 @@ tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-h
 
 Configure iTerm to use `misc/terminal`.
 
-![](https://user-images.githubusercontent.com/1525636/201951710-1df49a04-7600-4e53-8bec-d0c4cbe0fe0c.png)
+![Iterm configuration screenshot](./docs/iterm-config.png)
 
 ### 1password-cli (ssh-agent)
 
