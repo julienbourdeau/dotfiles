@@ -79,6 +79,13 @@ cask "spotify"
 cask "whatsapp"
 cask "pocket-casts"
 
+# Fonts
+cask "font-jetbrains-mono"
+# cask "font-meslo-lg-nerd-font"
+# cask "font-jetbrains-mono-nerd-font"
+
+
+# Mac App Store
 
 mas "Dato", id: 1470584107
 mas "Things 3", id: 904280696

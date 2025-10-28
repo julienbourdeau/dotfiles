@@ -41,6 +41,8 @@ tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-h
 #docker completion fish > ~/.config/fish/completions/docker.fish
 ```
 
+Install Nerd Font: [MesloLGS NF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S)
+
 ### Brewfile
 
 
