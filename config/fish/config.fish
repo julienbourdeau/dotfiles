@@ -128,9 +128,9 @@ end
 
 set -gx tide_git_color_branch brred
 set -gx tide_time_format "(%H:%M)"
-set -gx tide_time_color white
-set -gx tide_os_color white
-set -gx fish_color_autosuggestion white
+set -gx tide_time_color brblack
+set -gx tide_os_color brblack
+set -gx fish_color_autosuggestion brblack
 set -gx tide_git_truncation_length 0
 
 if status is-interactive
