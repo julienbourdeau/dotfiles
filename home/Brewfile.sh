@@ -76,13 +76,20 @@ cask "alfred"
 cask "calibre"
 cask "dropbox"
 cask "spotify"
+cask "telegram"
 cask "whatsapp"
+cask "cleanshot"
 cask "pocket-casts"
 
 # Fonts
 cask "font-jetbrains-mono"
 # cask "font-meslo-lg-nerd-font"
 # cask "font-jetbrains-mono-nerd-font"
+
+# AI Stuff
+cask "claude"
+cask "chatgpt"
+mas "Perplexity", id: 6714467650
 
 
 # Mac App Store

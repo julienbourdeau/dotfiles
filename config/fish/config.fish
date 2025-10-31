@@ -14,6 +14,7 @@ fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/Library/Application Support/Herd/bin/
 fish_add_path ~/.composer/vendor/bin
+fish_add_path -U ~/Library/Application\ Support/Herd/bin/
 
 fish_add_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 fish_add_path "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
@@ -70,7 +71,6 @@ alias gc='git checkout'
 alias gl='git lg -12'
 
 # Dev shortcuts
-alias composer="COMPOSER_MEMORY_LIMIT=-1 composer"
 alias art='php artisan'
 alias be='bundle exec'
 alias rake='rake -s'
@@ -137,22 +137,4 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-function ts2utc
-  set -l ts $argv[1]
-	TZ="UTC" date -d @$ts -u "+%Y-%m-%d  %H:%M:%S  %Z (%:z)"
-end
-
-function dot
-	set dotfiles_dir "$HOME/etc/dotfiles"
-	cd $dotfiles_dir || echo "not found"
-	idea $dotfiles_dir
-	gs
-end
-
-function show_size
-    set -l path $argv[1]
-    if test -z "$path"
-        set path .
-    end
-    du -sbh $path/*
-end
+source (dirname (realpath (status --current-filename)))/color_utilities.fish

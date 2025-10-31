@@ -5,7 +5,7 @@ function git-fix-up
     end
 
     if git diff --cached --quiet
-        echo "Error: No staged changes to commit"
+        print_error "No staged changes to commit"
         return 1
     end
 
