@@ -83,8 +83,9 @@ cask "pocket-casts"
 
 # Fonts
 cask "font-jetbrains-mono"
-# cask "font-meslo-lg-nerd-font"
-# cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-blex-mono-nerd-font"
 
 # AI Stuff
 cask "claude"
