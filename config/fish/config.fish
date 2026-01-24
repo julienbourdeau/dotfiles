@@ -8,13 +8,11 @@ end
 # Setup brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-fish_add_path /usr/local/bin
 fish_add_path ~/.bin
+fish_add_path ~/.local/bin
+fish_add_path -U ~/Library/Application\ Support/Herd/bin/
 fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.cargo/bin
-fish_add_path ~/Library/Application Support/Herd/bin/
-fish_add_path ~/.composer/vendor/bin
-fish_add_path -U ~/Library/Application\ Support/Herd/bin/
 
 fish_add_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 fish_add_path "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
@@ -94,10 +92,6 @@ alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool f
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 alias https='http --default-scheme=https'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'

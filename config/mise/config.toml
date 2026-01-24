@@ -1,6 +1,5 @@
 [tools]
 node = "25"
-"npm:@anthropic-ai/claude-code" = "latest"
 "npm:doctoc" = "latest"
 "npm:eslint" = "latest"
 ruby = "3.4.7"

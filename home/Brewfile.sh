@@ -102,4 +102,3 @@ mas "1Password for Safari", id: 1569813296
 
 mas "CANAL+", id: 694580816
 mas "Infuse", id: 1136220934
-mas "Amazon Prime Video", id: 545519333

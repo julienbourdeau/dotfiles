@@ -36,3 +36,6 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 alias localip="ipconfig getifaddr en0"
+
+# ClaudeCode use bash, so I need this to run the tests
+alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"

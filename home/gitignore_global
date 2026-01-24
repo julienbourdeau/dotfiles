@@ -1,5 +1,8 @@
 .env
 
+.claude
+.wrangler
+
 .codemod.bookmark
 .php_cs.cache
 .phpunit.result.cache

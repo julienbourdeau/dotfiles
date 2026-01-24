@@ -129,3 +129,10 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/
 
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/83/"
+
+# Added by Antigravity
+export PATH="/Users/julien/.antigravity/antigravity/bin:$PATH"
+
+
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/julien/Library/Application Support/Herd/config/php/85/"
