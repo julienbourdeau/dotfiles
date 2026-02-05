@@ -11,12 +11,26 @@ function git-update-branch
         return 1
     end
 
-    # Get current branch name
-    set -l current_branch (git branch --show-current)
+    # Get the base branch (branch to rebase) - default to current branch
+    set -l base_branch
+    if test (count $argv) -gt 1
+        set base_branch $argv[2]
+    else
+        set base_branch (git branch --show-current)
+        if test -z "$base_branch"
+            print_error "Not on a branch (detached HEAD state)"
+            return 1
+        end
+    end
 
-    if test -z "$current_branch"
-        print_error "Not on a branch (detached HEAD state)"
-        return 1
+    # If a specific base branch was provided, checkout it first
+    set -l current_branch (git branch --show-current)
+    if test "$base_branch" != "$current_branch"
+        print_header "Checking out $base_branch..."
+        if not git checkout $base_branch
+            print_error "Failed to checkout $base_branch"
+            return 1
+        end
     end
 
     # Check if working directory is dirty
@@ -39,11 +53,11 @@ function git-update-branch
     git pull
 
     # Switch back to feature branch
-    print_header "Switching back to $current_branch..."
-    git checkout $current_branch
+    print_header "Switching back to $base_branch..."
+    git checkout $base_branch
 
     # Perform the rebase
-    print_header "Rebasing $current_branch on $target_branch..."
+    print_header "Rebasing $base_branch on $target_branch..."
     if git rebase $target_branch
         echo "✓ Rebase successful!"
 
@@ -56,6 +70,12 @@ function git-update-branch
                 echo "⚠ Warning: Conflicts while applying stash"
                 return 1
             end
+        end
+
+        # Prompt to force push
+        read -l -P "Force push $base_branch? [y/N] " confirm
+        if test "$confirm" = y -o "$confirm" = Y
+            git push -f
         end
     else
         echo
