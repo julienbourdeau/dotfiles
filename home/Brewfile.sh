@@ -14,6 +14,7 @@ brew "git-delta"
 brew "fish"
 brew "fisher"
 brew "terminal-notifier"
+brew "fish-lsp"
 
 # Install Bash because macos default is old
 # Add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
