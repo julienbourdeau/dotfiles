@@ -25,6 +25,9 @@ export VISUAL='fleet'
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
+# Claude Code
+export ENABLE_LSP_TOOL=1
+
 export PAGER=bat
 export BAT_THEME=GitHub
 
