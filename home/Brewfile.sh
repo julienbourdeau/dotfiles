@@ -61,6 +61,7 @@ cask "herd"
 cask "iterm2"
 cask "cyberduck"
 cask "tableplus"
+brew "jupyterlab"
 cask "sourcetree"
 cask "sublime-text"
 cask "1password-cli"
@@ -91,8 +92,7 @@ cask "font-blex-mono-nerd-font"
 # AI Stuff
 cask "claude"
 cask "chatgpt"
-mas "Perplexity", id: 6714467650
-
+cask "claude-code"
 
 # Mac App Store
 

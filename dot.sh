@@ -57,21 +57,29 @@ symlink_dotfiles() {
 	# Link dotfiles
 	e_header "Symlinking dotfiles"
 
-	# Symlink .config files
-	find config -type f -printf '%P\n' | while read -r relpath; do
-    	config_root="$HOME/.config"
+	# Symlink mise global config
+	symlink "$dotfiles/config/mise/mise.global.toml" "$HOME/.config/mise/config.toml"
+	echo
+
+	# Symlink .config/fish files
+	find config/fish -type f -printf '%P\n' | while read -r relpath; do
+    	config_root="$HOME/.config/fish"
     	dest_dir="$config_root/$(dirname "$relpath")"
     	if [ ! -d $dest_dir ]; then
           mkdir -p $dest_dir
         fi
-        symlink "$dotfiles/config/$relpath" "$config_root/$relpath"
+        symlink "$dotfiles/config/fish/$relpath" "$config_root/$relpath"
     done
+
+    echo
 
 	# Symlink dirs from ./home/folders to ~/.folder
 	find home -mindepth 1 -maxdepth 1 -type d | while read -r location; do
 		file="${location##*/}"
 		symlink "$dotfiles/$location" "$HOME/.$file"
 	done
+
+	echo
 
 	# Symlink files
 	#  - from ./home/config.sh to ~/.config
