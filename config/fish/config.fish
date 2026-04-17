@@ -22,7 +22,7 @@ fish_add_path "$(brew --prefix)/opt/findutils/libexec/gnubin"
 export HOMEBREW_NO_ENV_HINTS=1
 
 export EDITOR='vim'
-export VISUAL='fleet'
+export VISUAL='subl'
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
@@ -47,6 +47,13 @@ if test -f "$HOME/.ruby/boot.rb"
 end
 
 # == Aliases
+
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias o="open"
+
 
 alias l="ls -lhF"     # List all files colorized in long format
 alias ll="l -a"
