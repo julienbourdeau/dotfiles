@@ -9,6 +9,7 @@ brew "findutils"
 brew "git"
 brew "git-open"
 brew "git-delta"
+brew "gh"
 
 # Install Fish for my main prompt
 brew "fish"
@@ -33,7 +34,7 @@ brew "shellcheck"
 
 # Databases
 brew "sqlite"
-brew "postgresql" # always run in docker but this installs lib
+brew "postgresql"
 
 brew "jq"
 brew "pv"
@@ -58,6 +59,7 @@ brew "shared-mime-info"
 
 brew "mise"
 cask "herd"
+cask "yaak"
 cask "iterm2"
 cask "cyberduck"
 cask "tableplus"
@@ -65,22 +67,23 @@ brew "jupyterlab"
 cask "sourcetree"
 cask "sublime-text"
 cask "1password-cli"
+brew "cloudflare-wrangler"
 
 # Install other softwares
 
-cask "hey-desktop"
 cask "vlc"
 cask "tyke"
-cask "zoom"
 cask "slack"
 cask "signal"
 cask "alfred"
-cask "calibre"
+cask "joplin"
+#cask "calibre"
 cask "dropbox"
 cask "spotify"
 cask "telegram"
 cask "whatsapp"
 cask "cleanshot"
+cask "hey-desktop"
 cask "pocket-casts"
 
 # Fonts
@@ -92,7 +95,7 @@ cask "font-blex-mono-nerd-font"
 # AI Stuff
 cask "claude"
 cask "chatgpt"
-cask "claude-code"
+cask "claude-code@latest"
 
 # Mac App Store
 
