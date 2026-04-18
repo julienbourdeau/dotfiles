@@ -5,6 +5,7 @@ node = "25"
 ruby = "3.4"
 "npm:prettier" = "latest"
 rust = "latest"
+go = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby", "node", "python", "go", "rust"]
