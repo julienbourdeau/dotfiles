@@ -119,42 +119,17 @@ symlink_sublime() {
 	e_note "Make sure you install the theme https://github.com/mauroreisvieira/github-sublime-theme"
 }
 
-setup_php() {
-	if ! command -v herd &>/dev/null; then
-		e_error "Laravel Herd not found. Ensure it is installed and available in the PATH."
-		exit 1
-	fi
-
-	dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/home/php"
-	(cd $dir && composer install)
-
-	echo
-	tree "$(dirname "$(command -v herd)")/../config/php"
-
-	echo
-	e_note "Add the following line to your php.ini configuration"
-	echo
-	echo "  auto_prepend_file = $dir/prepend.php"
-	echo
-	e_note "Or add this line to your favorite script"
-	echo
-	echo "require_once '$dir/vendor/autoload.php';"
-}
-
 ######################################################
 ##    USAGE
 ######################################################
 
 usage() {
 	echo "Usage:" >&2
-	echo "$0 [--dotfiles] [--sublime] [--hosts] [--homebrew-bash] [--php]" >&2
+	echo "$0 [--dotfiles] [--sublime]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
-	echo "   -h | --hosts       Create local hosts files and symlink it" >&2
-	echo "   --php              Setup php prepended file" >&2
 	echo "   --sublime          Symlink Sublime Text preferences" >&2
-	echo "   --homebrew-bash    Add bash from homebrew to shell login and switch to it" >&2
 }
 
 ######################################################
@@ -173,9 +148,6 @@ for i in "$@"; do
 		;;
 	--sublime)
 		symlink_sublime
-		;;
-	--php)
-		setup_php
 		;;
 	*)
 		usage
