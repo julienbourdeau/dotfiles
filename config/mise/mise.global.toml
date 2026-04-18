@@ -1,9 +1,0 @@
-[tools]
-node = "25"
-"npm:doctoc" = "latest"
-"npm:eslint" = "latest"
-ruby = "3.4.2"
-"npm:prettier" = "latest"
-
-[settings]
-idiomatic_version_file_enable_tools = ["ruby", "node", "python", "go"]

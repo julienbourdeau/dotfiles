@@ -74,7 +74,7 @@ susymlink() {
 
 link_mise() {
 	e_header "Symlinking mise global config"
-	symlink "$dotfiles/config/mise/mise.global.toml" "$HOME/.config/mise/config.toml"
+	symlink "$dotfiles/etc/mise.global.toml" "$HOME/.config/mise/config.toml"
 }
 
 link_fish() {
