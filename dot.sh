@@ -3,6 +3,7 @@
 set -euo pipefail
 
 dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DRY_RUN=0
 
 ######################################################
 ##    FUNCTIONS
@@ -38,20 +39,37 @@ e_note() {
 	printf "${blue}Note: %b${reset}\n" "$@"
 }
 
+# Execute a command, or just skip it in dry-run mode. The caller is
+# responsible for announcing intent (via e_arrow/e_header).
+run() {
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		return 0
+	fi
+	"$@"
+}
+
 symlink() {
 	local from="$1"
 	local to="$2"
-	e_arrow "Linking '$from' to '$to'"
-	rm -f "$to"
-	ln -s "$from" "$to"
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		e_arrow "[dry-run] would link '$from' → '$to'"
+	else
+		e_arrow "Linking '$from' to '$to'"
+	fi
+	run rm -f "$to"
+	run ln -s "$from" "$to"
 }
 
 susymlink() {
 	local from="$1"
 	local to="$2"
-	e_arrow "Linking '$from' to '$to'"
-	sudo rm -f "$to"
-	sudo ln -s "$from" "$to"
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		e_arrow "[dry-run] would sudo-link '$from' → '$to'"
+	else
+		e_arrow "Linking '$from' to '$to'"
+	fi
+	run sudo rm -f "$to"
+	run sudo ln -s "$from" "$to"
 }
 
 link_mise() {
@@ -66,7 +84,7 @@ link_fish() {
 		local dest_dir
 		dest_dir="$config_root/$(dirname "$relpath")"
 		if [[ ! -d "$dest_dir" ]]; then
-			mkdir -p "$dest_dir"
+			run mkdir -p "$dest_dir"
 		fi
 		symlink "$dotfiles/config/fish/$relpath" "$config_root/$relpath"
 	done
@@ -106,7 +124,7 @@ link_etc() {
 link_vim() {
 	e_header "Symlinking VIM config"
 	symlink "$dotfiles/vim" "$HOME/.vim"
-	touch "$HOME/.vimlocal"
+	run touch "$HOME/.vimlocal"
 }
 
 setup_env() {
@@ -115,7 +133,7 @@ setup_env() {
 		e_arrow "Copying '$dotfiles/etc/env.example' to '$HOME/.env'"
 		# shellcheck disable=SC2088
 		e_warning "~/.env is currently empty, add the necessary values"
-		cp "$dotfiles/etc/env.example" "$HOME/.env"
+		run cp "$dotfiles/etc/env.example" "$HOME/.env"
 	else
 		# shellcheck disable=SC2088
 		e_note "~/.env already exists"
@@ -145,11 +163,12 @@ symlink_sublime() {
 
 usage() {
 	echo "Usage:" >&2
-	echo "$0 [--dotfiles] [--sublime]" >&2
+	echo "$0 [--dry-run] [--dotfiles] [--sublime]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
 	echo "   --sublime          Symlink Sublime Text preferences" >&2
+	echo "   -n | --dry-run     Print what would be linked without touching the filesystem" >&2
 }
 
 ######################################################
@@ -161,8 +180,23 @@ if [[ $# -eq 0 ]]; then
 	exit 100
 fi
 
+# First pass: pick up flags that modify behavior of later actions.
 for i in "$@"; do
 	case $i in
+	-n | --dry-run)
+		DRY_RUN=1
+		;;
+	esac
+done
+
+if [[ "$DRY_RUN" -eq 1 ]]; then
+	e_note "Dry-run mode: no changes will be made"
+fi
+
+for i in "$@"; do
+	case $i in
+	-n | --dry-run)
+		;;
 	-d | --dotfiles)
 		symlink_dotfiles
 		;;
