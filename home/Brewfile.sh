@@ -17,7 +17,6 @@ brew "fisher"
 brew "terminal-notifier"
 brew "fish-lsp"
 
-# Install Bash because macos default is old
 # Add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew "bash"
 
@@ -61,10 +60,10 @@ brew "mise"
 cask "herd"
 cask "yaak"
 cask "iterm2"
+brew "orbstack"
 cask "cyberduck"
 cask "tableplus"
 brew "jupyterlab"
-cask "sourcetree"
 cask "sublime-text"
 cask "1password-cli"
 brew "cloudflare-wrangler"
@@ -72,7 +71,6 @@ brew "cloudflare-wrangler"
 # Install other softwares
 
 cask "vlc"
-cask "tyke"
 cask "slack"
 cask "signal"
 cask "alfred"

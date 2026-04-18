@@ -51,7 +51,7 @@ Brace yourself
 brew bundle install --global
 ```
 
-### Login Shell
+### Bash as Login Shell
 
 ```sh
 echo $SHELL
