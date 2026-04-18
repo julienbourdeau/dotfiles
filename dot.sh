@@ -117,7 +117,6 @@ link_home() {
 link_etc() {
 	e_header "Symlinking files from etc/ into \$HOME"
 	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
-	symlink "$dotfiles/etc/default-gems" "$HOME/.default-gems"
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
 }
 
