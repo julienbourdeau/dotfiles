@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 ######################################################
 ##    FUNCTIONS
 ######################################################
@@ -15,112 +19,119 @@ export purple="\e[1;35m"
 export cyan="\e[36m"
 export white="\e[1;37m"
 
-function e_header() {
+e_header() {
 	printf "\n\n${yellow}==========  %s  ==========${reset}\n" "$@"
 }
-function e_arrow() {
+e_arrow() {
 	printf "➜ %b\n" "$@"
 }
-function e_success() {
+e_success() {
 	printf "${green}✔ %b${reset}\n" "$@"
 }
-function e_error() {
+e_error() {
 	printf "${red}✖ %b${reset}\n" "$@"
 }
-function e_warning() {
+e_warning() {
 	printf "${yellow}➜ %b${reset}\n" "$@"
 }
-function e_note() {
+e_note() {
 	printf "${blue}Note: %b${reset}\n" "$@"
 }
 
 symlink() {
-	from="$1"
-	to="$2"
+	local from="$1"
+	local to="$2"
 	e_arrow "Linking '$from' to '$to'"
 	rm -f "$to"
 	ln -s "$from" "$to"
 }
 
 susymlink() {
-	from="$1"
-	to="$2"
+	local from="$1"
+	local to="$2"
 	e_arrow "Linking '$from' to '$to'"
 	sudo rm -f "$to"
 	sudo ln -s "$from" "$to"
 }
 
-
-symlink_dotfiles() {
-	dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-	# Link dotfiles
-	e_header "Symlinking dotfiles"
-
-	# Symlink mise global config
+link_mise() {
+	e_header "Symlinking mise global config"
 	symlink "$dotfiles/config/mise/mise.global.toml" "$HOME/.config/mise/config.toml"
-	echo
+}
 
-	# Symlink .config/fish files
+link_fish() {
+	e_header "Symlinking fish config"
+	local config_root="$HOME/.config/fish"
 	find config/fish -type f -printf '%P\n' | while read -r relpath; do
-    	config_root="$HOME/.config/fish"
-    	dest_dir="$config_root/$(dirname "$relpath")"
-    	if [ ! -d $dest_dir ]; then
-          mkdir -p $dest_dir
-        fi
-        symlink "$dotfiles/config/fish/$relpath" "$config_root/$relpath"
-    done
+		local dest_dir
+		dest_dir="$config_root/$(dirname "$relpath")"
+		if [[ ! -d "$dest_dir" ]]; then
+			mkdir -p "$dest_dir"
+		fi
+		symlink "$dotfiles/config/fish/$relpath" "$config_root/$relpath"
+	done
+}
 
-    echo
+# Symlink the home/ tree into $HOME:
+#   - dirs:  ./home/<name>       → ~/.<name>
+#   - files: ./home/<name>.sh    → ~/.<name>
+#            ./home/conf.<name>  → ~/.<name>
+# The conf.<name> convention keeps the source file unhidden so editors
+# recognize it (e.g. conf.vimrc is edited as .vimrc).
+link_home() {
+	e_header "Symlinking home/ into \$HOME"
 
-	# Symlink dirs from ./home/folders to ~/.folder
 	find home -mindepth 1 -maxdepth 1 -type d | while read -r location; do
-		file="${location##*/}"
+		local file="${location##*/}"
 		symlink "$dotfiles/$location" "$HOME/.$file"
 	done
 
-	echo
-
-	# Symlink files
-	#  - from ./home/config.sh to ~/.config
-	#  - from ./home/conf.apprc to ~/.apprc
-	#  - from ./home/config.ext to ~/.config.ext
-	# Using conf.vimrc instead of .vimrc so 1. it's not hidden 2. editor recognize it's .vimrc file
 	find home -maxdepth 1 -not -type d | while read -r location; do
-		file="${location##*/}"
+		local file="${location##*/}"
 		file="${file#conf.}"
 		file="${file%.sh}"
 		symlink "$dotfiles/$location" "$HOME/.$file"
 	done
+}
 
-	echo
-
-	# Files in etc/ that need to be linked into $HOME
-	# (kept in etc/ with canonical names so editors get syntax highlighting)
+# Files kept in etc/ with canonical names so editors get syntax highlighting
+# (e.g. Brewfile for Ruby DSL, irbrc.rb for Ruby).
+link_etc() {
 	e_header "Symlinking files from etc/ into \$HOME"
 	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
 	symlink "$dotfiles/etc/default-gems" "$HOME/.default-gems"
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
+}
 
-	# Vim config
+link_vim() {
 	e_header "Symlinking VIM config"
 	symlink "$dotfiles/vim" "$HOME/.vim"
 	touch "$HOME/.vimlocal"
+}
 
-	# .env
+setup_env() {
 	e_header "Creating ~/.env file"
-	if [ ! -f "$HOME/.env" ]; then
+	if [[ ! -f "$HOME/.env" ]]; then
 		e_arrow "Copying '$dotfiles/etc/env.example' to '$HOME/.env'"
+		# shellcheck disable=SC2088
 		e_warning "~/.env is currently empty, add the necessary values"
 		cp "$dotfiles/etc/env.example" "$HOME/.env"
 	else
+		# shellcheck disable=SC2088
 		e_note "~/.env already exists"
 	fi
 }
 
-symlink_sublime() {
-	dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+symlink_dotfiles() {
+	link_mise
+	link_fish
+	link_home
+	link_etc
+	link_vim
+	setup_env
+}
 
+symlink_sublime() {
 	e_header "Symlinking Sublime Text config"
 
 	symlink "$dotfiles/macos/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
@@ -145,7 +156,7 @@ usage() {
 ##    PARAMETERS
 ######################################################
 
-if [ $# -eq 0 ]; then
+if [[ $# -eq 0 ]]; then
 	usage
 	exit 100
 fi
