@@ -118,6 +118,7 @@ link_etc() {
 	e_header "Symlinking files from etc/ into \$HOME"
 	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
+	symlink "$dotfiles/etc/claude.json" "$HOME/.claude/settings.json"
 }
 
 link_vim() {
