@@ -6,11 +6,15 @@
 ```
 ❯ ./dot.sh
 Usage:
-./dot.sh [--dotfiles] [--sublime] [--hosts] [--homebrew-bash] [--php]
+./dot.sh [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff]
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
    --sublime          Symlink Sublime Text preferences
+   --macos            Apply macOS defaults from macos/defaults.yaml
+   --macos-export     Read current system values, rewrite macos/defaults.yaml
+   --macos-diff       Show keys where the manifest and system disagree
+   -n | --dry-run     Print what would be linked without touching the filesystem
 ```
 
 ### Install Homebrew
@@ -63,6 +67,29 @@ chsh -s /opt/homebrew/bin/bash
 Configure iTerm to use `misc/terminal`.
 
 ![Iterm configuration screenshot](./docs/iterm-config.png)
+
+### macOS defaults
+
+System preferences (Finder, Dock, Trackpad, screensaver lock, menu bar clock,
+…) are managed declaratively in `macos/defaults.yaml`. Every entry carries its
+`defaults(1)` type so the same manifest can be both read and written.
+
+Requires [`yq`](https://github.com/mikefarah/yq) (v4+): `brew install yq`.
+
+```shell
+./dot.sh --macos          # apply the manifest to this machine
+./dot.sh --macos-diff     # show keys where the manifest and system disagree
+./dot.sh --macos-export   # read current system values, rewrite the manifest
+```
+
+`macos/defaults.sh` is standalone — it can be run directly with
+`./macos/defaults.sh {apply|export|diff}`.
+
+`--macos-export` only refreshes keys that are **already listed** in the
+manifest. To add a new setting, edit `defaults.yaml` by hand first, then
+re-export to capture its current value. This avoids accidentally dumping
+entire domains like `com.apple.dock` (which embeds machine-specific
+`persistent-apps` binary blobs).
 
 ### 1password-cli (ssh-agent)
 

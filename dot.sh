@@ -150,14 +150,14 @@ symlink_dotfiles() {
 	setup_env
 }
 
-write_macos_defaults() {
-	e_header "Applying macOS defaults"
+macos_defaults() {
+	local sub="$1"
+	e_header "macOS defaults: $sub"
 	if [[ "$DRY_RUN" -eq 1 ]]; then
-		e_arrow "[dry-run] would run '$dotfiles/macos/defaults.sh'"
+		e_arrow "[dry-run] would run 'macos/defaults.sh $sub'"
 		return 0
 	fi
-	e_arrow "Running '$dotfiles/macos/defaults.sh'"
-	bash "$dotfiles/macos/defaults.sh"
+	bash "$dotfiles/macos/defaults.sh" "$sub"
 }
 
 symlink_sublime() {
@@ -174,12 +174,14 @@ symlink_sublime() {
 
 usage() {
 	echo "Usage:" >&2
-	echo "$0 [--dry-run] [--dotfiles] [--sublime] [--macos]" >&2
+	echo "$0 [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
 	echo "   --sublime          Symlink Sublime Text preferences" >&2
-	echo "   --macos            Apply macOS system defaults" >&2
+	echo "   --macos            Apply macOS defaults from macos/defaults.yaml" >&2
+	echo "   --macos-export     Read current system values, rewrite macos/defaults.yaml" >&2
+	echo "   --macos-diff       Show keys where the manifest and system disagree" >&2
 	echo "   -n | --dry-run     Print what would be linked without touching the filesystem" >&2
 }
 
@@ -216,7 +218,13 @@ for i in "$@"; do
 		symlink_sublime
 		;;
 	--macos)
-		write_macos_defaults
+		macos_defaults apply
+		;;
+	--macos-export)
+		macos_defaults export
+		;;
+	--macos-diff)
+		macos_defaults diff
 		;;
 	*)
 		usage

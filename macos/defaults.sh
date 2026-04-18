@@ -1,91 +1,114 @@
 #!/usr/bin/env bash
 #
-# macOS system defaults. Standalone — can be executed directly:
-#   ./macos/defaults.sh
+# macOS defaults driver. Reads/writes the declarative manifest next to it.
 #
-# Exported from the live system. To refresh a domain:
-#   defaults read com.apple.dock
-#   defaults read com.apple.AppleMultitouchTrackpad
+#   ./macos/defaults.sh apply     # apply every value from the manifest
+#   ./macos/defaults.sh export    # read system values, rewrite the manifest
+#   ./macos/defaults.sh diff      # show which manifest values differ from system
+#
+# Requires: yq (mikefarah, v4+).
 
 set -euo pipefail
 
-############################################
-## Finder
-############################################
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+manifest="$here/defaults.yaml"
 
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-defaults write com.apple.finder ShowPathbar -bool true
-defaults write com.apple.finder ShowStatusBar -bool true
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+if ! command -v yq >/dev/null 2>&1; then
+	echo "yq not found (brew install yq)" >&2
+	exit 1
+fi
 
-############################################
-## Save & print panels: expanded by default
-############################################
+# Emit every (domain, key, type, value) tuple as TSV.
+iter_manifest() {
+	yq '.defaults | to_entries | .[] as $d |
+	    ($d.value | to_entries | .[] |
+	       [$d.key, .key, .value.type, .value.value]) | @tsv' "$manifest"
+}
 
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+# Read the current value of (domain, key) from the system and translate it
+# into the lexical form we store in YAML (true/false for bool, raw for the
+# rest). Returns non-zero if the key is unset.
+read_system_value() {
+	local domain="$1" key="$2" type="$3"
+	local raw
+	if ! raw="$(defaults read "$domain" "$key" 2>/dev/null)"; then
+		return 1
+	fi
+	case "$type" in
+		bool)
+			[[ "$raw" == "1" ]] && echo "true" || echo "false"
+			;;
+		*)
+			echo "$raw"
+			;;
+	esac
+}
 
-############################################
-## Dock
-############################################
+cmd_apply() {
+	local domain key type value
+	while IFS=$'\t' read -r domain key type value; do
+		echo "→ $domain $key = $value ($type)"
+		defaults write "$domain" "$key" "-$type" "$value"
+	done < <(iter_manifest)
 
-defaults write com.apple.dock tilesize -int 32
-defaults write com.apple.dock largesize -int 41
-defaults write com.apple.dock magnification -bool true
-defaults write com.apple.dock minimize-to-application -bool true
-defaults write com.apple.dock show-recents -bool false
-defaults write com.apple.dock wvous-br-corner -int 1
-defaults write com.apple.dock wvous-br-modifier -int 0
+	while IFS= read -r app; do
+		[[ -z "$app" ]] && continue
+		echo "↻ restarting $app"
+		killall "$app" 2>/dev/null || true
+	done < <(yq '.restart[]' "$manifest")
+}
 
-############################################
-## Trackpad
-## Write to both domains so settings apply to built-in and Magic trackpads.
-############################################
+cmd_export() {
+	local domain key type _old current
+	while IFS=$'\t' read -r domain key type _old; do
+		if ! current="$(read_system_value "$domain" "$key" "$type")"; then
+			echo "⚠ skip (unset): $domain $key" >&2
+			continue
+		fi
+		case "$type" in
+			bool)
+				DOMAIN="$domain" KEY="$key" VAL="$current" \
+					yq -i '.defaults[strenv(DOMAIN)][strenv(KEY)].value = (env(VAL) == "true")' "$manifest"
+				;;
+			int|float)
+				DOMAIN="$domain" KEY="$key" VAL="$current" \
+					yq -i '.defaults[strenv(DOMAIN)][strenv(KEY)].value = (env(VAL) | to_number)' "$manifest"
+				;;
+			string)
+				DOMAIN="$domain" KEY="$key" VAL="$current" \
+					yq -i '.defaults[strenv(DOMAIN)][strenv(KEY)].value = strenv(VAL)' "$manifest"
+				;;
+			*)
+				echo "⚠ unknown type '$type' for $domain $key" >&2
+				;;
+		esac
+		echo "← $domain $key = $current"
+	done < <(iter_manifest)
+}
 
-for d in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
-	defaults write "$d" Clicking -bool true
-	defaults write "$d" Dragging -bool false
-	defaults write "$d" DragLock -bool false
-	defaults write "$d" TrackpadThreeFingerDrag -bool false
+cmd_diff() {
+	local domain key type value current status=0
+	while IFS=$'\t' read -r domain key type value; do
+		if ! current="$(read_system_value "$domain" "$key" "$type")"; then
+			printf "%-20s %s %s  manifest=%s  system=<unset>\n" "[unset]" "$domain" "$key" "$value"
+			status=1
+			continue
+		fi
+		if [[ "$current" != "$value" ]]; then
+			printf "%-20s %s %s  manifest=%s  system=%s\n" "[differ]" "$domain" "$key" "$value" "$current"
+			status=1
+		fi
+	done < <(iter_manifest)
+	return $status
+}
 
-	defaults write "$d" TrackpadRightClick -bool true
-	defaults write "$d" TrackpadCornerSecondaryClick -int 0
-
-	defaults write "$d" TrackpadHorizScroll -bool true
-	defaults write "$d" TrackpadScroll -bool true
-	defaults write "$d" TrackpadMomentumScroll -bool true
-	defaults write "$d" TrackpadPinch -bool true
-	defaults write "$d" TrackpadRotate -bool true
-	defaults write "$d" TrackpadHandResting -bool true
-	defaults write "$d" TrackpadTwoFingerDoubleTapGesture -bool true
-	defaults write "$d" TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
-	defaults write "$d" TrackpadThreeFingerTapGesture -int 0
-	defaults write "$d" TrackpadThreeFingerHorizSwipeGesture -int 2
-	defaults write "$d" TrackpadThreeFingerVertSwipeGesture -int 2
-	defaults write "$d" TrackpadFourFingerHorizSwipeGesture -int 2
-	defaults write "$d" TrackpadFourFingerVertSwipeGesture -int 2
-	defaults write "$d" TrackpadFourFingerPinchGesture -int 2
-	defaults write "$d" TrackpadFiveFingerPinchGesture -int 2
-	defaults write "$d" USBMouseStopsTrackpad -bool false
-done
-
-# Built-in trackpad only: Force Touch click feel.
-defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -bool true
-defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
-defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 1
-defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool false
-
-defaults write NSGlobalDomain com.apple.trackpad.scaling -float 0.875
-defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
-
-############################################
-## Apply
-############################################
-
-killall Finder || true
-killall Dock || true
+cmd="${1:-}"
+case "$cmd" in
+	apply)  cmd_apply ;;
+	export) cmd_export ;;
+	diff)   cmd_diff ;;
+	*)
+		echo "Usage: $0 {apply|export|diff}" >&2
+		exit 2
+		;;
+esac

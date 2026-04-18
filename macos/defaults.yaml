@@ -1,0 +1,101 @@
+# macOS system defaults, declarative.
+#
+#   ./macos/defaults.sh apply      # write values from this file to the system
+#   ./macos/defaults.sh export     # read current system values, update this file
+#
+# Every leaf is {type: bool|int|float|string, value: <typed>}.
+# `export` only touches keys already listed here — new keys must be added by hand,
+# so we don't accidentally dump entire domains (e.g. Dock persistent-apps).
+
+defaults:
+  NSGlobalDomain:
+    AppleShowAllExtensions:              {type: bool,   value: true}
+    NSNavPanelExpandedStateForSaveMode:  {type: bool,   value: true}
+    NSNavPanelExpandedStateForSaveMode2: {type: bool,   value: true}
+    PMPrintingExpandedStateForPrint:     {type: bool,   value: true}
+    com.apple.trackpad.scaling:          {type: float,  value: 0.875}
+    com.apple.trackpad.forceClick:       {type: bool,   value: true}
+
+  com.apple.finder:
+    ShowPathbar:                    {type: bool,   value: true}
+    ShowStatusBar:                  {type: bool,   value: true}
+    FXPreferredViewStyle:           {type: string, value: Nlsv}
+    FXDefaultSearchScope:           {type: string, value: SCcf}
+    FXEnableExtensionChangeWarning: {type: bool,   value: false}
+
+  com.apple.desktopservices:
+    DSDontWriteNetworkStores: {type: bool, value: true}
+    DSDontWriteUSBStores:     {type: bool, value: true}
+
+  com.apple.menuextra.clock:
+    # 24-hour clock with weekday + date, e.g. "Fri 18 Apr 13:45".
+    DateFormat: {type: string, value: "EEE d MMM HH:mm"}
+
+  com.apple.screensaver:
+    askForPassword:      {type: int, value: 1}
+    askForPasswordDelay: {type: int, value: 0}
+
+  com.apple.dock:
+    tilesize:                {type: int,  value: 32}
+    largesize:               {type: int,  value: 41}
+    magnification:           {type: bool, value: true}
+    minimize-to-application: {type: bool, value: true}
+    show-recents:            {type: bool, value: false}
+    wvous-br-corner:         {type: int,  value: 1}
+    wvous-br-modifier:       {type: int,  value: 0}
+
+  com.apple.AppleMultitouchTrackpad:
+    Clicking:                                   {type: bool, value: true}
+    Dragging:                                   {type: bool, value: false}
+    DragLock:                                   {type: bool, value: false}
+    TrackpadThreeFingerDrag:                    {type: bool, value: false}
+    TrackpadRightClick:                         {type: bool, value: true}
+    TrackpadCornerSecondaryClick:               {type: int,  value: 0}
+    TrackpadHorizScroll:                        {type: bool, value: true}
+    TrackpadScroll:                             {type: bool, value: true}
+    TrackpadMomentumScroll:                     {type: bool, value: true}
+    TrackpadPinch:                              {type: bool, value: true}
+    TrackpadRotate:                             {type: bool, value: true}
+    TrackpadHandResting:                        {type: bool, value: true}
+    TrackpadTwoFingerDoubleTapGesture:          {type: bool, value: true}
+    TrackpadTwoFingerFromRightEdgeSwipeGesture: {type: int,  value: 3}
+    TrackpadThreeFingerTapGesture:              {type: int,  value: 0}
+    TrackpadThreeFingerHorizSwipeGesture:       {type: int,  value: 2}
+    TrackpadThreeFingerVertSwipeGesture:        {type: int,  value: 2}
+    TrackpadFourFingerHorizSwipeGesture:        {type: int,  value: 2}
+    TrackpadFourFingerVertSwipeGesture:         {type: int,  value: 2}
+    TrackpadFourFingerPinchGesture:             {type: int,  value: 2}
+    TrackpadFiveFingerPinchGesture:             {type: int,  value: 2}
+    USBMouseStopsTrackpad:                      {type: bool, value: false}
+    # Built-in trackpad only (Force Touch click feel):
+    ActuateDetents:      {type: bool, value: true}
+    FirstClickThreshold: {type: int,  value: 1}
+    SecondClickThreshold: {type: int,  value: 1}
+    ForceSuppressed:     {type: bool, value: false}
+
+  com.apple.driver.AppleBluetoothMultitouch.trackpad:
+    Clicking:                                   {type: bool, value: true}
+    Dragging:                                   {type: bool, value: false}
+    DragLock:                                   {type: bool, value: false}
+    TrackpadThreeFingerDrag:                    {type: bool, value: false}
+    TrackpadRightClick:                         {type: bool, value: true}
+    TrackpadCornerSecondaryClick:               {type: int,  value: 0}
+    TrackpadHorizScroll:                        {type: bool, value: true}
+    TrackpadScroll:                             {type: bool, value: true}
+    TrackpadMomentumScroll:                     {type: bool, value: true}
+    TrackpadPinch:                              {type: bool, value: true}
+    TrackpadRotate:                             {type: bool, value: true}
+    TrackpadHandResting:                        {type: bool, value: true}
+    TrackpadTwoFingerDoubleTapGesture:          {type: bool, value: true}
+    TrackpadTwoFingerFromRightEdgeSwipeGesture: {type: int,  value: 3}
+    TrackpadThreeFingerTapGesture:              {type: int,  value: 0}
+    TrackpadThreeFingerHorizSwipeGesture:       {type: int,  value: 2}
+    TrackpadThreeFingerVertSwipeGesture:        {type: int,  value: 2}
+    TrackpadFourFingerHorizSwipeGesture:        {type: int,  value: 2}
+    TrackpadFourFingerVertSwipeGesture:         {type: int,  value: 2}
+    TrackpadFourFingerPinchGesture:             {type: int,  value: 2}
+    TrackpadFiveFingerPinchGesture:             {type: int,  value: 2}
+    USBMouseStopsTrackpad:                      {type: bool, value: false}
+
+# Apps to restart after `apply` (so changes show up without a logout).
+restart: [Finder, Dock, SystemUIServer]
