@@ -119,6 +119,7 @@ link_etc() {
 	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
 	symlink "$dotfiles/etc/claude.json" "$HOME/.claude/settings.json"
+	symlink "$dotfiles/etc/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 }
 
 link_vim() {
