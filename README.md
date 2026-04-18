@@ -10,10 +10,7 @@ Usage:
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
-   -h | --hosts       Create local hosts files and symlink it
-   --php              Setup php prepended file
    --sublime          Symlink Sublime Text preferences
-   --homebrew-bash    Add bash from homebrew to shell login and switch to it
 ```
 
 ### Install Homebrew

@@ -93,6 +93,15 @@ symlink_dotfiles() {
 		symlink "$dotfiles/$location" "$HOME/.$file"
 	done
 
+	echo
+
+	# Files in etc/ that need to be linked into $HOME
+	# (kept in etc/ with canonical names so editors get syntax highlighting)
+	e_header "Symlinking files from etc/ into \$HOME"
+	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
+	symlink "$dotfiles/etc/default-gems" "$HOME/.default-gems"
+	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
+
 	# Vim config
 	e_header "Symlinking VIM config"
 	symlink "$dotfiles/vim" "$HOME/.vim"
