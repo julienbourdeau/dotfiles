@@ -1,5 +1,5 @@
 [tools]
-node = "25"
+node = "latest"
 "npm:doctoc" = "latest"
 "npm:eslint" = "latest"
 ruby = "3.4"

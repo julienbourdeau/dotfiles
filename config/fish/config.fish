@@ -19,6 +19,12 @@ fish_add_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 fish_add_path "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
 fish_add_path "$(brew --prefix)/opt/findutils/libexec/gnubin"
 
+# Activate mise
+mise activate fish --shims | source
+if status is-interactive
+  mise activate fish | source
+end
+
 export HOMEBREW_NO_ENV_HINTS=1
 
 export EDITOR='vim'
@@ -138,8 +144,9 @@ set -gx tide_os_color brblack
 set -gx fish_color_autosuggestion brblack
 set -gx tide_git_truncation_length 0
 
+source (dirname (realpath (status --current-filename)))/color_utilities.fish
+
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
-source (dirname (realpath (status --current-filename)))/color_utilities.fish
