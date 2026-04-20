@@ -160,6 +160,26 @@ macos_defaults() {
 	bash "$dotfiles/macos/defaults.sh" "$sub"
 }
 
+install_brew() {
+	e_header "Homebrew bundle"
+
+	if ! command -v brew >/dev/null 2>&1; then
+		e_arrow "Installing Homebrew"
+		if [[ "$DRY_RUN" -eq 1 ]]; then
+			e_arrow "[dry-run] would install Homebrew"
+		else
+			/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		fi
+	else
+		e_note "Homebrew already installed"
+	fi
+
+	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
+
+	e_arrow "Running 'brew bundle install --global'"
+	run brew bundle install --global
+}
+
 symlink_sublime() {
 	e_header "Symlinking Sublime Text config"
 
@@ -174,10 +194,11 @@ symlink_sublime() {
 
 usage() {
 	echo "Usage:" >&2
-	echo "$0 [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff]" >&2
+	echo "$0 [--dry-run] [--dotfiles] [--brew] [--sublime] [--macos|--macos-export|--macos-diff]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
+	echo "   --brew             Install Homebrew, symlink Brewfile, run 'brew bundle install --global'" >&2
 	echo "   --sublime          Symlink Sublime Text preferences" >&2
 	echo "   --macos            Apply macOS defaults from macos/defaults.yaml" >&2
 	echo "   --macos-export     Read current system values, rewrite macos/defaults.yaml" >&2
@@ -213,6 +234,9 @@ for i in "$@"; do
 		;;
 	-d | --dotfiles)
 		symlink_dotfiles
+		;;
+	--brew)
+		install_brew
 		;;
 	--sublime)
 		symlink_sublime
