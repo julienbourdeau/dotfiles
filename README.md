@@ -23,34 +23,35 @@ Options:
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 ```
 
-### Setup fish prompt
+
+#### Brewfile
+
+Brace yourself
 
 ```shell
-brew install fish
+cp ~/etc/dotfiles ~/.Brewfile
+brew bundle install --global
+```
+
+### Setup fish prompt
+
 
 brew update fish
 brew install fisher
 brew install terminal-notifier
+```
 
+```shell
 fisher install IlanCosman/tide@v6
 fisher install franciscolourenco/done
 fisher install jethrokuan/z
 
 tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=No
-
-# if docker
-#docker completion fish > ~/.config/fish/completions/docker.fish
 ```
 
 Install Nerd Font: [MesloLGS NF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S)
 
-### Brewfile
 
-Brace yourself
-
-```shell
-brew bundle install --global
-```
 
 ### Bash as Login Shell
 
