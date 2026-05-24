@@ -1,4 +1,7 @@
 function git-update-branch
+    argparse --name=git-update-branch 'force-push' -- $argv
+    or return
+
     # Get the target branch (default to main)
     set -l target_branch main
     if test (count $argv) -gt 0
@@ -72,9 +75,7 @@ function git-update-branch
             end
         end
 
-        # Prompt to force push
-        read -l -P "Force push $base_branch? [y/N] " confirm
-        if test "$confirm" = y -o "$confirm" = Y
+        if set -q _flag_force_push
             git push -f
         end
     else
