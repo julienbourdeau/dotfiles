@@ -125,16 +125,16 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 # LAGO-specific shortcuts
 # $LAGO_PATH must be present and it's loaded from ~/.env so I think I can't extract to functions/
 if test -n "$LAGO_PATH"
-  alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
-  alias lagup-deamon="lago up -d db redis traefik mailhog clickhouse license"
+  alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml" # -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
+  alias lagup-deamon="lago up -d db redis traefik mailhog clickhouse"
   alias lagup-api="lagup-deamon && lago up api"
   alias lagup-app="lagup-deamon && lago up api front"
-  alias lagup-dev="lago up -d db redis traefik license && LAGO_CLICKHOUSE_ENABLED=false LAGO_CLICKHOUSE_MIGRATIONS_ENABLED=false LAGO_DISABLE_PDF_GENERATION=true lago up api"
+  alias lagup-dev="lago up -d db redis traefik && LAGO_CLICKHOUSE_ENABLED=false LAGO_CLICKHOUSE_MIGRATIONS_ENABLED=false LAGO_DISABLE_PDF_GENERATION=true lago up api"
   alias lagup="lagup-deamon && lago up front api api-worker api-clock pdf"
   alias lagr="lago exec api bin/rails"
   alias lagapi="lago exec api"
-  alias lago_stop="lago stop db redis traefik mailhog clickhouse redpanda license front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
-  alias lago_rebuild="lago build migrate db redis traefik mailhog clickhouse redpanda license front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
+  alias lago_stop="lago stop db redis traefik mailhog clickhouse redpanda front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
+  alias lago_rebuild="lago build migrate db redis traefik mailhog clickhouse redpanda front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
 end
 
 set -gx tide_git_color_branch brred
