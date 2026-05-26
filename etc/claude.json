@@ -1,14 +1,4 @@
 {
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true,
-    "php-lsp@claude-plugins-official": true
-  },
-  "effortLevel": "high",
   "permissions": {
     "allow": [
       "Bash(awk:*)",
@@ -46,7 +36,6 @@
       "Bash(which:*)",
       "Bash(whoami)",
       "Bash(xargs:*)",
-
       "Bash(git blame:*)",
       "Bash(git branch:*)",
       "Bash(git config --get:*)",
@@ -61,7 +50,6 @@
       "Bash(git show:*)",
       "Bash(git stash list:*)",
       "Bash(git status:*)",
-
       "Bash(brew info:*)",
       "Bash(brew list:*)",
       "Bash(cargo --version)",
@@ -74,7 +62,6 @@
       "Bash(npm outdated:*)",
       "Bash(npm view:*)",
       "Bash(rustc --version)",
-
       "Bash(gh api:*)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
@@ -82,5 +69,17 @@
       "Bash(gh pr view:*)",
       "Bash(gh repo view:*)"
     ]
-  }
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "php-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "theme": "auto",
+  "model": "opus[1m]"
 }

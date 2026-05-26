@@ -34,6 +34,9 @@ export LC_ALL='en_US.UTF-8'
 
 # Claude Code
 export ENABLE_LSP_TOOL=1
+alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
+
 
 export PAGER=bat
 export BAT_THEME=GitHub
@@ -74,6 +77,7 @@ alias tagdate="date '+%Y-%m-%d-%H%M%S'"
 alias show_path="string split ':' $PATH"
 alias localip="ipconfig getifaddr en0"
 
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Git shortcuts
 alias gut=git

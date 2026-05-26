@@ -118,7 +118,8 @@ link_etc() {
 	e_header "Symlinking files from etc/ into \$HOME"
 	symlink "$dotfiles/etc/Brewfile" "$HOME/.Brewfile"
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
-	symlink "$dotfiles/etc/claude.json" "$HOME/.claude/settings.json"
+	symlink "$dotfiles/etc/claude.json" "$HOME/.claude-work/settings.json"
+	symlink "$dotfiles/etc/claude.json" "$HOME/.claude-personal/settings.json"
 	symlink "$dotfiles/etc/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 }
 

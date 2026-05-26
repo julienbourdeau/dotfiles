@@ -1,5 +1,7 @@
 .env
 
+docker-compose.local.yml
+
 .claude
 .wrangler
 
