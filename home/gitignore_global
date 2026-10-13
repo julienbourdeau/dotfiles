@@ -2,6 +2,9 @@
 
 docker-compose.local.yml
 
+.scratches/
+
+.pi
 .claude
 .wrangler
 

@@ -120,7 +120,8 @@ link_etc() {
 	symlink "$dotfiles/etc/irbrc.rb" "$HOME/.irbrc"
 	symlink "$dotfiles/etc/claude.json" "$HOME/.claude-work/settings.json"
 	symlink "$dotfiles/etc/claude.json" "$HOME/.claude-personal/settings.json"
-	symlink "$dotfiles/etc/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+	symlink "$dotfiles/etc/CLAUDE.md" "$HOME/.claude-work/CLAUDE.md"
+	symlink "$dotfiles/etc/CLAUDE.md" "$HOME/.claude-personal/CLAUDE.md"
 }
 
 link_vim() {

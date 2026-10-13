@@ -10,6 +10,7 @@ brew "git"
 brew "git-open"
 brew "git-delta"
 brew "gh"
+brew "jj"
 
 # Install Fish for my main prompt
 brew "fish"
@@ -22,7 +23,6 @@ brew "bash"
 
 # Install compression tools
 brew "p7zip"
-brew "zopfli"
 brew "xz"
 brew "brotli"
 
@@ -50,7 +50,6 @@ brew "rename"
 brew "httpie"
 brew "gnu-sed"
 brew "openssh"
-brew "htop-osx"
 brew "ssh-copy-id"
 brew "shared-mime-info"
 
@@ -73,6 +72,7 @@ brew "cloudflare-wrangler"
 
 cask "vlc"
 cask "slack"
+cask "handy"
 cask "signal"
 cask "alfred"
 cask "joplin"
@@ -101,7 +101,7 @@ cask "claude-code@latest"
 mas "Dato", id: 1470584107
 mas "Things 3", id: 904280696
 mas "Amphetamine", id: 937984704
-mas "The Unarchiver", id: 425424353 # Best app ever
+mas "The Unarchiver", id: 425424353
 mas "1Password for Safari", id: 1569813296
 
 mas "CANAL+", id: 694580816

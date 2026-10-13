@@ -79,7 +79,7 @@
     "ruby-lsp@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high",
-  "theme": "auto",
-  "model": "opus[1m]"
+  "effortLevel": "medium",
+  "tui": "fullscreen",
+  "theme": "light"
 }
