@@ -6,7 +6,7 @@
 ```
 ❯ ./dot.sh
 Usage:
-./dot.sh [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff]
+./dot.sh [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff] [--hostname <name>]
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
@@ -14,6 +14,7 @@ Options:
    --macos            Apply macOS defaults from macos/defaults.yaml
    --macos-export     Read current system values, rewrite macos/defaults.yaml
    --macos-diff       Show keys where the manifest and system disagree
+   --hostname <name>  Set ComputerName, LocalHostName, and HostName (requires sudo)
    -n | --dry-run     Print what would be linked without touching the filesystem
 ```
 

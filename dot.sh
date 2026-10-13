@@ -195,7 +195,7 @@ symlink_sublime() {
 
 usage() {
 	echo "Usage:" >&2
-	echo "$0 [--dry-run] [--dotfiles] [--brew] [--sublime] [--macos|--macos-export|--macos-diff]" >&2
+	echo "$0 [--dry-run] [--dotfiles] [--brew] [--sublime] [--macos|--macos-export|--macos-diff] [--hostname <name>]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "   -d | --dotfiles    Symlink dotfiles in home/ directory" >&2
@@ -204,7 +204,44 @@ usage() {
 	echo "   --macos            Apply macOS defaults from macos/defaults.yaml" >&2
 	echo "   --macos-export     Read current system values, rewrite macos/defaults.yaml" >&2
 	echo "   --macos-diff       Show keys where the manifest and system disagree" >&2
+	echo "   --hostname <name>  Set ComputerName, LocalHostName, and HostName (requires sudo)" >&2
 	echo "   -n | --dry-run     Print what would be linked without touching the filesystem" >&2
+}
+
+set_hostname() {
+	local name="$1"
+
+	# LocalHostName must be RFC 1123-ish: letters, digits, hyphens; ≤64 chars.
+	# mDNS resolvers will reject anything else, so fail fast before sudo.
+	if [[ -z "$name" ]]; then
+		e_error "--hostname: empty value"
+		return 1
+	fi
+	if [[ ! "$name" =~ ^[A-Za-z0-9-]+$ ]]; then
+		e_error "--hostname: '$name' contains characters outside [A-Za-z0-9-]"
+		return 1
+	fi
+	if (( ${#name} > 64 )); then
+		e_error "--hostname: '$name' is ${#name} chars; LocalHostName max is 64"
+		return 1
+	fi
+
+	e_header "Setting hostname to '$name'"
+
+	# ComputerName is the friendly name shown in Finder; any UTF-8 is fine,
+	# so we pass the value through verbatim. LocalHostName is the
+	# Bonjour/mDNS name and must match the sanitized value.
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		e_arrow "[dry-run] would run: sudo scutil --set ComputerName $name"
+		e_arrow "[dry-run] would run: sudo scutil --set LocalHostName $name"
+		e_arrow "[dry-run] would run: sudo scutil --set HostName $name"
+		return 0
+	fi
+
+	run sudo scutil --set ComputerName "$name"
+	run sudo scutil --set LocalHostName "$name"
+	run sudo scutil --set HostName "$name"
+	e_success "Hostname set (restart applications to see ComputerName in menus)"
 }
 
 ######################################################
@@ -229,8 +266,15 @@ if [[ "$DRY_RUN" -eq 1 ]]; then
 	e_note "Dry-run mode: no changes will be made"
 fi
 
-for i in "$@"; do
-	case $i in
+# Second pass: dispatch actions. Index-based so flags that take an argument
+# (e.g. --hostname <name>) can consume the next slot. We materialize "$@"
+# into an array first to avoid indirect expansion (${!i} would also pick
+# up $0 at i=0).
+args=("$@")
+i=0
+while [[ $i -lt $# ]]; do
+	arg="${args[$i]}"
+	case $arg in
 	-n | --dry-run)
 		;;
 	-d | --dotfiles)
@@ -251,9 +295,19 @@ for i in "$@"; do
 	--macos-diff)
 		macos_defaults diff
 		;;
+	--hostname)
+		next=$((i + 1))
+		if [[ $next -ge $# ]]; then
+			e_error "--hostname requires a value"
+			exit 100
+		fi
+		set_hostname "${args[$next]}"
+		i=$next
+		;;
 	*)
 		usage
 		exit 100
 		;;
 	esac
+	i=$((i + 1))
 done
