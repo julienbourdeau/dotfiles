@@ -8,23 +8,23 @@ end
 # Setup brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-fish_add_path "$(brew --prefix)/bin"
-fish_add_path ~/.bin
-fish_add_path ~/.local/bin
-fish_add_path /usr/local/bin
-fish_add_path -U ~/Library/Application\ Support/Herd/bin/
+fish_add_path -g "$(brew --prefix)/bin"
+fish_add_path -g ~/.bin
+fish_add_path -g ~/.local/bin
+fish_add_path -g /usr/local/bin
+fish_add_path -g ~/Library/Application\ Support/Herd/bin/
 
 # Herd's CLI php doesn't auto-load its ini (scan path points at empty /usr/local/etc/php),
 # so point PHPRC at Herd's config so custom values like memory_limit are honored.
 # Bump the version number when the default Herd PHP changes (check with `php --ini`).
 # set -gx PHPRC "$HOME/Library/Application Support/Herd/config/php/85/php.ini"
 set -gx  HERD_PHP_85_INI_SCAN_DIR "/Users/julien/Library/Application Support/Herd/config/php/85/"
-fish_add_path ~/.composer/vendor/bin
-fish_add_path ~/.cargo/bin
+fish_add_path -g ~/.composer/vendor/bin
+fish_add_path -g ~/.cargo/bin
 
-fish_add_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
-fish_add_path "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
-fish_add_path "$(brew --prefix)/opt/findutils/libexec/gnubin"
+fish_add_path -g "$(brew --prefix)/opt/coreutils/libexec/gnubin"
+fish_add_path -g "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
+fish_add_path -g "$(brew --prefix)/opt/findutils/libexec/gnubin"
 
 # Activate mise
 mise activate fish --shims | source
@@ -87,8 +87,6 @@ alias localip="ipconfig getifaddr en0"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Git shortcuts
-alias gut=git
-alias got=git
 alias gs='git status && git lg -5'
 alias gg='git add . && git commit -m'
 alias gci='git commit -m'
@@ -98,8 +96,6 @@ alias gl='git lg -12'
 
 # Dev shortcuts
 alias art='php artisan'
-alias be='bundle exec'
-alias rake='rake -s'
 alias r='bin/rails'
 alias j='z' # autojump -> zoxide
 
@@ -122,7 +118,6 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 alias https='http --default-scheme=https'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 
 # Recursively delete `.DS_Store` files
