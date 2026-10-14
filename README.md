@@ -6,10 +6,11 @@
 ```
 ❯ ./dot.sh
 Usage:
-./dot.sh [--dry-run] [--dotfiles] [--sublime] [--macos|--macos-export|--macos-diff] [--hostname <name>]
+./dot.sh [--dry-run] [--dotfiles] [--brew] [--sublime] [--macos|--macos-export|--macos-diff] [--hostname <name>]
 
 Options:
    -d | --dotfiles    Symlink dotfiles in home/ directory
+   --brew             Install Homebrew, symlink Brewfile, run 'brew bundle install --global'
    --sublime          Symlink Sublime Text preferences
    --macos            Apply macOS defaults from macos/defaults.yaml
    --macos-export     Read current system values, rewrite macos/defaults.yaml
@@ -18,29 +19,33 @@ Options:
    -n | --dry-run     Print what would be linked without touching the filesystem
 ```
 
-### Install Homebrew
+### Homebrew + Brewfile
+
+Brace yourself. Installs Homebrew if missing, links `etc/Brewfile` to
+`~/.Brewfile` and runs `brew bundle install --global`.
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+./dot.sh --brew
 ```
 
+### Shells: fish interactive, bash for login and agents
 
-#### Brewfile
+Fish is the interactive shell (started by iTerm), bash is the login shell
+because fish isn't POSIX, and coding agents run bash. Both configs are kept in sync:
 
-Brace yourself
+- `home/shell/env.sh` and `home/shell/aliases.sh` are sourced by **both**
+  `home/bash_profile.sh` and `config/fish/config.fish`. Only plain
+  `export NAME=value` / `alias name='value'` lines go there.
+- PATH is set in each file with the same list (`path_add` mirrors `fish_add_path`).
+- Reusable commands are scripts in `home/bin/` (linked to `~/.bin`), not fish
+  functions, so every shell gets them. `git-*` scripts also work as `git <name>`.
 
-```shell
-cp ~/etc/dotfiles ~/.Brewfile
-brew bundle install --global
+```sh
+echo /opt/homebrew/bin/bash | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/bash
 ```
 
-### Setup fish prompt
-
-
-brew update fish
-brew install fisher
-brew install terminal-notifier
-```
+Fish prompt:
 
 ```shell
 fisher install IlanCosman/tide@v6
@@ -50,21 +55,12 @@ fisher install jethrokuan/z
 tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=No
 ```
 
-Install Nerd Font: [MesloLGS NF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S)
-
-
-
-### Bash as Login Shell
-
-```sh
-echo $SHELL
-echo /opt/homebrew/bin/bash | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/bash
-```
+Nerd Font (MesloLGS NF) is installed by the Brewfile.
 
 ### Link configuration
 
-`./dot --dotfiles` can be executed anytime.
+`./dot.sh --dotfiles` can be executed anytime. It also removes dangling
+symlinks into this repo left behind by renamed or deleted files.
 
 Configure iTerm to use `misc/terminal`.
 
