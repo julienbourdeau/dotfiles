@@ -10,6 +10,7 @@ brew "git"
 brew "git-open"
 brew "git-delta"
 brew "gh"
+brew "git-lfs"
 brew "jj"
 
 # Install Fish for my main prompt
@@ -18,7 +19,7 @@ brew "fisher"
 brew "terminal-notifier"
 brew "fish-lsp"
 
-# Add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# Login shell: add `/opt/homebrew/bin/bash` to `/etc/shells` before running `chsh`.
 brew "bash"
 
 # Install compression tools
@@ -33,11 +34,12 @@ brew "shellcheck"
 
 # Databases
 brew "sqlite"
-brew "postgresql"
+brew "postgresql@18"
 
 brew "jq"
 brew "yq"
 brew "pv"
+brew "ripgrep"
 brew "awk"
 brew "bat"
 brew "vim"
@@ -97,6 +99,8 @@ cask "chatgpt"
 cask "claude-code@latest"
 
 # Mac App Store
+
+brew "mas"
 
 mas "Dato", id: 1470584107
 mas "Things 3", id: 904280696
