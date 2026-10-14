@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# Delete local branches whose last commit is older than <delay>.
+# Usage: git-branch-cleanup [--dry-run] '<delay>'   e.g. '6 months ago'
+set -euo pipefail
+
+usage() {
+	cat >&2 <<'USAGE'
+Usage: git-branch-cleanup [--dry-run] <delay>
+
+Remove local branches that haven't been updated since <delay>.
+
+Arguments:
+  delay           A date string like '6 months ago', '2 weeks ago', '1 year ago'
+
+Options:
+  --dry-run, -n   Show branches that would be deleted without deleting them
+
+Examples:
+  git-branch-cleanup '6 months ago'
+  git-branch-cleanup --dry-run '3 months ago'
+USAGE
+	exit 1
+}
+
+dry_run=0
+delay=""
+for arg in "$@"; do
+	case $arg in
+	--dry-run | -n) dry_run=1 ;;
+	*) delay=$arg ;;
+	esac
+done
+[[ -n "$delay" ]] || usage
+
+git rev-parse --git-dir >/dev/null 2>&1 || { echo "✗ Not in a git repository" >&2; exit 1; }
+
+# gdate from Homebrew coreutils; `date` is GNU too when gnubin is on PATH.
+cutoff=$( (command -v gdate >/dev/null && gdate -d "$delay" +%s) || date -d "$delay" +%s) ||
+	{ echo "✗ Can't parse delay '$delay'" >&2; exit 1; }
+
+current=$(git branch --show-current)
+main=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null || true)
+main=${main#origin/}
+if [[ -z "$main" ]]; then
+	if git show-ref --verify --quiet refs/heads/main; then main=main; else main=master; fi
+fi
+
+[[ $dry_run -eq 1 ]] && printf '\n\e[35m▶ Branches that would be deleted (last commit before %s):\e[0m\n\n' "$delay"
+
+count=0
+while IFS=$'\t' read -r branch ts short full date subject; do
+	[[ "$branch" == "$current" || "$branch" == "$main" ]] && continue
+	[[ "$ts" -lt "$cutoff" ]] || continue
+	count=$((count + 1))
+	if [[ $dry_run -eq 1 ]]; then
+		printf "  %-40s %s (%s)\n    └─ %s\n\n" "$branch" "$short" "$date" "$subject"
+	elif git branch -D "$branch" >/dev/null 2>&1; then
+		echo "Deleted: $branch ($short)"
+		echo "  Restore with: git checkout -b $branch $full"
+	else
+		echo "✗ Failed to delete branch: $branch" >&2
+	fi
+done < <(git for-each-ref refs/heads/ \
+	--format=$'%(refname:short)\t%(committerdate:unix)\t%(objectname:short)\t%(objectname)\t%(committerdate:relative)\t%(contents:subject)')
+
+if [[ $count -eq 0 ]]; then
+	echo "No branches found older than $delay"
+elif [[ $dry_run -eq 1 ]]; then
+	echo "Total: $count branch(es) would be deleted"
+	echo "Run without --dry-run to delete them"
+else
+	echo
+	echo "Deleted $count branch(es)"
+fi

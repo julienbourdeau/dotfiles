@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# Pull the target branch and rebase the current (or given) branch on it.
+# Usage: git-update-branch [--force-push] [target] [branch]
+#   target defaults to the remote's default branch (main/master)
+set -euo pipefail
+
+header() { printf '\n\e[35m▶ %s\e[0m\n' "$*"; }
+error() { printf '\e[31m✗ %s\e[0m\n' "$*" >&2; }
+
+force_push=0
+args=()
+for arg in "$@"; do
+	case $arg in
+	--force-push) force_push=1 ;;
+	*) args+=("$arg") ;;
+	esac
+done
+
+git rev-parse --git-dir >/dev/null 2>&1 || { error "Not in a git repository"; exit 1; }
+
+default_branch() {
+	local b
+	b=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null) && { echo "${b#origin/}"; return; }
+	git show-ref --verify --quiet refs/heads/main && { echo main; return; }
+	echo master
+}
+
+target=${args[0]:-$(default_branch)}
+branch=${args[1]:-$(git branch --show-current)}
+[[ -n "$branch" ]] || { error "Not on a branch (detached HEAD state)"; exit 1; }
+
+if [[ "$branch" != "$(git branch --show-current)" ]]; then
+	header "Checking out $branch..."
+	git checkout "$branch"
+fi
+
+stashed=0
+if ! git diff-index --quiet HEAD --; then
+	echo "Working directory is dirty. Stashing changes..."
+	git stash push -m "Auto-stash before rebasing on $target"
+	stashed=1
+fi
+
+header "Pulling latest $target..."
+git checkout "$target"
+git pull || error "Pull failed, rebasing on local $target"
+git checkout "$branch"
+
+header "Rebasing $branch on $target..."
+if ! git rebase "$target"; then
+	echo
+	error "Rebase failed. Fix conflicts and run 'git rebase --continue' (or 'git rebase --abort')"
+	[[ $stashed -eq 1 ]] && echo "Your changes are stashed. Use 'git stash pop' after resolving the rebase."
+	exit 1
+fi
+echo "✓ Rebase successful!"
+
+if [[ $stashed -eq 1 ]]; then
+	echo "Applying stashed changes..."
+	git stash pop || { error "Conflicts while applying stash"; exit 1; }
+fi
+
+[[ $force_push -eq 1 ]] && git push --force-with-lease
+
+git status && git lg -5
