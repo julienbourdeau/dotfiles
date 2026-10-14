@@ -26,6 +26,8 @@ fish_add_path -g ~/.cargo/bin
 fish_add_path -g "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
 fish_add_path -g "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
 fish_add_path -g "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin"
 
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.bin

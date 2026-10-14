@@ -45,6 +45,8 @@ path_add "$HOME/.cargo/bin"
 path_add "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
 path_add "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
 path_add "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"
+path_add "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
+path_add "$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin"
 
 path_add "$HOME/.local/bin"
 path_add "$HOME/.bin"
