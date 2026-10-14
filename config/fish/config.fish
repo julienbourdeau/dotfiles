@@ -53,7 +53,9 @@ if status is-interactive
     # the `.git` directory, listing directories first.
     alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
 
-    alias j='z' # jethrokuan/z, installed with fisher
+    # Smarter cd: `z foo`, `zi` for interactive picking
+    command -q zoxide; and zoxide init fish | source
+    alias j='z'
 
     set -gx tide_git_color_branch brred
     set -gx tide_time_format "(%H:%M)"

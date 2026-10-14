@@ -82,6 +82,12 @@ if [[ $- == *i* ]]; then
 	# the `.git` directory, listing directories first.
 	alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
 
+	# Smarter cd: `z foo`, `zi` for interactive picking
+	if command -v zoxide >/dev/null 2>&1; then
+		eval "$(zoxide init bash)"
+		alias j='z'
+	fi
+
 	#### EASY COLORS ###
 	export reset="\e[0m"
 	export black="\e[1;30m"
