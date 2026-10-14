@@ -3,13 +3,14 @@
 set -euo pipefail
 
 dotfiles="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# find(1) calls below use paths relative to the repo root.
+cd "$dotfiles"
 DRY_RUN=0
 
 ######################################################
 ##    FUNCTIONS
 ######################################################
 
-export bold=''
 export reset="\e[0m"
 export black="\e[1;30m"
 export red="\e[31m"
@@ -56,8 +57,20 @@ symlink() {
 	else
 		e_arrow "Linking '$from' to '$to'"
 	fi
+	run mkdir -p "$(dirname "$to")"
 	run rm -f "$to"
 	run ln -s "$from" "$to"
+}
+
+# Remove symlinks under $1 (up to depth $2) that point into this repo but whose
+# target is gone (e.g. a file that was renamed or deleted here).
+prune_dangling() {
+	find "$1" -maxdepth "${2:-3}" -type l 2>/dev/null | while read -r link; do
+		[[ -e "$link" ]] && continue
+		[[ "$(readlink "$link")" == "$dotfiles"/* ]] || continue
+		e_arrow "$([[ "$DRY_RUN" -eq 1 ]] && echo "[dry-run] would remove" || echo "Removing") dangling link '$link'"
+		run rm -f "$link"
+	done
 }
 
 susymlink() {
@@ -80,14 +93,12 @@ link_mise() {
 link_fish() {
 	e_header "Symlinking fish config"
 	local config_root="$HOME/.config/fish"
-	find config/fish -type f -printf '%P\n' | while read -r relpath; do
-		local dest_dir
-		dest_dir="$config_root/$(dirname "$relpath")"
-		if [[ ! -d "$dest_dir" ]]; then
-			run mkdir -p "$dest_dir"
-		fi
-		symlink "$dotfiles/config/fish/$relpath" "$config_root/$relpath"
+	# Portable find (no GNU -printf): this runs before Homebrew's findutils exist.
+	find config/fish -type f | while read -r path; do
+		local relpath="${path#config/fish/}"
+		symlink "$dotfiles/$path" "$config_root/$relpath"
 	done
+	prune_dangling "$config_root"
 }
 
 # Symlink the home/ tree into $HOME:
@@ -150,6 +161,7 @@ symlink_dotfiles() {
 	link_etc
 	link_vim
 	setup_env
+	prune_dangling "$HOME" 1
 }
 
 macos_defaults() {
