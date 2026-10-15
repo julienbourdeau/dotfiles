@@ -1,15 +1,18 @@
 
-# Install GNU core utilities (those that come with OS X are outdated).
+# GNU utils, put first in PATH by bash_profile/config.fish (gnubin).
 # Don't install `binutils` it messes with Ruby installation
 brew "coreutils"
 brew "moreutils"
 brew "findutils"
+brew "grep"
+brew "gawk"
 
 # Install git tools
 brew "git"
 brew "git-open"
 brew "git-delta"
 brew "gh"
+brew "git-lfs"
 brew "jj"
 
 # Install Fish for my main prompt
@@ -18,7 +21,7 @@ brew "fisher"
 brew "terminal-notifier"
 brew "fish-lsp"
 
-# Add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# Login shell: add `/opt/homebrew/bin/bash` to `/etc/shells` before running `chsh`.
 brew "bash"
 
 # Install compression tools
@@ -33,18 +36,18 @@ brew "shellcheck"
 
 # Databases
 brew "sqlite"
-brew "postgresql"
+brew "postgresql@18"
 
 brew "jq"
 brew "yq"
 brew "pv"
-brew "awk"
+brew "ripgrep"
 brew "bat"
 brew "vim"
 brew "wget"
-brew "grep"
 brew "tlrc"
 brew "tree"
+brew "zoxide"
 brew "screen"
 brew "rename"
 brew "httpie"
@@ -97,6 +100,8 @@ cask "chatgpt"
 cask "claude-code@latest"
 
 # Mac App Store
+
+brew "mas"
 
 mas "Dato", id: 1470584107
 mas "Things 3", id: 904280696

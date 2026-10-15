@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Commit staged changes as a fixup of <commit> and autosquash it in.
+# Usage: git-fix-up <commit>   (or `git fix-up <commit>`)
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+	echo "Usage: git-fix-up <commit-hash>" >&2
+	exit 1
+fi
+
+if git diff --cached --quiet; then
+	echo "✗ No staged changes to commit" >&2
+	exit 1
+fi
+
+git commit --fixup="$1"
+git rebase -i --autosquash "$1^"

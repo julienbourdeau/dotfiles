@@ -1,154 +1,68 @@
+# Fish is the interactive shell, but bash is the login shell and what agents
+# use. Keep this file in sync with home/bash_profile.sh. Anything both shells
+# can parse lives in ~/.shell/ (home/shell/) and is sourced by both.
 
+# Export variables from ~/.env (KEY=value lines, not versioned)
 if test -f "$HOME/.env"
-    for envvar in (grep -v '^#' $HOME/.env | xargs -n1)
-        set -gx (string split '=' $envvar)
+    for line in (string match -rv '^\s*(#|$)' < $HOME/.env)
+        set -l kv (string split -m1 '=' -- (string replace -r '^export\s+' '' -- $line))
+        set -gx $kv[1] (string trim -c '"\'' -- $kv[2])
     end
 end
 
-# Setup brew
+source ~/.shell/env.sh
+
+# == PATH
+# Keep the list below in sync with home/bash_profile.sh so both shells get the same PATH.
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-fish_add_path -g "$(brew --prefix)/bin"
-fish_add_path -g ~/.bin
-fish_add_path -g ~/.local/bin
 fish_add_path -g /usr/local/bin
-fish_add_path -g ~/Library/Application\ Support/Herd/bin/
-
-# Herd's CLI php doesn't auto-load its ini (scan path points at empty /usr/local/etc/php),
-# so point PHPRC at Herd's config so custom values like memory_limit are honored.
-# Bump the version number when the default Herd PHP changes (check with `php --ini`).
-# set -gx PHPRC "$HOME/Library/Application Support/Herd/config/php/85/php.ini"
-set -gx  HERD_PHP_85_INI_SCAN_DIR "/Users/julien/Library/Application Support/Herd/config/php/85/"
+fish_add_path -g ~/Library/Application\ Support/Herd/bin
 fish_add_path -g ~/.composer/vendor/bin
 fish_add_path -g ~/.cargo/bin
 
-fish_add_path -g "$(brew --prefix)/opt/coreutils/libexec/gnubin"
-fish_add_path -g "$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
-fish_add_path -g "$(brew --prefix)/opt/findutils/libexec/gnubin"
+# Use GNU utils
+fish_add_path -g "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
+fish_add_path -g "$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin"
 
-# Activate mise
-mise activate fish --shims | source
+fish_add_path -g ~/.local/bin
+fish_add_path -g ~/.bin
+
+# Mise-en-place: shims for every shell, full activation only when interactive.
 if status is-interactive
-  mise activate fish | source
+    mise activate fish | source
+else
+    mise activate fish --shims | source
 end
-
-export HOMEBREW_NO_ENV_HINTS=1
-
-export EDITOR='vim'
-export VISUAL='subl'
-export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
-
-# Claude Code
-export ENABLE_LSP_TOOL=1
-alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
-alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
-
-
-export PAGER=bat
-export BAT_THEME=GitHub
-
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-# Golang
-# Comment until I try if this is necessary with `mise`
-# export GO111MODULE=on
-# export GOPROXY="https://proxy.golang.org,direct"
-# export GOPATH="$HOME/etc/go"
-# fish_add_path --path $GOPATH/bin
 
 # Ensure ruby always load my personal config
 if test -f "$HOME/.ruby/boot.rb"
-    export RUBYOPT="-I$HOME/.ruby/ -r boot"
+    set -gx RUBYOPT "-I$HOME/.ruby/ -r boot"
 end
 
-# == Aliases
-
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-alias o="open"
-
-
-alias l="ls -lhF"     # List all files colorized in long format
-alias ll="l -a"
-
-# `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first.
-alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
-
-# Nice date format for git tags
-alias tagdate="date '+%Y-%m-%d-%H%M%S'"
-
-alias show_path="string split ':' $PATH"
-alias localip="ipconfig getifaddr en0"
-
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-# Git shortcuts
-alias gs='git status && git lg -5'
-alias gg='git add . && git commit -m'
-alias gci='git commit -m'
-alias grbase='git rebase -i --autosquash'
-alias gc='git checkout'
-alias gl='git lg -12'
-
-# Dev shortcuts
-alias art='php artisan'
-alias r='bin/rails'
-alias j='z' # autojump -> zoxide
-
-if command -v bat > /dev/null 2>&1
-    alias cat=bat
-end
-
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
-
-# Recursively delete `.DS_Store` files
-alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Show/hide hidden files in Finder
-alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-alias https='http --default-scheme=https'
-
-
-# Recursively delete `.DS_Store` files
-alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Empty the Trash on all mounted volumes and the main HDD.
-# Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine. https://mths.be/bum
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-
-# LAGO-specific shortcuts
-# $LAGO_PATH must be present and it's loaded from ~/.env so I think I can't extract to functions/
-if test -n "$LAGO_PATH"
-  alias lago="docker compose -f $LAGO_PATH/docker-compose.dev.yml -f $LAGO_PATH/docker-compose.dev.local.yml" # -f $LAGO_LICENSE_PATH/docker-compose.dev.yml"
-  alias lagup-deamon="lago up -d db redis traefik mailpit clickhouse"
-  alias lagup-api="lagup-deamon && lago up api"
-  alias lagup="lagup-deamon && lago up front api api-worker api-clock pdf"
-  alias lagr="lago exec api bin/rails"
-  alias lago_stop="lago stop db redis traefik mailpit clickhouse redpanda front api api-worker api-clock pdf api-events-worker api-pdfs-worker api-billing-worker api-clock-worker api-webhook-worker"
-end
-
-set -gx tide_git_color_branch brred
-set -gx tide_time_format "(%H:%M)"
-set -gx tide_time_color brblack
-set -gx tide_os_color brblack
-set -gx fish_color_autosuggestion brblack
-set -gx tide_git_truncation_length 0
-
-source (dirname (realpath (status --current-filename)))/color_utilities.fish
-
+source ~/.shell/aliases.sh
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    if command -q bat
+        alias cat=bat
+    end
+
+    # `tree` with hidden files and color enabled, ignoring
+    # the `.git` directory, listing directories first.
+    alias tree="tree -aC -I '.git|.idea|vendor|node_modules' --dirsfirst"
+
+    # Smarter cd: `z foo`, `zi` for interactive picking
+    command -q zoxide; and zoxide init fish | source
+    alias j='z'
+
+    set -gx tide_git_color_branch brred
+    set -gx tide_time_format "(%H:%M)"
+    set -gx tide_time_color brblack
+    set -gx tide_os_color brblack
+    set -gx fish_color_autosuggestion brblack
+    set -gx tide_git_truncation_length 0
 end
